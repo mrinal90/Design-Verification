@@ -1,0 +1,9 @@
+vcs -full64 -R -sverilog -l vcs.log -ntb_opts uvm-1.1 		\
++ntb_random_seed_automatic \
+ +UVM_TESTNAME=test_base +UVM_VERBOSITY=HIGH 		\
+../../rtl/verilog/*.v					\
++incdir+../../rtl/include \
+-debug_pp						\
+testcase.sv						\
+testbench.sv					\
+xge_interface.sv

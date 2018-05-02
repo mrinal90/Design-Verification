@@ -1,0 +1,11 @@
+tb.dut.fault_sm0.SM_INIT0
+tb.dut.fault_sm0.SM_COUNT1
+tb.dut.fault_sm0.SM_FAULT2
+tb.dut.fault_sm0.SM_NEW_FAULT3
+tb.dut.tx_dq0.SM_IDLE0
+tb.dut.tx_dq0.SM_PREAMBLE1
+tb.dut.tx_dq0.SM_TX2
+tb.dut.tx_dq0.SM_EOP3
+tb.dut.tx_dq0.SM_TERM4
+tb.dut.tx_dq0.SM_TERM_FAIL5
+tb.dut.tx_dq0.SM_IFG6

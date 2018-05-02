@@ -1,0 +1,3031 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Branch Coverage for Module : tx_dequeue</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_tx_dequeue" >tx_dequeue</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s5 cl rt"> 50.29</td>
+<td class="s7 cl rt"><a href="mod2_Line.html" > 75.24</a></td>
+<td class="s4 cl rt"><a href="mod2_Cond.html" > 44.44</a></td>
+<td class="s9 cl rt"><a href="mod2_Toggle.html" > 92.23</a></td>
+<td class="s3 cl rt"><a href="mod2_FSM.html" > 37.50</a></td>
+<td class="s5 cl rt"><a href="mod2_Branch.html" > 52.17</a></td>
+<td class="s0 cl rt"><a href="mod2_Path.html" >  0.16</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/tx_dequeue.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/tx_dequeue.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 50.29</td>
+<td class="s7 cl rt"><a href="mod2_Line.html" > 75.24</a></td>
+<td class="s4 cl rt"><a href="mod2_Cond.html" > 44.44</a></td>
+<td class="s9 cl rt"><a href="mod2_Toggle.html" > 92.23</a></td>
+<td class="s3 cl rt"><a href="mod2_FSM.html" > 37.50</a></td>
+<td class="s5 cl rt"><a href="mod2_Branch.html" > 52.17</a></td>
+<td class="s0 cl rt"><a href="mod2_Path.html" >  0.16</a></td>
+<td><a href="mod2_2.html" >tb.dut.tx_dq0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+Branch Coverage for Module : <a href="mod2.html" >tx_dequeue</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Branches</td>
+<td></td>
+<td class="rt">92</td>
+<td class="rt">48</td>
+<td class="rt">52.17 </td>
+</tr><tr class="s5">
+<td>IF</td>
+<td class="rt">183</td>
+<td class="rt">4</td>
+<td class="rt">2</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">224</td>
+<td class="rt">5</td>
+<td class="rt">3</td>
+<td class="rt">60.00 </td>
+</tr><tr class="s4">
+<td>CASE</td>
+<td class="rt">320</td>
+<td class="rt">53</td>
+<td class="rt">25</td>
+<td class="rt">47.17 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">698</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s3">
+<td>CASE</td>
+<td class="rt">719</td>
+<td class="rt">16</td>
+<td class="rt">5</td>
+<td class="rt">31.25 </td>
+</tr><tr class="s9">
+<td>IF</td>
+<td class="rt">828</td>
+<td class="rt">12</td>
+<td class="rt">11</td>
+<td class="rt">91.67 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+183            if (reset_xgmii_tx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+184        
+185                xgmii_txd <= {8{`IDLE}};
+           <font color = "green">        ==></font>
+186                xgmii_txc <= 8'hff;
+187        
+188            end
+189            else begin
+190        
+191        
+192                //---
+193                // RC Layer, insert local or remote fault messages based on status
+194                // of fault state-machine
+195        
+196                if (status_local_fault_ctx) begin
+                   <font color = "red">-2-</font>  
+197        
+198                    // If local fault detected, send remote fault message to
+199                    // link partner
+200                    
+201                    xgmii_txd <= {`REMOTE_FAULT, 8'h0, 8'h0, `SEQUENCE,
+           <font color = "red">            ==></font>
+202                                  `REMOTE_FAULT, 8'h0, 8'h0, `SEQUENCE};
+203                    xgmii_txc <= {4'b0001, 4'b0001};
+204                end
+205                else if (status_remote_fault_ctx) begin
+                        <font color = "red">-3-</font>  
+206        
+207                    // If remote fault detected, inhibit transmission and send
+208                    // idle codes
+209                    
+210                    xgmii_txd <= {8{`IDLE}};
+           <font color = "red">            ==></font>
+211                    xgmii_txc <= 8'hff;
+212                end
+213                else begin
+214                    xgmii_txd <= xgxs_txd;
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+224            if (reset_xgmii_tx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+225        
+226                curr_state_enc <= SM_IDLE;
+           <font color = "green">        ==></font>
+227        
+228                start_on_lane0 <= 1'b1;
+229                ifg_deficit <= 3'b0;
+230                ifg_4b_add <= 1'b0;
+231                ifg_8b_add <= 1'b0;
+232                ifg_8b2_add <= 1'b0;
+233        
+234                eop <= 8'b0;
+235        
+236                txhfifo_rdata_d1 <= 64'b0;
+237        
+238                xgxs_txd_barrel <= {4{`IDLE}};
+239                xgxs_txc_barrel <= 4'hf;
+240        
+241                frame_available <= 1'b0;
+242        
+243                xgxs_txd <= {8{`IDLE}};
+244                xgxs_txc <= 8'hff;
+245        
+246                status_txdfifo_udflow_tog <= 1'b0;
+247        
+248            end
+249            else begin
+250        
+251                curr_state_enc <= next_state_enc;
+252        
+253                start_on_lane0 <= next_start_on_lane0;
+254                ifg_deficit <= next_ifg_deficit;
+255                ifg_4b_add <= next_ifg_4b_add;
+256                ifg_8b_add <= next_ifg_8b_add;
+257                ifg_8b2_add <= next_ifg_8b2_add;
+258        
+259                eop <= next_eop;
+260        
+261                txhfifo_rdata_d1 <= txhfifo_rdata;
+262        
+263                xgxs_txd_barrel <= next_xgxs_txd[63:32];
+264                xgxs_txc_barrel <= next_xgxs_txc[7:4];
+265        
+266                frame_available <= next_frame_available;
+267        
+268                //---
+269                // Barrel shifter. Previous stage always align packet with LANE0.
+270                // This stage allow us to shift packet to align with LANE4 if needed
+271                // for correct inter frame gap (IFG).
+272        
+273                if (next_start_on_lane0) begin
+                   <font color = "red">-2-</font>  
+274        
+275                    xgxs_txd <= next_xgxs_txd;
+           <font color = "green">            ==></font>
+276                    xgxs_txc <= next_xgxs_txc;
+277        
+278                end
+279                else begin
+280        
+281                    xgxs_txd <= {next_xgxs_txd[31:0], xgxs_txd_barrel};
+           <font color = "red">            ==></font>
+282                    xgxs_txc <= {next_xgxs_txc[3:0], xgxs_txc_barrel};
+283        
+284                end
+285        
+286                //---
+287                // FIFO errors, used to generate interrupts.
+288                
+289                if (txdfifo_ren && txdfifo_rempty) begin
+                   <font color = "red">-3-</font>                       
+290                    status_txdfifo_udflow_tog <= ~status_txdfifo_udflow_tog;
+           <font color = "red">            ==></font>
+291                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+320            case (curr_state_enc)
+               <font color = "red">-1-</font>  
+321        
+322                SM_IDLE:
+323                  begin
+324        
+325                      // Wait for frame to be available. There should be a least N bytes in the
+326                      // data fifo or a crc in the control fifo. The N bytes in the data fifo
+327                      // give time to the enqueue engine to calculate crc and write it to the
+328                      // control fifo. If crc is already in control fifo we can start transmitting
+329                      // with no concern. Transmission is inhibited if local or remote faults
+330                      // are detected.
+331        
+332                      if (ctrl_tx_enable_ctx && frame_available &&
+                         <font color = "green">-2-</font>  
+333                          !status_local_fault_ctx && !status_local_fault_ctx) begin
+334        
+335                          txhfifo_ren = 1'b1;
+           <font color = "green">                  ==></font>
+336                          next_state_enc = SM_PREAMBLE;
+337        
+338                      end
+339                      else begin
+340        
+341                          next_frame_available = !txhfifo_ralmost_empty;
+           <font color = "green">                  ==></font>
+342                          next_ifg_4b_add = 1'b0;
+343        
+344                      end
+345        
+346                  end
+347        
+348                SM_PREAMBLE:
+349                 begin
+350        
+351                     // On reading SOP from fifo, send SFD and preamble characters
+352        
+353                     if (txhfifo_rstatus[`TXSTATUS_SOP]) begin
+                        <font color = "red">-3-</font>        
+354        
+355                         next_xgxs_txd = {`SFD, {6{`PREAMBLE}}, `START};
+           <font color = "green">                 ==></font>
+356                         next_xgxs_txc = 8'h01;
+357        
+358                         txhfifo_ren = 1'b1;
+359        
+360                         next_state_enc = SM_TX;
+361        
+362                     end
+363                     else begin
+364        
+365                         next_frame_available = 1'b0;
+           <font color = "red">                 ==></font>
+366                         next_state_enc = SM_IDLE;
+367        
+368                     end
+369        
+370        
+371                     // Depending on deficit idle count calculations, add 4 bytes
+372                     // or IFG or not. This will determine on which lane start the
+373                     // next frame.
+374                     
+375                     if (ifg_4b_add) begin
+                        <font color = "red">-4-</font>    
+376                         next_start_on_lane0 = 1'b0;
+           <font color = "red">                 ==></font>
+377                     end
+378                     else begin
+379                         next_start_on_lane0 = 1'b1;
+           <font color = "green">                 ==></font>
+380                     end
+381        
+382                  end
+383        
+384                SM_TX:
+385                  begin
+386        
+387                      next_xgxs_txd = txhfifo_rdata_d1;
+388                      next_xgxs_txc = 8'h00;
+389        
+390                      txhfifo_ren = 1'b1;
+391        
+392        
+393                      // Wait for EOP indication to be read from the fifo, then
+394                      // transition to next state.
+395        
+396                      if (txhfifo_rstatus[`TXSTATUS_EOP]) begin
+                         <font color = "green">-5-</font>        
+397                          
+398                          txhfifo_ren = 1'b0;
+           <font color = "green">                  ==></font>
+399                          next_frame_available = !txhfifo_ralmost_empty;
+400                          next_state_enc = SM_EOP;
+401        
+402                      end
+403                      else if (txhfifo_rempty || txhfifo_rstatus[`TXSTATUS_SOP]) begin
+                              <font color = "red">-6-</font>                          
+404        
+405                          // Failure condition, we did not see EOP and there
+406                          // is no more data in fifo or SOP, force end of packet transmit.
+407        
+408                          next_state_enc = SM_TERM_FAIL;
+           <font color = "red">                  ==></font>
+409        
+410                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+411        
+412                      next_eop[0] = txhfifo_rstatus[2:0] == 3'd1;
+413                      next_eop[1] = txhfifo_rstatus[2:0] == 3'd2;
+414                      next_eop[2] = txhfifo_rstatus[2:0] == 3'd3;
+415                      next_eop[3] = txhfifo_rstatus[2:0] == 3'd4;
+416                      next_eop[4] = txhfifo_rstatus[2:0] == 3'd5;
+417                      next_eop[5] = txhfifo_rstatus[2:0] == 3'd6;
+418                      next_eop[6] = txhfifo_rstatus[2:0] == 3'd7;
+419                      next_eop[7] = txhfifo_rstatus[2:0] == 3'd0;
+420                        
+421                  end
+422        
+423                SM_EOP:
+424                  begin
+425        
+426                      // Insert TERMINATE character in correct lane depending on position
+427                      // of EOP read from fifo. Also insert CRC read from control fifo.
+428        
+429                      if (eop[0]) begin
+                         <font color = "red">-7-</font>  
+430                          next_xgxs_txd = {{2{`IDLE}}, `TERMINATE, 
+           <font color = "red">                  ==></font>
+431                                           crc32_tx[31:0], txhfifo_rdata_d1[7:0]};
+432                          next_xgxs_txc = 8'b11100000;
+433                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+434        
+435                      if (eop[1]) begin
+                         <font color = "red">-8-</font>  
+436                          next_xgxs_txd = {`IDLE, `TERMINATE,
+           <font color = "red">                  ==></font>
+437                                           crc32_tx[31:0], txhfifo_rdata_d1[15:0]};
+438                          next_xgxs_txc = 8'b11000000;
+439                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+440        
+441                      if (eop[2]) begin
+                         <font color = "red">-9-</font>  
+442                          next_xgxs_txd = {`TERMINATE, crc32_tx[31:0], txhfifo_rdata_d1[23:0]};
+           <font color = "red">                  ==></font>
+443                          next_xgxs_txc = 8'b10000000;
+444                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+445        
+446                      if (eop[3]) begin
+                         <font color = "red">-10-</font>  
+447                          next_xgxs_txd = {crc32_tx[31:0], txhfifo_rdata_d1[31:0]};
+           <font color = "red">                  ==></font>
+448                          next_xgxs_txc = 8'b00000000;
+449                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+450        
+451                      if (eop[4]) begin
+                         <font color = "red">-11-</font>  
+452                          next_xgxs_txd = {crc32_tx[23:0], txhfifo_rdata_d1[39:0]};
+           <font color = "red">                  ==></font>
+453                          next_xgxs_txc = 8'b00000000;
+454                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+455        
+456                      if (eop[5]) begin
+                         <font color = "red">-12-</font>  
+457                          next_xgxs_txd = {crc32_tx[15:0], txhfifo_rdata_d1[47:0]};
+           <font color = "red">                  ==></font>
+458                          next_xgxs_txc = 8'b00000000;
+459                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+460        
+461                      if (eop[6]) begin
+                         <font color = "red">-13-</font>  
+462                          next_xgxs_txd = {crc32_tx[7:0], txhfifo_rdata_d1[55:0]};
+           <font color = "red">                  ==></font>
+463                          next_xgxs_txc = 8'b00000000;
+464                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+465        
+466                      if (eop[7]) begin
+                         <font color = "red">-14-</font>  
+467                          next_xgxs_txd = {txhfifo_rdata_d1[63:0]};
+           <font color = "green">                  ==></font>
+468                          next_xgxs_txc = 8'b00000000;
+469                      end
+                         MISSING_ELSE
+           <font color = "red">              ==></font>
+470        
+471                      if (!frame_available) begin
+                         <font color = "red">-15-</font>  
+472        
+473                          // If there is not another frame ready to be transmitted, interface
+474                          // will go idle and idle deficit idle count calculation is irrelevant.
+475                          // Set deficit to 0.
+476                          
+477                          next_ifg_deficit = 3'b0;
+           <font color = "green">                  ==></font>
+478        
+479                      end
+480                      else begin
+481        
+482                          // Idle deficit count calculated based on number of "wasted" bytes
+483                          // between TERMINATE and alignment of next frame in LANE0.
+484        
+485                          next_ifg_deficit = ifg_deficit +
+           <font color = "red">                  ==></font>
+486                                             {2'b0, eop[0] | eop[4]} +
+487                                             {1'b0, eop[1] | eop[5], 1'b0} +
+488                                             {1'b0, eop[2] | eop[6],
+489                                              eop[2] | eop[6]};
+490                      end
+491        
+492                      // IFG corrections based on deficit count and previous starting lane
+493                      // Calculated based on following table:
+494                      //
+495                      //                 DIC=0          DIC=1          DIC=2          DIC=3
+496                      //              -------------  -------------  -------------  -------------
+497                      // PktLen       IFG      Next  IFG      Next  IFG      Next  IFG      Next
+498                      // Modulus      Length   DIC   Length   DIC   Length   DIC   Length   DIC
+499                      // -----------------------------------------------------------------------
+500                      //    0           12      0      12      1      12      2      12      3
+501                      //    1           11      1      11      2      11      3      15      0
+502                      //    2           10      2      10      3      14      0      14      1
+503                      //    3            9      3      13      0      13      1      13      2
+504                      //
+505                      //
+506                      // In logic it translates into adding 4, 8, or 12 bytes of IFG relative
+507                      // to LANE0.
+508                      //   IFG and Add columns assume no deficit applied
+509                      //   IFG+DIC and Add+DIC assume deficit must be applied
+510                      //
+511                      //                        Start lane 0       Start lane 4	
+512                      // EOP Pads IFG  IFG+DIC	Add   Add+DIC	   Add    Add IFG
+513                      // 0   3    11   15        8     12           12     16
+514                      // 1   2    10   14        8     12           12     16
+515                      // 2   1    9    13        8     12           12     16
+516                      // 3   8    12   12        4     4            8      8
+517                      // 4   7    11   15        4     8            8      12
+518                      // 5   6    10   14        4     8            8      12
+519                      // 6   5    9    13        4     8            8      12
+520                      // 7   4    12   12        8     8            12     12
+521        
+522                      if (!frame_available) begin
+                         <font color = "red">-16-</font>  
+523        
+524                          // If there is not another frame ready to be transmitted, interface
+525                          // will go idle and idle deficit idle count calculation is irrelevant.
+526                          
+527                          next_ifg_4b_add = 1'b0;
+           <font color = "green">                  ==></font>
+528                          next_ifg_8b_add = 1'b0;
+529                          next_ifg_8b2_add = 1'b0;
+530        
+531                      end
+532                      else if (next_ifg_deficit[2] == ifg_deficit[2]) begin
+                              <font color = "red">-17-</font>                           
+533        
+534                          // Add 4 bytes IFG
+535                          
+536                          next_ifg_4b_add = (eop[0] & !start_on_lane0) |
+           <font color = "red">                  ==></font>
+537                                            (eop[1] & !start_on_lane0) |
+538                                            (eop[2] & !start_on_lane0) |
+539                                            (eop[3] & start_on_lane0) |
+540                                            (eop[4] & start_on_lane0) |
+541                                            (eop[5] & start_on_lane0) |
+542                                            (eop[6] & start_on_lane0) |
+543                                            (eop[7] & !start_on_lane0);
+544        
+545                          // Add 8 bytes IFG
+546                          
+547                          next_ifg_8b_add = (eop[0]) |
+548                                            (eop[1]) |
+549                                            (eop[2]) |
+550                                            (eop[3] & !start_on_lane0) |
+551                                            (eop[4] & !start_on_lane0) |
+552                                            (eop[5] & !start_on_lane0) |
+553                                            (eop[6] & !start_on_lane0) |
+554                                            (eop[7]);
+555        
+556                          // Add another 8 bytes IFG
+557        
+558                          next_ifg_8b2_add = 1'b0;
+559        
+560                      end
+561                      else begin
+562        
+563                          // Add 4 bytes IFG
+564        
+565                          next_ifg_4b_add = (eop[0] & start_on_lane0) |
+           <font color = "red">                  ==></font>
+566                                            (eop[1] & start_on_lane0) |
+567                                            (eop[2] & start_on_lane0) |
+568                                            (eop[3] &  start_on_lane0) |
+569                                            (eop[4] & !start_on_lane0) |
+570                                            (eop[5] & !start_on_lane0) |
+571                                            (eop[6] & !start_on_lane0) |
+572                                            (eop[7] & !start_on_lane0);
+573        
+574                          // Add 8 bytes IFG
+575                          
+576                          next_ifg_8b_add = (eop[0]) |
+577                                            (eop[1]) |
+578                                            (eop[2]) |
+579                                            (eop[3] & !start_on_lane0) |
+580                                            (eop[4]) |
+581                                            (eop[5]) |
+582                                            (eop[6]) |
+583                                            (eop[7]);
+584        
+585                          // Add another 8 bytes IFG
+586        
+587                          next_ifg_8b2_add = (eop[0] & !start_on_lane0) |
+588                                             (eop[1] & !start_on_lane0) |
+589                                             (eop[2] & !start_on_lane0);
+590        
+591                      end
+592        
+593                      if (|eop[2:0]) begin
+                         <font color = "red">-18-</font>  
+594        
+595                          if (frame_available) begin
+                             <font color = "red">-19-</font>  
+596        
+597                              // Next state depends on number of IFG bytes to be inserted.
+598                              // Skip idle state if needed.
+599        
+600                              if (next_ifg_8b2_add) begin
+                                 <font color = "red">-20-</font>         
+601                                  next_state_enc = SM_IFG;
+           <font color = "red">                          ==></font>
+602                              end
+603                              else if (next_ifg_8b_add) begin
+                                      <font color = "red">-21-</font>         
+604                                  next_state_enc = SM_IDLE;
+           <font color = "red">                          ==></font>
+605                              end
+606                              else begin
+607                                  txhfifo_ren = 1'b1;
+           <font color = "red">                          ==></font>
+608                                  next_state_enc = SM_PREAMBLE;
+609                              end
+610        
+611                          end
+612                          else begin
+613                              next_state_enc = SM_IFG;
+           <font color = "red">                      ==></font>
+614                          end
+615                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+616        
+617                      if (|eop[7:3]) begin
+                         <font color = "red">-22-</font>  
+618                          next_state_enc = SM_TERM;
+           <font color = "green">                  ==></font>
+619                      end
+                         MISSING_ELSE
+           <font color = "red">              ==></font>
+620        
+621                  end
+622        
+623                SM_TERM:
+624                  begin
+625        
+626                      // Insert TERMINATE character in correct lane depending on position
+627                      // of EOP read from fifo. Also insert CRC read from control fifo.
+628        
+629                      if (eop[3]) begin
+                         <font color = "red">-23-</font>  
+630                          next_xgxs_txd = {{7{`IDLE}}, `TERMINATE};
+           <font color = "red">                  ==></font>
+631                          next_xgxs_txc = 8'b11111111;
+632                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+633        
+634                      if (eop[4]) begin
+                         <font color = "red">-24-</font>  
+635                          next_xgxs_txd = {{6{`IDLE}}, `TERMINATE, crc32_tx[31:24]};
+           <font color = "red">                  ==></font>
+636                          next_xgxs_txc = 8'b11111110;
+637                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+638        
+639                      if (eop[5]) begin
+                         <font color = "red">-25-</font>  
+640                          next_xgxs_txd = {{5{`IDLE}}, `TERMINATE, crc32_tx[31:16]};
+           <font color = "red">                  ==></font>
+641                          next_xgxs_txc = 8'b11111100;
+642                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+643        
+644                      if (eop[6]) begin
+                         <font color = "red">-26-</font>  
+645                          next_xgxs_txd = {{4{`IDLE}}, `TERMINATE, crc32_tx[31:8]};
+           <font color = "red">                  ==></font>
+646                          next_xgxs_txc = 8'b11111000;
+647                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+648        
+649                      if (eop[7]) begin
+                         <font color = "red">-27-</font>  
+650                          next_xgxs_txd = {{3{`IDLE}}, `TERMINATE, crc32_tx[31:0]};
+           <font color = "green">                  ==></font>
+651                          next_xgxs_txc = 8'b11110000;
+652                      end
+                         MISSING_ELSE
+           <font color = "red">              ==></font>
+653        
+654                      // Next state depends on number of IFG bytes to be inserted.
+655                      // Skip idle state if needed.
+656        
+657                      if (frame_available && !ifg_8b_add) begin
+                         <font color = "red">-28-</font>                        
+658                          txhfifo_ren = 1'b1;
+           <font color = "red">                  ==></font>
+659                          next_state_enc = SM_PREAMBLE;
+660                      end
+661                      else if (frame_available) begin
+                              <font color = "red">-29-</font>  
+662                          next_state_enc = SM_IDLE;
+           <font color = "red">                  ==></font>
+663                      end
+664                      else begin
+665                          next_state_enc = SM_IFG;
+           <font color = "green">                  ==></font>
+666                      end
+667        
+668                  end
+669        
+670                SM_TERM_FAIL:
+671                  begin
+672        
+673                      next_xgxs_txd = {{7{`IDLE}}, `TERMINATE};
+           <font color = "red">              ==></font>
+674                      next_xgxs_txc = 8'b11111111;
+675                      next_state_enc = SM_IFG;
+676        
+677                  end
+678        
+679                SM_IFG:
+680                  begin
+681        
+682                      next_state_enc = SM_IDLE;
+           <font color = "green">              ==></font>
+683        
+684                  end
+685        
+686                default:
+687                  begin
+688                      next_state_enc = SM_IDLE;
+           <font color = "red">              ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>-14-</th><th nowrap width=80>-15-</th><th nowrap width=80>-16-</th><th nowrap width=80>-17-</th><th nowrap width=80>-18-</th><th nowrap width=80>-19-</th><th nowrap width=80>-20-</th><th nowrap width=80>-21-</th><th nowrap width=80>-22-</th><th nowrap width=80>-23-</th><th nowrap width=80>-24-</th><th nowrap width=80>-25-</th><th nowrap width=80>-26-</th><th nowrap width=80>-27-</th><th nowrap width=80>-28-</th><th nowrap width=80>-29-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>SM_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_PREAMBLE </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PREAMBLE </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PREAMBLE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_PREAMBLE </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TX </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TX </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TX </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_EOP </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_TERM </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_TERM_FAIL </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_IFG </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+698            if (txhfifo_wen && txhfifo_wstatus[`TXSTATUS_SOP]) begin
+               <font color = "green">-1-</font>                       
+699                crc_data = 32'hffffffff;
+           <font color = "green">        ==></font>
+700            end
+701            else begin
+702                crc_data = crc32_d64;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+719            case (curr_state_pad)
+               <font color = "red">-1-</font>  
+720        
+721              SM_PAD_EQ: begin
+722        
+723        
+724                  //---
+725                  // If room availabe in hoding fifo and data available in
+726                  // data fifo, transfer data words. If transmit state machine
+727                  // is reading from fifo we can assume room will be available.
+728        
+729                  if (!txhfifo_walmost_full) begin
+                     <font color = "green">-2-</font>         
+730        
+731                      txdfifo_ren = !txdfifo_rempty;
+           <font color = "green">              ==></font>
+732        
+733                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+734        
+735        
+736                  //---
+737                  // This logic dependent on read during previous cycle.
+738        
+739                  if (txdfifo_ren_d1) begin
+                     <font color = "green">-3-</font>        
+740        
+741                      next_txhfifo_wen = 1'b1;
+742        
+743                      // On EOP, decide if padding is required for this packet.
+744        
+745                      if (txdfifo_rstatus[`TXSTATUS_EOP]) begin
+                         <font color = "green">-4-</font>        
+746        
+747                          if (byte_cnt < 14'd56) begin
+                             <font color = "red">-5-</font>  
+748        
+749                              next_txhfifo_wstatus = `TXSTATUS_NONE;
+           <font color = "red">                      ==></font>
+750                              txdfifo_ren = 1'b0;
+751                              next_state_pad = SM_PAD_PAD;
+752        
+753                          end
+754                          else if (byte_cnt == 14'd56 &&
+                                  <font color = "red">-6-</font>  
+755                                   (txdfifo_rstatus[2:0] == 3'd1 ||
+756                                    txdfifo_rstatus[2:0] == 3'd2 ||
+757                                    txdfifo_rstatus[2:0] == 3'd3)) begin
+758        
+759                              // Pad up to LANE3, keep the other 4 bytes for crc that will
+760                              // be inserted by dequeue engine.
+761                              
+762                              next_txhfifo_wstatus[2:0] = 3'd4;
+763        
+764                              // Pad end bytes with zeros.
+765        
+766                              if (txdfifo_rstatus[2:0] == 3'd1)
+                                 <font color = "red">-7-</font>        
+767                                next_txhfifo_wdata[31:8] = 24'b0;
+           <font color = "red">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "red">                        ==></font>
+768                              if (txdfifo_rstatus[2:0] == 3'd2)
+                                 <font color = "red">-8-</font>        
+769                                next_txhfifo_wdata[31:16] = 16'b0;
+           <font color = "red">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "red">                        ==></font>
+770                              if (txdfifo_rstatus[2:0] == 3'd3)
+                                 <font color = "red">-9-</font>        
+771                                next_txhfifo_wdata[31:24] = 8'b0;
+           <font color = "red">                        ==></font>
+                                   MISSING_ELSE
+           <font color = "red">                        ==></font>
+772        
+773                              txdfifo_ren = 1'b0;
+774        
+775                          end
+776                          else begin
+777        
+778                              txdfifo_ren = 1'b0;
+           <font color = "green">                      ==></font>
+779                                 
+780                          end
+781        
+782                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+783                
+784                  end
+                     MISSING_ELSE
+           <font color = "green">          ==></font>
+785        
+786              end
+787        
+788              SM_PAD_PAD: begin
+789        
+790                  //---
+791                  // Pad packet to 64 bytes by writting zeros to holding fifo.
+792        
+793                  if (!txhfifo_walmost_full) begin
+                     <font color = "red">-10-</font>         
+794        
+795                      next_txhfifo_wdata = 64'b0;
+796                      next_txhfifo_wstatus = `TXSTATUS_NONE;
+797                      next_txhfifo_wen = 1'b1;
+798                      
+799                      if (byte_cnt == 14'd56) begin
+                         <font color = "red">-11-</font>  
+800        
+801        
+802                          // Pad up to LANE3, keep the other 4 bytes for crc that will
+803                          // be inserted by dequeue engine.
+804        
+805                          next_txhfifo_wstatus[`TXSTATUS_EOP] = 1'b1;
+           <font color = "red">                  ==></font>
+806                          next_txhfifo_wstatus[2:0] = 3'd4;
+807        
+808                          next_state_pad = SM_PAD_EQ;
+809        
+810                      end
+                         MISSING_ELSE
+           <font color = "red">              ==></font>
+811        
+812                  end
+                     MISSING_ELSE
+           <font color = "red">          ==></font>
+813        
+814              end
+815        
+816              default:
+817                begin
+818                    next_state_pad = SM_PAD_EQ;
+           <font color = "red">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>SM_PAD_EQ </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_PAD_EQ </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_PAD_EQ </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_PAD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_PAD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_PAD_PAD </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+828            if (reset_xgmii_tx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+829        
+830                curr_state_pad <= SM_PAD_EQ;
+           <font color = "green">        ==></font>
+831        
+832                txdfifo_ren_d1 <= 1'b0;
+833        
+834                txhfifo_wdata <= 64'b0;
+835                txhfifo_wstatus <= 8'b0;
+836                txhfifo_wen <= 1'b0;   
+837        
+838                byte_cnt <= 14'b0;
+839        
+840                shift_crc_data <= 64'b0;
+841                shift_crc_eop <= 4'b0;
+842                shift_crc_cnt <= 4'b0;
+843        
+844            end
+845            else begin
+846        
+847                curr_state_pad <= next_state_pad;
+848        
+849                txdfifo_ren_d1 <= txdfifo_ren;
+850        
+851                txhfifo_wdata <= next_txhfifo_wdata;
+852                txhfifo_wstatus <= next_txhfifo_wstatus;
+853                txhfifo_wen <= next_txhfifo_wen;
+854        
+855        
+856                //---
+857                // Reset byte count on SOP
+858                
+859                if (next_txhfifo_wen) begin
+                   <font color = "green">-2-</font>             
+860        
+861                    if (next_txhfifo_wstatus[`TXSTATUS_SOP]) begin
+                       <font color = "green">-3-</font>             
+862        
+863                        byte_cnt <= 14'd8;
+           <font color = "green">                ==></font>
+864        
+865                    end
+866                    else begin
+867        
+868                        byte_cnt <= byte_cnt + 14'd8;
+           <font color = "green">                ==></font>
+869        
+870                    end
+871        
+872                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+873        
+874        
+875                //---
+876                // Calculate CRC as data is written to holding fifo. The holding fifo creates
+877                // a delay that allow the CRC calculation to complete before the end of the frame
+878                // is ready to be transmited.
+879        
+880                if (txhfifo_wen) begin
+                   <font color = "green">-4-</font>        
+881        
+882                    crc32_d64 <= nextCRC32_D64(reverse_64b(txhfifo_wdata), crc_data);
+           <font color = "green">            ==></font>
+883        
+884                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+885        
+886                if (txhfifo_wen && txhfifo_wstatus[`TXSTATUS_EOP]) begin
+                   <font color = "green">-5-</font>                       
+887        
+888                    // Last bytes calculated 8-bit at a time instead of 64-bit. Start
+889                    // this process at the end of the frame.
+890             
+891                    crc32_d8 <= crc32_d64;
+892        
+893                    shift_crc_data <= txhfifo_wdata;
+894                    shift_crc_cnt <= 4'd9;
+895        
+896                    if (txhfifo_wstatus[2:0] == 3'b0) begin
+                       <font color = "red">-6-</font>        
+897                      shift_crc_eop <= 4'd8;
+           <font color = "green">              ==></font>
+898                    end
+899                    else begin
+900                        shift_crc_eop <= {1'b0, txhfifo_wstatus[2:0]};
+           <font color = "red">                ==></font>
+901                    end
+902        
+903                end
+904                else if (shift_crc_eop != 4'b0) begin
+                        <font color = "green">-7-</font>      
+905        
+906                    // Complete crc calculation 8-bit at a time until finished. This can
+907                    // be 1 to 8 bytes long.
+908        
+909                    crc32_d8 <= nextCRC32_D8(reverse_8b(shift_crc_data[7:0]), crc32_d8);
+           <font color = "green">            ==></font>
+910        
+911                    shift_crc_data <= {8'b0, shift_crc_data[63:8]};
+912                    shift_crc_eop <= shift_crc_eop - 4'd1;
+913                
+914                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+915        
+916        
+917                //---
+918                // Update CRC register at the end of calculation. Always update after 8
+919                // cycles for deterministic results, even if a single byte was present in
+920                // last data word.
+921                
+922                if (shift_crc_cnt == 4'b1) begin
+                   <font color = "green">-8-</font>      
+923        
+924                    crc32_tx <= ~reverse_32b(crc32_d8);
+           <font color = "green">            ==></font>
+925        
+926                end
+927                else begin
+928        
+929                    shift_crc_cnt <= shift_crc_cnt - 4'd1;
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

@@ -1,0 +1,1455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: fault_sm</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_fault_sm" >fault_sm</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s1 cl rt"> 13.69</td>
+<td class="s3 cl rt"><a href="mod0.html#Line" > 39.29</a></td>
+<td class="s0 cl rt"><a href="mod0.html#Cond" >  0.00</a></td>
+<td class="s0 cl rt"><a href="mod0.html#Toggle" >  4.84</a></td>
+<td class="s0 cl rt"><a href="mod0.html#FSM" >  0.00</a></td>
+<td class="s2 cl rt"><a href="mod0.html#Branch" > 25.00</a></td>
+<td class="s1 cl rt"><a href="mod0.html#Path" > 13.04</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/fault_sm.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/fault_sm.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s1 cl rt"> 13.69</td>
+<td class="s3 cl rt"><a href="mod0.html#Line" > 39.29</a></td>
+<td class="s0 cl rt"><a href="mod0.html#Cond" >  0.00</a></td>
+<td class="s0 cl rt"><a href="mod0.html#Toggle" >  4.84</a></td>
+<td class="s0 cl rt"><a href="mod0.html#FSM" >  0.00</a></td>
+<td class="s2 cl rt"><a href="mod0.html#Branch" > 25.00</a></td>
+<td class="s1 cl rt"><a href="mod0.html#Path" > 13.04</a></td>
+<td><a href="mod0.html#inst_tag_0" >tb.dut.fault_sm0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod0.html" >fault_sm</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s3"><td class="lf">TOTAL<td><td>56<td>22<td>39.29
+<tr class="s6"><td class="lf">ALWAYS<td>90<td>9<td>6<td>66.67
+<tr class="s10"><td class="lf">ALWAYS<td>123<td>5<td>5<td>100.00
+<tr class="s2"><td class="lf">ALWAYS<td>147<td>42<td>11<td>26.19
+</table>
+<pre class="code"><br clear=all>
+89                      
+90         1/1              fault_sequence = local_fault_msg_det | remote_fault_msg_det;
+91                      
+92                      
+93                          //---
+94                          // Sequence type, local, remote, or ok
+95                      
+96         1/1              if (|local_fault_msg_det) begin
+97         <font color = "red">0/1     ==>          seq_type = `LINK_FAULT_LOCAL;</font>
+98                          end
+99         1/1              else if (|remote_fault_msg_det) begin
+100        <font color = "red">0/1     ==>          seq_type = `LINK_FAULT_REMOTE;</font>
+101                         end
+102                         else begin
+103        1/1                  seq_type = `LINK_FAULT_OK;
+104                         end
+105                     
+106                     
+107                         //---
+108                         // Adder for number of faults, if detected in lower 4 lanes and
+109                         // upper 4 lanes, add 2. That's because we process 64-bit at a time
+110                         // instead of typically 32-bit xgmii.
+111                     
+112        1/1              if (|remote_fault_msg_det) begin
+113        <font color = "red">0/1     ==>          seq_add = remote_fault_msg_det[1] + remote_fault_msg_det[0];</font>
+114                         end
+115                         else begin
+116        1/1                  seq_add = local_fault_msg_det[1] + local_fault_msg_det[0];
+117                         end
+118                     
+119                     end
+120                     
+121                     always @(posedge clk_xgmii_rx or negedge reset_xgmii_rx_n) begin
+122                     
+123        1/1              if (reset_xgmii_rx_n == 1'b0) begin
+124                     
+125                     
+126        1/1                  status_local_fault_crx &lt;= 1'b0;
+127        1/1                  status_remote_fault_crx &lt;= 1'b0;
+128                     
+129                         end
+130                         else begin
+131                     
+132                             //---
+133                             // Status signal to generate local/remote fault interrupts
+134                     
+135        1/1                  status_local_fault_crx &lt;= curr_state == SM_FAULT &amp;&amp;
+136                                                       link_fault == `LINK_FAULT_LOCAL;
+137                     
+138        1/1                  status_remote_fault_crx &lt;= curr_state == SM_FAULT &amp;&amp;
+139                                                        link_fault == `LINK_FAULT_REMOTE;
+140                     
+141                         end
+142                     
+143                     end
+144                     
+145                     always @(posedge clk_xgmii_rx or negedge reset_xgmii_rx_n) begin
+146                     
+147        1/1              if (reset_xgmii_rx_n == 1'b0) begin
+148                     
+149        1/1                  curr_state &lt;= SM_INIT;
+150                     
+151        1/1                  col_cnt &lt;= 8'b0;
+152        1/1                  last_seq_type &lt;= `LINK_FAULT_OK;
+153        1/1                  link_fault &lt;= `LINK_FAULT_OK;
+154        1/1                  seq_cnt &lt;= 3'b0;
+155                     
+156                         end
+157                         else begin
+158                     
+159        1/1                  case (curr_state)
+160                     
+161                               SM_INIT:
+162                                 begin
+163                     
+164        1/1                          last_seq_type &lt;= seq_type;
+165                     
+166        1/1                          if (|fault_sequence) begin
+167                     
+168                                         // If a fault is detected, capture the type of
+169                                         // fault and start column counter. We need 4 fault
+170                                         // messages in 128 columns to accept the fault.
+171                     
+172        <font color = "red">0/1     ==>                      if (fault_sequence[0]) begin</font>
+173        <font color = "red">0/1     ==>                          col_cnt &lt;= 8'd2;</font>
+174                                         end
+175                                         else begin
+176        <font color = "red">0/1     ==>                          col_cnt &lt;= 8'd1;</font>
+177                                         end
+178        <font color = "red">0/1     ==>                      seq_cnt &lt;= {1'b0, seq_add};</font>
+179        <font color = "red">0/1     ==>                      curr_state &lt;= SM_COUNT;</font>
+180                     
+181                                     end
+182                                     else begin
+183                     
+184                                         // If no faults, stay in INIT and clear counters
+185                                         
+186        1/1                              col_cnt &lt;= 8'b0;
+187        1/1                              seq_cnt &lt;= 3'b0;
+188                     
+189                                     end
+190                                 end
+191                     
+192                               SM_COUNT:
+193                                 begin
+194                     
+195        <font color = "red">0/1     ==>                  col_cnt &lt;= col_cnt + 8'd2;</font>
+196        <font color = "red">0/1     ==>                  seq_cnt &lt;= seq_cnt + {1'b0, seq_add};</font>
+197                     
+198        <font color = "red">0/1     ==>                  if (!fault_sequence[0] &amp;&amp; col_cnt &gt;= 8'd127) begin</font>
+199                     
+200                                         // No new fault in lower lanes and almost
+201                                         // reached the 128 columns count, abort fault. 
+202                     
+203        <font color = "red">0/1     ==>                      curr_state &lt;= SM_INIT;</font>
+204                     
+205                                     end
+206        <font color = "red">0/1     ==>                  else if (col_cnt &gt; 8'd127) begin</font>
+207                     
+208                                         // Reached the 128 columns count, abort fault.
+209                                         
+210        <font color = "red">0/1     ==>                      curr_state &lt;= SM_INIT;</font>
+211                     
+212                                     end
+213        <font color = "red">0/1     ==>                  else if (|fault_sequence) begin</font>
+214                     
+215                                         // If fault type has changed, move to NEW_FAULT.
+216                                         // If not, after detecting 4 fault messages move to
+217                                         // FAULT state.
+218                     
+219        <font color = "red">0/1     ==>                      if (seq_type != last_seq_type) begin</font>
+220        <font color = "red">0/1     ==>                          curr_state &lt;= SM_NEW_FAULT;</font>
+221                                         end
+222                                         else begin
+223        <font color = "red">0/1     ==>                          if ((seq_cnt + {1'b0, seq_add}) &gt; 3'd3) begin</font>
+224        <font color = "red">0/1     ==>                              col_cnt &lt;= 8'b0;</font>
+225        <font color = "red">0/1     ==>                              link_fault &lt;= seq_type;</font>
+226        <font color = "red">0/1     ==>                              curr_state &lt;= SM_FAULT;</font>
+227                                             end
+                   <font color = "red">==>  MISSING_ELSE</font>
+228                                         end
+229                     
+230                                     end
+                   <font color = "red">==>  MISSING_ELSE</font>
+231                                 end
+232                     
+233                               SM_FAULT:
+234                                 begin
+235                     
+236        <font color = "red">0/1     ==>                  col_cnt &lt;= col_cnt + 8'd2;</font>
+237                                     
+238        <font color = "red">0/1     ==>                  if (!fault_sequence[0] &amp;&amp; col_cnt &gt;= 8'd127) begin</font>
+239                     
+240                                         // No new fault in lower lanes and almost
+241                                         // reached the 128 columns count, abort fault. 
+242                     
+243        <font color = "red">0/1     ==>                      curr_state &lt;= SM_INIT;</font>
+244                     
+245                                     end
+246        <font color = "red">0/1     ==>                  else if (col_cnt &gt; 8'd127) begin</font>
+247                     
+248                                         // Reached the 128 columns count, abort fault.
+249                     
+250        <font color = "red">0/1     ==>                      curr_state &lt;= SM_INIT;</font>
+251                     
+252                                     end
+253        <font color = "red">0/1     ==>                  else if (|fault_sequence) begin</font>
+254                     
+255                                         // Clear the column count each time we see a fault,
+256                                         // if fault changes, go no next state.
+257                     
+258        <font color = "red">0/1     ==>                      col_cnt &lt;= 8'd0;</font>
+259                     
+260        <font color = "red">0/1     ==>                      if (seq_type != last_seq_type) begin</font>
+261        <font color = "red">0/1     ==>                          curr_state &lt;= SM_NEW_FAULT;</font>
+262                                         end
+                   <font color = "red">==>  MISSING_ELSE</font>
+263                                     end
+                   <font color = "red">==>  MISSING_ELSE</font>
+264                     
+265                                 end
+266                     
+267                               SM_NEW_FAULT:
+268                                 begin
+269                     
+270                                     // Capture new fault type. Start counters.
+271                                     
+272        <font color = "red">0/1     ==>                  col_cnt &lt;= 8'b0;</font>
+273        <font color = "red">0/1     ==>                  last_seq_type &lt;= seq_type;</font>
+274                     
+275        <font color = "red">0/1     ==>                  seq_cnt &lt;= {1'b0, seq_add};</font>
+276        <font color = "red">0/1     ==>                  curr_state &lt;= SM_COUNT;</font>
+277                     
+278                                 end
+                   <font color = "red">==>  MISSING_DEFAULT</font>
+</pre>
+<br clear=all>
+Go to <a href="mod0.html" >top</a>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod0.html" >fault_sm</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s0"><td class="lf">Conditions<td>12<td>0<td>0.00
+<tr class="s0"><td class="lf">Logical<td>12<td>0<td>0.00
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       135
+ EXPRESSION ((curr_state == SM_FAULT) &amp;&amp; (link_fault == 2'b1))
+             ------------1-----------    ----------2---------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       138
+ EXPRESSION ((curr_state == SM_FAULT) &amp;&amp; (link_fault == 2'd2))
+             ------------1-----------    ----------2---------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       198
+ EXPRESSION (((!fault_sequence[0])) &amp;&amp; (col_cnt &gt;= 8'd127))
+             -----------1----------    ---------2---------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       238
+ EXPRESSION (((!fault_sequence[0])) &amp;&amp; (col_cnt &gt;= 8'd127))
+             -----------1----------    ---------2---------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+Go to <a href="mod0.html" >top</a>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod0.html" >fault_sm</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s0">
+<td>Totals</td>
+<td class="rt">14</td>
+<td class="rt">1</td>
+<td class="rt">7.14  </td>
+</tr><tr class="s0">
+<td>Total Bits</td>
+<td class="rt">62</td>
+<td class="rt">3</td>
+<td class="rt">4.84  </td>
+</tr><tr class="s0">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">31</td>
+<td class="rt">2</td>
+<td class="rt">6.45  </td>
+</tr><tr class="s0">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">31</td>
+<td class="rt">1</td>
+<td class="rt">3.23  </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s1">
+<td>Ports</td>
+<td class="rt">6</td>
+<td class="rt">1</td>
+<td class="rt">16.67 </td>
+</tr><tr class="s1">
+<td>Port Bits</td>
+<td class="rt">16</td>
+<td class="rt">3</td>
+<td class="rt">18.75 </td>
+</tr><tr class="s2">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">8</td>
+<td class="rt">2</td>
+<td class="rt">25.00 </td>
+</tr><tr class="s1">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">8</td>
+<td class="rt">1</td>
+<td class="rt">12.50 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s0">
+<td>Signals</td>
+<td class="rt">8</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s0">
+<td>Signal Bits</td>
+<td class="rt">46</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s0">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">23</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s0">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">23</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>clk_xgmii_rx</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_xgmii_rx_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>local_fault_msg_det[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>remote_fault_msg_det[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>status_local_fault_crx</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>status_remote_fault_crx</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>curr_state[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>col_cnt[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>fault_sequence[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>last_seq_type[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>link_fault[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>seq_cnt[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>seq_type[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>seq_add[1:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod0.html" >top</a>
+<hr>
+<a name="FSM"></a>
+FSM Coverage for Module : <a href="mod0.html" >fault_sm</a><br clear=all>
+<table align=left>
+<caption><b>Summary for FSM :: curr_state</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s2">
+<td>States</td>
+<td class="rt">4</td>
+<td class="rt">1</td>
+<td class="rt">25.00 </td>
+</tr><tr class="s0">
+<td>Transitions</td>
+<td class="rt">8</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: curr_state</b><hr>
+<table align=left>
+<tr>
+<th>states</th><th nowrap width=80>Covered</th></tr><tr class="uGreen">
+<td nowrap>SM_INIT</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_COUNT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_FAULT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_NEW_FAULT</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th>transitions</th><th nowrap width=80>Covered</th></tr><tr class="uRed">
+<td nowrap>SM_INIT->SM_COUNT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_COUNT->SM_INIT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_COUNT->SM_FAULT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_COUNT->SM_NEW_FAULT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_FAULT->SM_INIT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_FAULT->SM_NEW_FAULT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_NEW_FAULT->SM_INIT</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>SM_NEW_FAULT->SM_COUNT</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<table align=left class="sml">
+<tr>
+<th>sequences</th><th nowrap width=80>Covered</th></tr></table><br clear=all>
+<table align=left>
+<caption><b>Summary for FSM :: col_cnt</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>States</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">33.33 </td>
+</tr><tr class="s0">
+<td>Transitions</td>
+<td class="rt">6</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="wht">
+<td>Sequences</td>
+<td class="rt">0</td>
+<td class="rt">0</td>
+<td></td>
+</tr></table><br clear=all>
+<b>State, Transition and Sequence Details for FSM :: col_cnt</b><hr>
+<table align=left>
+<tr>
+<th>states</th><th nowrap width=80>Covered</th></tr><tr class="uGreen">
+<td nowrap>'h0</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td nowrap>'h1</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>'h2</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th>transitions</th><th nowrap width=80>Covered</th></tr><tr class="uRed">
+<td nowrap>'h0->'h1</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>'h0->'h2</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>'h1->'h0</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>'h1->'h2</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>'h2->'h0</td>
+<td>Not&nbsp;Covered</td>
+</tr><tr class="uRed">
+<td nowrap>'h2->'h1</td>
+<td>Not&nbsp;Covered</td>
+</tr></table><br clear=all>
+<table align=left class="sml">
+<tr>
+<th>sequences</th><th nowrap width=80>Covered</th></tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod0.html" >top</a>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod0.html" >fault_sm</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s2">
+<td>Branches</td>
+<td></td>
+<td class="rt">24</td>
+<td class="rt">6</td>
+<td class="rt">25.00 </td>
+</tr><tr class="s3">
+<td>IF</td>
+<td class="rt">96</td>
+<td class="rt">3</td>
+<td class="rt">1</td>
+<td class="rt">33.33 </td>
+</tr><tr class="s5">
+<td>IF</td>
+<td class="rt">112</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">123</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s1">
+<td>IF</td>
+<td class="rt">147</td>
+<td class="rt">17</td>
+<td class="rt">2</td>
+<td class="rt">11.76 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+96             if (|local_fault_msg_det) begin
+               <font color = "red">-1-</font>  
+97                 seq_type = `LINK_FAULT_LOCAL;
+           <font color = "red">        ==></font>
+98             end
+99             else if (|remote_fault_msg_det) begin
+                    <font color = "red">-2-</font>  
+100                seq_type = `LINK_FAULT_REMOTE;
+           <font color = "red">        ==></font>
+101            end
+102            else begin
+103                seq_type = `LINK_FAULT_OK;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+112            if (|remote_fault_msg_det) begin
+               <font color = "red">-1-</font>  
+113                seq_add = remote_fault_msg_det[1] + remote_fault_msg_det[0];
+           <font color = "red">        ==></font>
+114            end
+115            else begin
+116                seq_add = local_fault_msg_det[1] + local_fault_msg_det[0];
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+123            if (reset_xgmii_rx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+124        
+125        
+126                status_local_fault_crx <= 1'b0;
+           <font color = "green">        ==></font>
+127                status_remote_fault_crx <= 1'b0;
+128        
+129            end
+130            else begin
+131        
+132                //---
+133                // Status signal to generate local/remote fault interrupts
+134        
+135                status_local_fault_crx <= curr_state == SM_FAULT &&
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+147            if (reset_xgmii_rx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+148        
+149                curr_state <= SM_INIT;
+           <font color = "green">        ==></font>
+150        
+151                col_cnt <= 8'b0;
+152                last_seq_type <= `LINK_FAULT_OK;
+153                link_fault <= `LINK_FAULT_OK;
+154                seq_cnt <= 3'b0;
+155        
+156            end
+157            else begin
+158        
+159                case (curr_state)
+                   <font color = "red">-2-</font>  
+160        
+161                  SM_INIT:
+162                    begin
+163        
+164                        last_seq_type <= seq_type;
+165        
+166                        if (|fault_sequence) begin
+                           <font color = "red">-3-</font>  
+167        
+168                            // If a fault is detected, capture the type of
+169                            // fault and start column counter. We need 4 fault
+170                            // messages in 128 columns to accept the fault.
+171        
+172                            if (fault_sequence[0]) begin
+                               <font color = "red">-4-</font>  
+173                                col_cnt <= 8'd2;
+           <font color = "red">                        ==></font>
+174                            end
+175                            else begin
+176                                col_cnt <= 8'd1;
+           <font color = "red">                        ==></font>
+177                            end
+178                            seq_cnt <= {1'b0, seq_add};
+179                            curr_state <= SM_COUNT;
+180        
+181                        end
+182                        else begin
+183        
+184                            // If no faults, stay in INIT and clear counters
+185                            
+186                            col_cnt <= 8'b0;
+           <font color = "green">                    ==></font>
+187                            seq_cnt <= 3'b0;
+188        
+189                        end
+190                    end
+191        
+192                  SM_COUNT:
+193                    begin
+194        
+195                        col_cnt <= col_cnt + 8'd2;
+196                        seq_cnt <= seq_cnt + {1'b0, seq_add};
+197        
+198                        if (!fault_sequence[0] && col_cnt >= 8'd127) begin
+                           <font color = "red">-5-</font>  
+199        
+200                            // No new fault in lower lanes and almost
+201                            // reached the 128 columns count, abort fault. 
+202        
+203                            curr_state <= SM_INIT;
+           <font color = "red">                    ==></font>
+204        
+205                        end
+206                        else if (col_cnt > 8'd127) begin
+                                <font color = "red">-6-</font>  
+207        
+208                            // Reached the 128 columns count, abort fault.
+209                            
+210                            curr_state <= SM_INIT;
+           <font color = "red">                    ==></font>
+211        
+212                        end
+213                        else if (|fault_sequence) begin
+                                <font color = "red">-7-</font>  
+214        
+215                            // If fault type has changed, move to NEW_FAULT.
+216                            // If not, after detecting 4 fault messages move to
+217                            // FAULT state.
+218        
+219                            if (seq_type != last_seq_type) begin
+                               <font color = "red">-8-</font>  
+220                                curr_state <= SM_NEW_FAULT;
+           <font color = "red">                        ==></font>
+221                            end
+222                            else begin
+223                                if ((seq_cnt + {1'b0, seq_add}) > 3'd3) begin
+                                   <font color = "red">-9-</font>  
+224                                    col_cnt <= 8'b0;
+           <font color = "red">                            ==></font>
+225                                    link_fault <= seq_type;
+226                                    curr_state <= SM_FAULT;
+227                                end
+                                   MISSING_ELSE
+           <font color = "red">                        ==></font>
+228                            end
+229        
+230                        end
+                           MISSING_ELSE
+           <font color = "red">                ==></font>
+231                    end
+232        
+233                  SM_FAULT:
+234                    begin
+235        
+236                        col_cnt <= col_cnt + 8'd2;
+237                        
+238                        if (!fault_sequence[0] && col_cnt >= 8'd127) begin
+                           <font color = "red">-10-</font>  
+239        
+240                            // No new fault in lower lanes and almost
+241                            // reached the 128 columns count, abort fault. 
+242        
+243                            curr_state <= SM_INIT;
+           <font color = "red">                    ==></font>
+244        
+245                        end
+246                        else if (col_cnt > 8'd127) begin
+                                <font color = "red">-11-</font>  
+247        
+248                            // Reached the 128 columns count, abort fault.
+249        
+250                            curr_state <= SM_INIT;
+           <font color = "red">                    ==></font>
+251        
+252                        end
+253                        else if (|fault_sequence) begin
+                                <font color = "red">-12-</font>  
+254        
+255                            // Clear the column count each time we see a fault,
+256                            // if fault changes, go no next state.
+257        
+258                            col_cnt <= 8'd0;
+259        
+260                            if (seq_type != last_seq_type) begin
+                               <font color = "red">-13-</font>  
+261                                curr_state <= SM_NEW_FAULT;
+           <font color = "red">                        ==></font>
+262                            end
+                               MISSING_ELSE
+           <font color = "red">                    ==></font>
+263                        end
+                           MISSING_ELSE
+           <font color = "red">                ==></font>
+264        
+265                    end
+266        
+267                  SM_NEW_FAULT:
+268                    begin
+269        
+270                        // Capture new fault type. Start counters.
+271                        
+272                        col_cnt <= 8'b0;
+           <font color = "red">                ==></font>
+273                        last_seq_type <= seq_type;
+274        
+275                        seq_cnt <= {1'b0, seq_add};
+276                        curr_state <= SM_COUNT;
+277        
+278                    end
+                       MISSING_DEFAULT
+           <font color = "red">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_INIT </td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_INIT </td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>SM_INIT </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_COUNT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_COUNT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_COUNT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_COUNT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_COUNT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_COUNT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_FAULT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_FAULT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_FAULT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_FAULT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_FAULT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>SM_NEW_FAULT </td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>MISSING_DEFAULT</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod0.html" >top</a>
+<hr>
+<a name="Path"></a>
+Path Coverage for Module : <a href="mod0.html" >fault_sm</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s1"><td class="lf">Paths<td><td>23<td>3<td>13.04
+<tr class="s1"><td><td>85<td>6<td>1<td>16.67
+<tr class="s1"><td><td>145<td>17<td>2<td>11.76
+</table>
+<br><pre class="code">
+85          always @(/*AS*/local_fault_msg_det or remote_fault_msg_det) begin
+86          
+87              //---
+88              // Fault indication. Indicate remote or local fault
+89          
+90              fault_sequence = local_fault_msg_det | remote_fault_msg_det;
+91          
+92          
+93              //---
+94              // Sequence type, local, remote, or ok
+95          
+96              if (|local_fault_msg_det) begin
+                -1-
+97                  seq_type = `LINK_FAULT_LOCAL;
+98              end
+99              else if (|remote_fault_msg_det) begin
+                     -2-
+100                 seq_type = `LINK_FAULT_REMOTE;
+101             end
+102             else begin
+103                 seq_type = `LINK_FAULT_OK;
+104             end
+105         
+106         
+107             //---
+108             // Adder for number of faults, if detected in lower 4 lanes and
+109             // upper 4 lanes, add 2. That's because we process 64-bit at a time
+110             // instead of typically 32-bit xgmii.
+111         
+112             if (|remote_fault_msg_det) begin
+                -3-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="3" width="25">
+<tr><th>-1-<th>-2-<th>-3-<th>Status
+<tr class="uRed"><td>1<td>-<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>-<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>0<td>0<td>0<td class="lf">Covered
+<tr class="uRed"><td>0<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>1<td>0<td class="lf">Not Covered
+</table>
+<br><pre class="code">
+145         always @(posedge clk_xgmii_rx or negedge reset_xgmii_rx_n) begin
+146         
+147             if (reset_xgmii_rx_n == 1'b0) begin
+                -1-
+148         
+149                 curr_state &lt;= SM_INIT;
+150         
+151                 col_cnt &lt;= 8'b0;
+152                 last_seq_type &lt;= `LINK_FAULT_OK;
+153                 link_fault &lt;= `LINK_FAULT_OK;
+154                 seq_cnt &lt;= 3'b0;
+155         
+156             end
+157             else begin
+158         
+159                 case (curr_state)
+                    -2-
+160         
+161                   SM_INIT:
+162                     begin
+163         
+164                         last_seq_type &lt;= seq_type;
+165         
+166                         if (|fault_sequence) begin
+                            -3-
+167         
+168                             // If a fault is detected, capture the type of
+169                             // fault and start column counter. We need 4 fault
+170                             // messages in 128 columns to accept the fault.
+171         
+172                             if (fault_sequence[0]) begin
+                                -4-
+173                                 col_cnt &lt;= 8'd2;
+174                             end
+175                             else begin
+176                                 col_cnt &lt;= 8'd1;
+177                             end
+178                             seq_cnt &lt;= {1'b0, seq_add};
+179                             curr_state &lt;= SM_COUNT;
+180         
+181                         end
+182                         else begin
+183         
+184                             // If no faults, stay in INIT and clear counters
+185                             
+186                             col_cnt &lt;= 8'b0;
+187                             seq_cnt &lt;= 3'b0;
+188         
+189                         end
+190                     end
+191         
+192                   SM_COUNT:
+193                     begin
+194         
+195                         col_cnt &lt;= col_cnt + 8'd2;
+196                         seq_cnt &lt;= seq_cnt + {1'b0, seq_add};
+197         
+198                         if (!fault_sequence[0] &amp;&amp; col_cnt &gt;= 8'd127) begin
+                            -5-
+199         
+200                             // No new fault in lower lanes and almost
+201                             // reached the 128 columns count, abort fault. 
+202         
+203                             curr_state &lt;= SM_INIT;
+204         
+205                         end
+206                         else if (col_cnt &gt; 8'd127) begin
+                                 -6-
+207         
+208                             // Reached the 128 columns count, abort fault.
+209                             
+210                             curr_state &lt;= SM_INIT;
+211         
+212                         end
+213                         else if (|fault_sequence) begin
+                                 -7-
+214         
+215                             // If fault type has changed, move to NEW_FAULT.
+216                             // If not, after detecting 4 fault messages move to
+217                             // FAULT state.
+218         
+219                             if (seq_type != last_seq_type) begin
+                                -8-
+220                                 curr_state &lt;= SM_NEW_FAULT;
+221                             end
+222                             else begin
+223                                 if ((seq_cnt + {1'b0, seq_add}) &gt; 3'd3) begin
+                                    -9-
+224                                     col_cnt &lt;= 8'b0;
+225                                     link_fault &lt;= seq_type;
+226                                     curr_state &lt;= SM_FAULT;
+227                                 end
+228                             end
+229         
+230                         end
+231                     end
+232         
+233                   SM_FAULT:
+234                     begin
+235         
+236                         col_cnt &lt;= col_cnt + 8'd2;
+237                         
+238                         if (!fault_sequence[0] &amp;&amp; col_cnt &gt;= 8'd127) begin
+                            -10-
+239         
+240                             // No new fault in lower lanes and almost
+241                             // reached the 128 columns count, abort fault. 
+242         
+243                             curr_state &lt;= SM_INIT;
+244         
+245                         end
+246                         else if (col_cnt &gt; 8'd127) begin
+                                 -11-
+247         
+248                             // Reached the 128 columns count, abort fault.
+249         
+250                             curr_state &lt;= SM_INIT;
+251         
+252                         end
+253                         else if (|fault_sequence) begin
+                                 -12-
+254         
+255                             // Clear the column count each time we see a fault,
+256                             // if fault changes, go no next state.
+257         
+258                             col_cnt &lt;= 8'd0;
+259         
+260                             if (seq_type != last_seq_type) begin
+                                -13-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="13" width="25">
+<tr><th>-1-<th>-2-<th>-3-<th>-4-<th>-5-<th>-6-<th>-7-<th>-8-<th>-9-<th>-10-<th>-11-<th>-12-<th>-13-<th>Status
+<tr class="uRed"><td>0<td>MISSING_DEFAULT<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uGreen"><td>0<td>SM_INIT<td>0<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Covered
+<tr class="uRed"><td>0<td>SM_INIT<td>1<td>1<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_INIT<td>1<td>0<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_COUNT<td>-<td>-<td>0<td>1<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_COUNT<td>-<td>-<td>0<td>0<td>0<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_COUNT<td>-<td>-<td>0<td>0<td>1<td>1<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_COUNT<td>-<td>-<td>0<td>0<td>1<td>0<td>0<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_COUNT<td>-<td>-<td>0<td>0<td>1<td>0<td>1<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_COUNT<td>-<td>-<td>1<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_FAULT<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>0<td>1<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_FAULT<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>0<td>0<td>0<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_FAULT<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>0<td>0<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_FAULT<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>0<td>0<td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_FAULT<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>1<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>SM_NEW_FAULT<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+Go to <a href="mod0.html" >top</a>
+<hr>
+<a name="inst_tag_0"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_0" >tb.dut.fault_sm0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s1 cl rt"> 13.69</td>
+<td class="s3 cl rt"><a href="mod0.html#Line" > 39.29</a></td>
+<td class="s0 cl rt"><a href="mod0.html#Cond" >  0.00</a></td>
+<td class="s0 cl rt"><a href="mod0.html#Toggle" >  4.84</a></td>
+<td class="s0 cl rt"><a href="mod0.html#FSM" >  0.00</a></td>
+<td class="s2 cl rt"><a href="mod0.html#Branch" > 25.00</a></td>
+<td class="s1 cl rt"><a href="mod0.html#Path" > 13.04</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s1 cl rt"> 13.69</td>
+<td class="s3 cl rt"> 39.29</td>
+<td class="s0 cl rt">  0.00</td>
+<td class="s0 cl rt">  4.84</td>
+<td class="s0 cl rt">  0.00</td>
+<td class="s2 cl rt"> 25.00</td>
+<td class="s1 cl rt"> 13.04</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s1 cl rt"> 13.69</td>
+<td class="s3 cl rt"> 39.29</td>
+<td class="s0 cl rt">  0.00</td>
+<td class="s0 cl rt">  4.84</td>
+<td class="s0 cl rt">  0.00</td>
+<td class="s2 cl rt"> 25.00</td>
+<td class="s1 cl rt"> 13.04</td>
+<td><a href="mod0.html" >fault_sm</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 83.43</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.43</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod22.html#inst_tag_43" >dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

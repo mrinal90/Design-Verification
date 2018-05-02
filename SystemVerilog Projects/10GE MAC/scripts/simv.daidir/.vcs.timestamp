@@ -1,0 +1,150 @@
+10       
+0 defines.v
+0 /usr/synopsys/vcs-mx_L-2016.06-SP1//etc/systemverilog/defines.v
+0 CRC32_D64.v
+0 /usr/synopsys/vcs-mx_L-2016.06-SP1//etc/systemverilog/CRC32_D64.v
+0 CRC32_D8.v
+0 /usr/synopsys/vcs-mx_L-2016.06-SP1//etc/systemverilog/CRC32_D8.v
+0 utils.v
+0 /usr/synopsys/vcs-mx_L-2016.06-SP1//etc/systemverilog/utils.v
+0 timescale.v
+0 /usr/synopsys/vcs-mx_L-2016.06-SP1//etc/systemverilog/timescale.v
+59
++incdir+../rtl/include
++ntb_random_seed_automatic
++vcs+lic+wait
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/synopsys/vcs-mx_L-2016.06-SP1/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libvirsim.so /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/liberrorinf.so /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libsnpsmalloc.so
+-Mout=simv
+-Msaverestoreobj=/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/synopsys/vcs-mx_L-2016.06-SP1/include
+-Xvcs_run_simv=1
+-cm
+-cm
+-cm_dir
+-cm_log
+-full64
+-gen_obj
+-l
+-lca
+-override_timescale=1ps/1ps
+-picarchive
+-sverilog
+../rtl/verilog/fault_sm.v
+../rtl/verilog/generic_fifo.v
+../rtl/verilog/generic_fifo_ctrl.v
+../rtl/verilog/generic_mem_medium.v
+../rtl/verilog/generic_mem_small.v
+../rtl/verilog/meta_sync.v
+../rtl/verilog/meta_sync_single.v
+../rtl/verilog/rx_data_fifo.v
+../rtl/verilog/rx_dequeue.v
+../rtl/verilog/rx_enqueue.v
+../rtl/verilog/rx_hold_fifo.v
+../rtl/verilog/sync_clk_core.v
+../rtl/verilog/sync_clk_wb.v
+../rtl/verilog/sync_clk_xgmii_tx.v
+../rtl/verilog/tx_data_fifo.v
+../rtl/verilog/tx_dequeue.v
+../rtl/verilog/tx_enqueue.v
+../rtl/verilog/tx_hold_fifo.v
+../rtl/verilog/wishbone_if.v
+../rtl/verilog/xge_mac.v
+../testbench/verilog/testbench.sv
+../testcases/loopback/testcase.sv
+../testcases/loopback/vcs.log
+./COVERAGE
+./coverage.log
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/bin/vcs1
+line+cond+branch+fsm+tgl
+path
+35
+sysc_uni_pwd=/home/sf100212/SV_Project/scripts
+XTERM_VERSION=XTerm(215)
+XTERM_SHELL=/bin/bash
+XACTSOC_PATH=/mentor/xactPack-2014.4/sierra/bin
+VMR_MODE_FLAG=64
+VERA_HOME=/usr/synopsys/vera_I-2014.03-2/vera_vI-2014.03-2_linux/
+VC_STATIC_HOME=/usr/synopsys/vc_L-2016.06-SP1/
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_LOG_FILE=../testcases/loopback/vcs.log
+VCS_LCAMSG_PRINT_OFF=1
+VCS_HOME=/usr/synopsys/vcs-mx_L-2016.06-SP1/
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64
+SYNPLIFYPRO_LICENSE_TYPE=synplifypremierdp
+SYNOPSYS_TMAX=/usr/synopsys/syn_L-2016.03-SP4-1
+SYNOPSYS=/usr/synopsys/syn_L-2016.03-SP4-1
+SSH_TTY=/dev/pts/21
+SSH_CONNECTION=10.20.100.116 49983 10.20.250.8 22
+SSH_CLIENT=10.20.100.116 49983 22
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SNPS_VCS_RH5_SHLIB_RELOC=1
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+OVA_UUM=0
+MGLS_LICENSE_FILE=27020@StudentLicenseServer.ucsc-extension.edu
+MGC_HOME=/mentor/aoi_cal_2016.3_28.17/
+LESSOPEN=|/usr/bin/lesspipe.sh %s
+LC_ALL=C
+INPUTRC=/etc/inputrc
+G_BROKEN_FILENAMES=1
+CVS_RSH=ssh
+0
+35
+1518209270 /home/sf100212/SV_Project/testbench/verilog/coverage.sv
+1519857645 /home/sf100212/SV_Project/testbench/verilog/scoreboard.sv
+1519857060 /home/sf100212/SV_Project/testbench/verilog/monitor.sv
+1521066621 /home/sf100212/SV_Project/testbench/verilog/driver.sv
+1519854996 /home/sf100212/SV_Project/testbench/verilog/packet.sv
+1519855168 /home/sf100212/SV_Project/testbench/verilog/env.sv
+1519855848 /home/sf100212/SV_Project/testbench/verilog/xge_interface.sv
+1516920784 ../rtl/include/timescale.v
+1516920784 ../rtl/include/utils.v
+1516920784 ../rtl/include/CRC32_D8.v
+1516920784 ../rtl/include/CRC32_D64.v
+1516920784 ../rtl/include/defines.v
+1519855913 ../testcases/loopback/testcase.sv
+1519686130 ../testbench/verilog/testbench.sv
+1516920784 ../rtl/verilog/xge_mac.v
+1516920785 ../rtl/verilog/wishbone_if.v
+1516920785 ../rtl/verilog/tx_hold_fifo.v
+1516920785 ../rtl/verilog/tx_enqueue.v
+1516920784 ../rtl/verilog/tx_dequeue.v
+1516920784 ../rtl/verilog/tx_data_fifo.v
+1516920784 ../rtl/verilog/sync_clk_xgmii_tx.v
+1516920785 ../rtl/verilog/sync_clk_wb.v
+1516920784 ../rtl/verilog/sync_clk_core.v
+1516920785 ../rtl/verilog/rx_hold_fifo.v
+1516920784 ../rtl/verilog/rx_enqueue.v
+1516920785 ../rtl/verilog/rx_dequeue.v
+1516920784 ../rtl/verilog/rx_data_fifo.v
+1516920785 ../rtl/verilog/meta_sync.v
+1516920784 ../rtl/verilog/meta_sync_single.v
+1516920784 ../rtl/verilog/generic_mem_small.v
+1516920784 ../rtl/verilog/generic_mem_medium.v
+1516920785 ../rtl/verilog/generic_fifo.v
+1516920784 ../rtl/verilog/generic_fifo_ctrl.v
+1516920784 ../rtl/verilog/fault_sm.v
+1472184446 /usr/synopsys/vcs-mx_L-2016.06-SP1//include/cm_vcsd.tab
+4
+0 
+1472185075 /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libvirsim.so
+1472184612 /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/liberrorinf.so
+1472184591 /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libsnpsmalloc.so
+1522705343 simv.daidir

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE cov SYSTEM "ucdb_srcinfo.dtd">
+  <srcinfo name="/home/sf100212/SV_Project/testbench/verilog"  >
+    <ucapi_version  major_ver="13"  minor_ver="1"  patch_str="L-2016.06-SP1"  />
+      <fileinfo name="../../rtl/verilog/fault_sm.v"  id="0"  />
+      <fileinfo name="../../rtl/include/defines.v"  id="1"  />
+      <fileinfo name="../../rtl/verilog/generic_fifo_ctrl.v"  id="2"  />
+      <fileinfo name="../../rtl/verilog/generic_fifo.v"  id="3"  />
+      <fileinfo name="../../rtl/verilog/generic_mem_medium.v"  id="4"  />
+      <fileinfo name="../../rtl/verilog/generic_mem_small.v"  id="5"  />
+      <fileinfo name="../../rtl/verilog/meta_sync_single.v"  id="6"  />
+      <fileinfo name="../../rtl/verilog/meta_sync.v"  id="7"  />
+      <fileinfo name="../../rtl/verilog/rx_data_fifo.v"  id="8"  />
+      <fileinfo name="../../rtl/verilog/rx_dequeue.v"  id="9"  />
+      <fileinfo name="../../rtl/verilog/rx_enqueue.v"  id="10"  />
+      <fileinfo name="../../rtl/include/CRC32_D64.v"  id="11"  />
+      <fileinfo name="../../rtl/include/CRC32_D8.v"  id="12"  />
+      <fileinfo name="../../rtl/include/utils.v"  id="13"  />
+      <fileinfo name="../../rtl/verilog/rx_hold_fifo.v"  id="14"  />
+      <fileinfo name="../../rtl/verilog/sync_clk_core.v"  id="15"  />
+      <fileinfo name="../../rtl/verilog/sync_clk_wb.v"  id="16"  />
+      <fileinfo name="../../rtl/verilog/sync_clk_xgmii_tx.v"  id="17"  />
+      <fileinfo name="../../rtl/verilog/tx_data_fifo.v"  id="18"  />
+      <fileinfo name="../../rtl/verilog/tx_dequeue.v"  id="19"  />
+      <fileinfo name="../../rtl/verilog/tx_enqueue.v"  id="20"  />
+      <fileinfo name="../../rtl/verilog/tx_hold_fifo.v"  id="21"  />
+      <fileinfo name="../../rtl/verilog/wishbone_if.v"  id="22"  />
+      <fileinfo name="../../rtl/verilog/xge_mac.v"  id="23"  />
+      <fileinfo name="../../testbench/verilog/testbench.sv"  id="24"  />
+      <fileinfo name="../../rtl/include/timescale.v"  id="25"  />
+      <fileinfo name="/home/sf100212/SV_Project/testcases/oversize_packet/testcase6.sv"  id="26"  />
+      <fileinfo name="/home/sf100212/SV_Project/testbench/verilog/xge_interface.sv"  id="27"  />
+      <fileinfo name="/home/sf100212/SV_Project/testbench/verilog/env.sv"  id="28"  />
+      <fileinfo name="/home/sf100212/SV_Project/testbench/verilog/packet.sv"  id="29"  />
+      <fileinfo name="/home/sf100212/SV_Project/testbench/verilog/driver.sv"  id="30"  />
+      <fileinfo name="/home/sf100212/SV_Project/testbench/verilog/monitor.sv"  id="31"  />
+      <fileinfo name="/home/sf100212/SV_Project/testbench/verilog/scoreboard.sv"  id="32"  />
+    </srcinfo>

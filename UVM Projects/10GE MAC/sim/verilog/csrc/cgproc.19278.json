@@ -1,0 +1,175 @@
+{
+    "Modules": {
+        "...MASTER...": {},
+        "fault_sm": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "vcs_paramclassrepository": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "meta_sync_single_0001": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "_vcs_unit__2861983952": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "_vcs_msglog": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "tx_data_fifo": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 12
+        },
+        "uvm_pkg": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "tx_hold_fifo": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "uvm_custom_install_recording": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 12
+        },
+        "generic_fifo_ctrl_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 12
+        },
+        "meta_sync_single_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 12
+        },
+        "sync_clk_wb": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "xge_interface": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "sync_clk_xgmii_tx": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "wishbone_if": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "xge_mac": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        },
+        "testcase": {
+            "Compiled": "Yes",
+            "Compiled Times": 9
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.11/_19278_archive_1.a",
+            "objects": [
+                [
+                    "ymzz2_d.o",
+                    186942
+                ],
+                [
+                    "PATxq_d.o",
+                    2946328
+                ],
+                [
+                    "amcQwB.o",
+                    350715
+                ]
+            ],
+            "size": 3483985
+        }
+    ],
+    "reusePaths": {
+        "amcQw_d": {
+            "icPath": "csrc"
+        },
+        "nhiwz_d": {
+            "icPath": "csrc"
+        },
+        "K4hma_d": {
+            "icPath": "csrc"
+        },
+        "s4ZT9_d": {
+            "icPath": "csrc"
+        },
+        "zr7M1_d": {
+            "icPath": "csrc"
+        },
+        "NY7Gb_d": {
+            "icPath": "csrc"
+        },
+        "hEeZs_d": {
+            "icPath": "csrc"
+        },
+        "zk6Si_d": {
+            "icPath": "csrc"
+        },
+        "iYS5S_d": {
+            "icPath": "csrc"
+        },
+        "Z0GYV_d": {
+            "icPath": "csrc"
+        },
+        "srKWe_d": {
+            "icPath": "csrc"
+        },
+        "reYIK_d": {
+            "icPath": "csrc"
+        },
+        "zQBzV_d": {
+            "icPath": "csrc"
+        },
+        "hgiba_d": {
+            "icPath": "csrc"
+        },
+        "UjwLm_d": {
+            "icPath": "csrc"
+        },
+        "rpjqj_d": {
+            "icPath": "csrc"
+        },
+        "GJcQF_d": {
+            "icPath": "csrc"
+        },
+        "g7hgQ_d": {
+            "icPath": "csrc"
+        }
+    },
+    "CompUnits": {
+        "ymzz2_d": {
+            "mod": "xge_mac",
+            "out": "ymzz2_d.o",
+            "bytes": 186942,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.11/_19278_archive_1.a"
+        },
+        "PATxq_d": {
+            "mod": "testcase",
+            "out": "PATxq_d.o",
+            "bytes": 2946328,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.11/_19278_archive_1.a"
+        }
+    }
+}

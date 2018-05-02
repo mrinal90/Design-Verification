@@ -1,0 +1,286 @@
+Command: vcs -full64 +vcs+lic+wait -sverilog -R -override_timescale=1ps/1ps +ntb_random_seed_automatic \
+-cm line+cond+branch+fsm+tgl -cm path -lca -cm_log ./coverage.log -cm_dir ./COVERAGE \
+../rtl/verilog/fault_sm.v ../rtl/verilog/generic_fifo_ctrl.v ../rtl/verilog/generic_fifo.v \
+../rtl/verilog/generic_mem_medium.v ../rtl/verilog/generic_mem_small.v ../rtl/verilog/meta_sync_single.v \
+../rtl/verilog/meta_sync.v ../rtl/verilog/rx_data_fifo.v ../rtl/verilog/rx_dequeue.v \
+../rtl/verilog/rx_enqueue.v ../rtl/verilog/rx_hold_fifo.v ../rtl/verilog/sync_clk_core.v \
+../rtl/verilog/sync_clk_wb.v ../rtl/verilog/sync_clk_xgmii_tx.v ../rtl/verilog/tx_data_fifo.v \
+../rtl/verilog/tx_dequeue.v ../rtl/verilog/tx_enqueue.v ../rtl/verilog/tx_hold_fifo.v \
+../rtl/verilog/wishbone_if.v ../rtl/verilog/xge_mac.v +incdir+../rtl/include ../testbench/verilog/testbench.sv \
+../testcases/loopback/testcase.sv -l ../testcases/loopback/vcs.log
+                         Chronologic VCS (TM)
+       Version L-2016.06-SP1_Full64 -- Mon Apr  2 14:42:21 2018
+               Copyright (c) 1991-2016 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+
+Warning-[LCA_FEATURES_ENABLED] Usage warning
+  LCA features enabled by '-lca' argument on the command line.  For more 
+  information regarding list of LCA features please refer to Chapter "LCA 
+  features" in the VCS/VCS-MX Release Notes
+
+Parsing design file '../rtl/verilog/fault_sm.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/fault_sm.v'.
+Parsing design file '../rtl/verilog/generic_fifo_ctrl.v'
+Parsing design file '../rtl/verilog/generic_fifo.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/generic_fifo.v'.
+Parsing design file '../rtl/verilog/generic_mem_medium.v'
+Parsing design file '../rtl/verilog/generic_mem_small.v'
+Parsing design file '../rtl/verilog/meta_sync_single.v'
+Parsing design file '../rtl/verilog/meta_sync.v'
+Parsing design file '../rtl/verilog/rx_data_fifo.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/rx_data_fifo.v'.
+Parsing design file '../rtl/verilog/rx_dequeue.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/rx_dequeue.v'.
+Parsing design file '../rtl/verilog/rx_enqueue.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/rx_enqueue.v'.
+Parsing included file '../rtl/include/CRC32_D64.v'.
+Back to file '../rtl/verilog/rx_enqueue.v'.
+Parsing included file '../rtl/include/CRC32_D8.v'.
+Back to file '../rtl/verilog/rx_enqueue.v'.
+Parsing included file '../rtl/include/utils.v'.
+Back to file '../rtl/verilog/rx_enqueue.v'.
+Parsing design file '../rtl/verilog/rx_hold_fifo.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/rx_hold_fifo.v'.
+Parsing design file '../rtl/verilog/sync_clk_core.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/sync_clk_core.v'.
+Parsing design file '../rtl/verilog/sync_clk_wb.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/sync_clk_wb.v'.
+Parsing design file '../rtl/verilog/sync_clk_xgmii_tx.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/sync_clk_xgmii_tx.v'.
+Parsing design file '../rtl/verilog/tx_data_fifo.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/tx_data_fifo.v'.
+Parsing design file '../rtl/verilog/tx_dequeue.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/tx_dequeue.v'.
+Parsing included file '../rtl/include/CRC32_D64.v'.
+Back to file '../rtl/verilog/tx_dequeue.v'.
+Parsing included file '../rtl/include/CRC32_D8.v'.
+Back to file '../rtl/verilog/tx_dequeue.v'.
+Parsing included file '../rtl/include/utils.v'.
+Back to file '../rtl/verilog/tx_dequeue.v'.
+Parsing design file '../rtl/verilog/tx_enqueue.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/tx_enqueue.v'.
+Parsing included file '../rtl/include/CRC32_D64.v'.
+Back to file '../rtl/verilog/tx_enqueue.v'.
+Parsing included file '../rtl/include/CRC32_D8.v'.
+Back to file '../rtl/verilog/tx_enqueue.v'.
+Parsing included file '../rtl/include/utils.v'.
+Back to file '../rtl/verilog/tx_enqueue.v'.
+Parsing design file '../rtl/verilog/tx_hold_fifo.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/tx_hold_fifo.v'.
+Parsing design file '../rtl/verilog/wishbone_if.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/wishbone_if.v'.
+Parsing design file '../rtl/verilog/xge_mac.v'
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../rtl/verilog/xge_mac.v'.
+Parsing design file '../testbench/verilog/testbench.sv'
+Parsing included file '../rtl/include/timescale.v'.
+Back to file '../testbench/verilog/testbench.sv'.
+Parsing included file '../rtl/include/defines.v'.
+Back to file '../testbench/verilog/testbench.sv'.
+Parsing design file '../testcases/loopback/testcase.sv'
+Parsing included file '../rtl/include/timescale.v'.
+Back to file '../testcases/loopback/testcase.sv'.
+Parsing included file '/home/sf100212/SV_Project/testbench/verilog/xge_interface.sv'.
+Parsing included file '../rtl/include/timescale.v'.
+Back to file '/home/sf100212/SV_Project/testbench/verilog/xge_interface.sv'.
+Back to file '../testcases/loopback/testcase.sv'.
+Parsing included file '/home/sf100212/SV_Project/testbench/verilog/env.sv'.
+Parsing included file '/home/sf100212/SV_Project/testbench/verilog/packet.sv'.
+Back to file '/home/sf100212/SV_Project/testbench/verilog/env.sv'.
+Parsing included file '/home/sf100212/SV_Project/testbench/verilog/driver.sv'.
+Back to file '/home/sf100212/SV_Project/testbench/verilog/env.sv'.
+Parsing included file '/home/sf100212/SV_Project/testbench/verilog/monitor.sv'.
+Back to file '/home/sf100212/SV_Project/testbench/verilog/env.sv'.
+Parsing included file '/home/sf100212/SV_Project/testbench/verilog/scoreboard.sv'.
+Parsing included file '/home/sf100212/SV_Project/testbench/verilog/coverage.sv'.
+Back to file '/home/sf100212/SV_Project/testbench/verilog/scoreboard.sv'.
+Back to file '/home/sf100212/SV_Project/testbench/verilog/env.sv'.
+Back to file '../testcases/loopback/testcase.sv'.
+Top Level Modules:
+       tb
+TimeScale is 1 ps / 1 ps
+VCS Coverage Metrics Release L-2016.06-SP1_Full64 Copyright (c) 1991-2016 by Synopsys Inc.
+
+Warning-[VCM-PCPI] Path Coverage performance impact
+  The switch "-cm path" can impact performance when enabled on entire design. 
+  Please enable path coverage for only selected modules or hierarchies using 
+  the -cm_hier <hier_config>. Please refer to VCS Coverage document for usage 
+  of "-cm_hier"
+
+Notice: Ports coerced to inout, use -notice for details
+Starting vcs inline pass...
+12 unique modules to generate
+recompiling module fault_sm
+recompiling module generic_fifo_ctrl
+recompiling module meta_sync_single
+recompiling module sync_clk_wb
+recompiling module sync_clk_xgmii_tx
+recompiling module tx_data_fifo
+recompiling module tx_hold_fifo
+recompiling module wishbone_if
+recompiling module xge_mac
+recompiling module tb
+recompiling module xge_interface
+recompiling module testcase
+All of 12 modules done
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod -x ../simv; fi
+g++  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ \
+-Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -rdynamic   objs/amcQw_d.o   _8605_archive_1.so \
+SIM_l.o       rmapats_mop.o rmapats.o rmar.o  rmar_llvm_0_1.o rmar_llvm_0_0.o    \
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libzerosoft_rt_stubs.so /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libvirsim.so \
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/liberrorinf.so /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libsnpsmalloc.so \
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libvcsnew.so /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libsimprofile.so \
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libreader_common.so /usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libBA.a \
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libuclinative.so   -Wl,-whole-archive \
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/libvcsucli.so -Wl,-no-whole-archive \
+/usr/synopsys/vcs-mx_L-2016.06-SP1/linux64/lib/vcs_save_restore_new.o -ldl  -lc -lm \
+-lpthread -ldl 
+../simv up to date
+Command: ./simv +vcs+lic+wait +ntb_random_seed_automatic -cm_runsilent -cm line+cond+branch+fsm+tgl -cm_runsilent -cm path -lca -cm_runsilent -cm_runsilent -cm_dir ./COVERAGE -a ../testcases/loopback/vcs.log
+Chronologic VCS simulator copyright 1991-2016
+Contains Synopsys proprietary information.
+Compiler version L-2016.06-SP1_Full64; Runtime version L-2016.06-SP1_Full64;  Apr  2 14:42 2018
+NOTE: automatic random seed used: 119814761
+time = 50000: Sending packet ... 
+============================PACKET # 1======================
+time = 50000: Collecting packet ... 
+time = 50000: Comparing packet ... 
+time = 124800:  Packet  0 SENT: DST ADDR =1892ce50eb28, SRC ADDR =a8ca170117d4, ETHER TYPE =86dd, PAYLOAD SIZE =00000052
+ 
+time = 124800:  Packet SENT: payload=7b1cfae6_d74cd242
+time = 124800:  Packet SENT: payload=7cf18a74_376a0f91
+time = 124800:  Packet SENT: payload=bc37138d_c667d104
+time = 124800:  Packet SENT: payload=459ffec5_1bf40e3c
+time = 124800:  Packet SENT: payload=9b9ecd3a_b23bb298
+time = 124800:  Packet SENT: payload=8ddd2b82_80976d79
+time = 124800:  Packet SENT: payload=a9412a04_2a6083f6
+time = 124800:  Packet SENT: payload=a9c7e300_913c0b3c
+time = 124800:  Packet SENT: payload=0c68fea8_f75b92dd
+time = 124800:  Packet SENT: payload=3736fa65_967aecdd
+time = 124800:  Packet SENT: payload=144f0000_00000000
+============================PACKET # 2======================
+time = 259200:  Packet  0 SENT: DST ADDR =6bff64567ccc, SRC ADDR =d1f70c36831c, ETHER TYPE =0806, PAYLOAD SIZE =0000003a
+ 
+time = 259200:  Packet SENT: payload=3f6deb51_473a2921
+time = 259200:  Packet SENT: payload=c44f1cea_c285d8c2
+time = 259200:  Packet SENT: payload=84c191ac_f7c6e64e
+time = 259200:  Packet SENT: payload=eb3f6cd3_a307dee3
+time = 259200:  Packet SENT: payload=517d448f_e61f67d3
+time = 259200:  Packet SENT: payload=14219714_8b892faf
+time = 259200:  Packet SENT: payload=b31cc72a_afe61f1b
+time = 259200:  Packet SENT: payload=f0410000_00000000
+============================PACKET # 3======================
+============================PACKET RECEIVED======================
+time = 400000:  Packet  0 RECEIVE: DST ADDR =1892ce50eb28, SRC ADDR =a8ca170117d4, ETHER TYPE =86dd, PAYLOAD SIZE =00000052
+ 
+time = 400000:  Packet RECEIVE: payload=7b1cfae6_d74cd242
+time = 400000:  Packet RECEIVE: payload=7cf18a74_376a0f91
+time = 400000:  Packet RECEIVE: payload=bc37138d_c667d104
+time = 400000:  Packet RECEIVE: payload=459ffec5_1bf40e3c
+time = 400000:  Packet RECEIVE: payload=9b9ecd3a_b23bb298
+time = 400000:  Packet RECEIVE: payload=8ddd2b82_80976d79
+time = 400000:  Packet RECEIVE: payload=a9412a04_2a6083f6
+time = 400000:  Packet RECEIVE: payload=a9c7e300_913c0b3c
+time = 400000:  Packet RECEIVE: payload=0c68fea8_f75b92dd
+time = 400000:  Packet RECEIVE: payload=3736fa65_967aecdd
+time = 400000:  Packet RECEIVE: payload=144f0000_00000000
+time=400000 ------------SCOREBOARD: PACKET VERIFIED-------
+
+time = 406400:  Packet  0 SENT: DST ADDR =40c6cdd6014a, SRC ADDR =bb09f1d0423a, ETHER TYPE =0806, PAYLOAD SIZE =0000004a
+ 
+time = 406400:  Packet SENT: payload=78f5bb78_80a24eb7
+time = 406400:  Packet SENT: payload=95d95d6c_3bdfeafd
+time = 406400:  Packet SENT: payload=eb521786_be06ed41
+time = 406400:  Packet SENT: payload=0a418281_aa4ba247
+time = 406400:  Packet SENT: payload=ee753225_62feabd9
+time = 406400:  Packet SENT: payload=d5cbd10b_c2fdf613
+time = 406400:  Packet SENT: payload=f8cbce1c_17bd9c07
+time = 406400:  Packet SENT: payload=6809bab9_dea1173d
+time = 406400:  Packet SENT: payload=5b3570e5_6fbcb7d6
+time = 406400:  Packet SENT: payload=08e20000_00000000
+============================PACKET # 4======================
+============================PACKET RECEIVED======================
+time = 534400:  Packet  0 RECEIVE: DST ADDR =6bff64567ccc, SRC ADDR =d1f70c36831c, ETHER TYPE =0806, PAYLOAD SIZE =0000003a
+ 
+time = 534400:  Packet RECEIVE: payload=3f6deb51_473a2921
+time = 534400:  Packet RECEIVE: payload=c44f1cea_c285d8c2
+time = 534400:  Packet RECEIVE: payload=84c191ac_f7c6e64e
+time = 534400:  Packet RECEIVE: payload=eb3f6cd3_a307dee3
+time = 534400:  Packet RECEIVE: payload=517d448f_e61f67d3
+time = 534400:  Packet RECEIVE: payload=14219714_8b892faf
+time = 534400:  Packet RECEIVE: payload=b31cc72a_afe61f1b
+time = 534400:  Packet RECEIVE: payload=f0410000_00000000
+time=534400 ------------SCOREBOARD: PACKET VERIFIED-------
+
+time = 540800:  Packet  0 SENT: DST ADDR =dfe7177ef147, SRC ADDR =90bbc9acd9a5, ETHER TYPE =86dd, PAYLOAD SIZE =0000003a
+ 
+time = 540800:  Packet SENT: payload=10c1b405_36a60ca7
+time = 540800:  Packet SENT: payload=966a56d9_ec5f8705
+time = 540800:  Packet SENT: payload=a380da52_dbba3bc9
+time = 540800:  Packet SENT: payload=e5d3f8fa_aa80dd68
+time = 540800:  Packet SENT: payload=e7a1623d_869fa374
+time = 540800:  Packet SENT: payload=b3ff73a5_e04c1acd
+time = 540800:  Packet SENT: payload=714403b3_11b2d1cc
+time = 540800:  Packet SENT: payload=90400000_00000000
+============================PACKET RECEIVED======================
+time = 681600:  Packet  0 RECEIVE: DST ADDR =40c6cdd6014a, SRC ADDR =bb09f1d0423a, ETHER TYPE =0806, PAYLOAD SIZE =0000004a
+ 
+time = 681600:  Packet RECEIVE: payload=78f5bb78_80a24eb7
+time = 681600:  Packet RECEIVE: payload=95d95d6c_3bdfeafd
+time = 681600:  Packet RECEIVE: payload=eb521786_be06ed41
+time = 681600:  Packet RECEIVE: payload=0a418281_aa4ba247
+time = 681600:  Packet RECEIVE: payload=ee753225_62feabd9
+time = 681600:  Packet RECEIVE: payload=d5cbd10b_c2fdf613
+time = 681600:  Packet RECEIVE: payload=f8cbce1c_17bd9c07
+time = 681600:  Packet RECEIVE: payload=6809bab9_dea1173d
+time = 681600:  Packet RECEIVE: payload=5b3570e5_6fbcb7d6
+time = 681600:  Packet RECEIVE: payload=08e20000_00000000
+time=681600 ------------SCOREBOARD: PACKET VERIFIED-------
+
+============================PACKET RECEIVED======================
+time = 816000:  Packet  0 RECEIVE: DST ADDR =dfe7177ef147, SRC ADDR =90bbc9acd9a5, ETHER TYPE =86dd, PAYLOAD SIZE =0000003a
+ 
+time = 816000:  Packet RECEIVE: payload=10c1b405_36a60ca7
+time = 816000:  Packet RECEIVE: payload=966a56d9_ec5f8705
+time = 816000:  Packet RECEIVE: payload=a380da52_dbba3bc9
+time = 816000:  Packet RECEIVE: payload=e5d3f8fa_aa80dd68
+time = 816000:  Packet RECEIVE: payload=e7a1623d_869fa374
+time = 816000:  Packet RECEIVE: payload=b3ff73a5_e04c1acd
+time = 816000:  Packet RECEIVE: payload=714403b3_11b2d1cc
+time = 816000:  Packet RECEIVE: payload=90400000_00000000
+time=816000 ------------SCOREBOARD: PACKET VERIFIED-------
+
+$finish called from file "../testcases/loopback/testcase.sv", line 48.
+TESTCASE: ---------------------- PASSED -----------------------
+
+================================End of Display==================================
+$finish at simulation time              5050000
+
+---------------------------------------------------------------------------
+VCS Coverage Metrics: during simulation line, cond, FSM, branch, path, tgl was monitored
+---------------------------------------------------------------------------
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 5050000 ps
+CPU Time:      0.420 seconds;       Data structure size:   0.2Mb
+Mon Apr  2 14:42:23 2018
+CPU time: 1.004 seconds to compile + .289 seconds to elab + .095 seconds to link + .549 seconds in simulation

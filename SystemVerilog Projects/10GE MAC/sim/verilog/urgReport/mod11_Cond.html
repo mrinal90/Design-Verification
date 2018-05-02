@@ -1,0 +1,591 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Cond Coverage for Module : rx_enqueue</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_rx_enqueue" >rx_enqueue</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s5 cl rt"> 54.96</td>
+<td class="s7 cl rt"><a href="mod11_Line.html" > 76.09</a></td>
+<td class="s4 cl rt"><a href="mod11_Cond.html" > 45.45</a></td>
+<td class="s9 cl rt"><a href="mod11_Toggle.html" > 90.89</a></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod11_Branch.html" > 61.90</a></td>
+<td class="s0 cl rt"><a href="mod11_Path.html" >  0.48</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_enqueue.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_enqueue.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 54.96</td>
+<td class="s7 cl rt"><a href="mod11_Line.html" > 76.09</a></td>
+<td class="s4 cl rt"><a href="mod11_Cond.html" > 45.45</a></td>
+<td class="s9 cl rt"><a href="mod11_Toggle.html" > 90.89</a></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod11_Branch.html" > 61.90</a></td>
+<td class="s0 cl rt"><a href="mod11_Path.html" >  0.48</a></td>
+<td><a href="mod11_15.html" >tb.dut.rx_eq0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+Cond Coverage for Module : <a href="mod11.html" >rx_enqueue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s4"><td class="lf">Conditions<td>132<td>60<td>45.45
+<tr class="s4"><td class="lf">Logical<td>132<td>60<td>45.45
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       217
+ EXPRESSION ((xgmii_rxd[63:32] == {8'b1, 8'b0, 8'b0, 8'h9c}) &amp;&amp; (xgmii_rxc[7:4] == 4'b1))
+             -----------------------1-----------------------    ------------2-----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       221
+ EXPRESSION ((xgmii_rxd[31:0] == {8'b1, 8'b0, 8'b0, 8'h9c}) &amp;&amp; (xgmii_rxc[3:0] == 4'b1))
+             -----------------------1----------------------    ------------2-----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       225
+ EXPRESSION ((xgmii_rxd[63:32] == {8'd2, 8'b0, 8'b0, 8'h9c}) &amp;&amp; (xgmii_rxc[7:4] == 4'b1))
+             -----------------------1-----------------------    ------------2-----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       229
+ EXPRESSION ((xgmii_rxd[31:0] == {8'd2, 8'b0, 8'b0, 8'h9c}) &amp;&amp; (xgmii_rxc[3:0] == 4'b1))
+             -----------------------1----------------------    ------------2-----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       242
+ EXPRESSION ((xgmii_rxd[7:0] == 8'hfb) &amp;&amp; xgmii_rxc[0])
+             ------------1------------    ------2-----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       250
+ EXPRESSION ((xgmii_rxd[39:32] == 8'hfb) &amp;&amp; xgmii_rxc[4])
+             -------------1-------------    ------2-----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       327
+ EXPRESSION (coding_error || next_coding_error)
+             ------1-----    --------2--------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       344
+ EXPRESSION (crc_done &amp;&amp; ((!crc_good)))
+             ----1---    ------2------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       419
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[7:0] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[0]) )
+                ------------------------------1------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       419
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[7:0] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[0])
+                 -----------------1----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       420
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[15:8] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[1]) )
+                -------------------------------1------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       420
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[15:8] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[1])
+                 -----------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       421
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[23:16] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[2]) )
+                -------------------------------1-------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       421
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[23:16] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[2])
+                 ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       422
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[31:24] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[3]) )
+                -------------------------------1-------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       422
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[31:24] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[3])
+                 ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       423
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[39:32] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[4]) )
+                -------------------------------1-------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       423
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[39:32] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[4])
+                 ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       424
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[47:40] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[5]) )
+                -------------------------------1-------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       424
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[47:40] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[5])
+                 ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       425
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[55:48] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[6]) )
+                -------------------------------1-------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       425
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[55:48] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[6])
+                 ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       426
+ EXPRESSION ( ! ((xgxs_rxd_barrel_d1[63:56] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[7]) )
+                -------------------------------1-------------------------------
+</pre>
+<table class="ct">
+<col width="40">
+<tr><th>-1-<th>Status
+<tr class="uGreen"><td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       426
+ SUB-EXPRESSION ((xgxs_rxd_barrel_d1[63:56] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[7])
+                 ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       462
+ EXPRESSION 
+ Number  Term
+      1  (xgxs_rxd_barrel_d1[7:0] == 8'hfb) &amp;&amp; 
+      2  xgxs_rxc_barrel_d1[0] &amp;&amp; 
+      3  (xgxs_rxd_barrel_d1[15:8] == 8'h55) &amp;&amp; 
+      4  ((!xgxs_rxc_barrel_d1[1])) &amp;&amp; 
+      5  (xgxs_rxd_barrel_d1[23:16] == 8'h55) &amp;&amp; 
+      6  ((!xgxs_rxc_barrel_d1[2])) &amp;&amp; 
+      7  (xgxs_rxd_barrel_d1[31:24] == 8'h55) &amp;&amp; 
+      8  ((!xgxs_rxc_barrel_d1[3])) &amp;&amp; 
+      9  (xgxs_rxd_barrel_d1[39:32] == 8'h55) &amp;&amp; 
+     10  ((!xgxs_rxc_barrel_d1[4])) &amp;&amp; 
+     11  (xgxs_rxd_barrel_d1[47:40] == 8'h55) &amp;&amp; 
+     12  ((!xgxs_rxc_barrel_d1[5])) &amp;&amp; 
+     13  (xgxs_rxd_barrel_d1[55:48] == 8'h55) &amp;&amp; 
+     14  ((!xgxs_rxc_barrel_d1[6])) &amp;&amp; 
+     15  (xgxs_rxd_barrel_d1[63:56] == 8'hd5) &amp;&amp; 
+     16  ((!xgxs_rxc_barrel_d1[7])))
+</pre>
+<table class="ct">
+<col span="16" width="40">
+<tr><th>-1-<th>-2-<th>-3-<th>-4-<th>-5-<th>-6-<th>-7-<th>-8-<th>-9-<th>-10-<th>-11-<th>-12-<th>-13-<th>-14-<th>-15-<th>-16-<th>Status
+<tr class="uRed"><td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       484
+ EXPRESSION ((xgxs_rxd_barrel_d1[7:0] == 8'hfb) &amp;&amp; xgxs_rxc_barrel_d1[0] &amp;&amp; (xgxs_rxd_barrel_d1[63:56] == 8'hd5) &amp;&amp; ((!xgxs_rxc_barrel_d1[7])))
+             -----------------1----------------    ----------2----------    ------------------3-----------------    -------------4------------
+</pre>
+<table class="ct">
+<col span="4" width="40">
+<tr><th>-1-<th>-2-<th>-3-<th>-4-<th>Status
+<tr class="uRed"><td>0<td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       521
+ EXPRESSION ((curr_byte_cnt == 14'b0) &amp;&amp; (xgxs_rxd_barrel_d1[47:0] == 48'h010000c28001))
+             ------------1-----------    -----------------------2----------------------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       559
+ EXPRESSION ((xgxs_rxd_barrel[39:32] == 8'hfd) &amp;&amp; xgxs_rxc_barrel[4])
+             ----------------1----------------    ---------2--------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       572
+ EXPRESSION ((xgxs_rxd_barrel[31:24] == 8'hfd) &amp;&amp; xgxs_rxc_barrel[3])
+             ----------------1----------------    ---------2--------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       585
+ EXPRESSION ((xgxs_rxd_barrel[23:16] == 8'hfd) &amp;&amp; xgxs_rxc_barrel[2])
+             ----------------1----------------    ---------2--------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       598
+ EXPRESSION ((xgxs_rxd_barrel[15:8] == 8'hfd) &amp;&amp; xgxs_rxc_barrel[1])
+             ----------------1---------------    ---------2--------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       611
+ EXPRESSION ((xgxs_rxd_barrel[7:0] == 8'hfd) &amp;&amp; xgxs_rxc_barrel[0])
+             ---------------1---------------    ---------2--------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       626
+ EXPRESSION ((xgxs_rxd_barrel_d1[63:56] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[7])
+             ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       640
+ EXPRESSION ((xgxs_rxd_barrel_d1[55:48] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[6])
+             ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       654
+ EXPRESSION ((xgxs_rxd_barrel_d1[47:40] == 8'hfd) &amp;&amp; xgxs_rxc_barrel_d1[5])
+             ------------------1-----------------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       722
+ EXPRESSION (((!rxhfifo_ralmost_empty_d1)) || (pkt_pending &amp;&amp; ((!rxhfifo_rstatus[3'd6]))))
+             --------------1--------------    ---------------------2---------------------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       722
+ SUB-EXPRESSION (pkt_pending &amp;&amp; ((!rxhfifo_rstatus[3'd6])))
+                 -----1-----    -------------2------------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       726
+ EXPRESSION (rxhfifo_ren_d1 &amp;&amp; rxhfifo_rstatus[3'd7])
+             -------1------    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       734
+ EXPRESSION (rxhfifo_ren_d1 &amp;&amp; rxdfifo_wfull &amp;&amp; ((!next_drop_data)))
+             -------1------    ------2------    ---------3---------
+</pre>
+<table class="ct">
+<col span="3" width="40">
+<tr><th>-1-<th>-2-<th>-3-<th>Status
+<tr class="uRed"><td>0<td>1<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       747
+ EXPRESSION (rxhfifo_ren_d1 &amp;&amp; ((!next_drop_data)))
+             -------1------    ---------2---------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       751
+ EXPRESSION (crc_done &amp;&amp; ((!crc_good)))
+             ----1---    ------2------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

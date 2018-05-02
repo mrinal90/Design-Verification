@@ -1,0 +1,3967 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: generic_fifo_ctrl</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_generic_fifo_ctrl" >generic_fifo_ctrl</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 87.67</td>
+<td class="s10 cl rt"><a href="mod14.html#Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#Cond" > 66.67</a></td>
+<td class="s7 cl rt"><a href="mod14.html#Toggle" > 71.68</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#Path" >100.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/generic_fifo_ctrl.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/generic_fifo_ctrl.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 86.01</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_21_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_21_Cond" > 66.67</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_21_Toggle" > 63.39</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_21_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_21_Path" >100.00</a></td>
+<td><a href="mod14.html#inst_tag_21" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></td>
+</tr><tr>
+<td class="s8 cl rt"> 86.19</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_19_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_19_Cond" > 66.67</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_19_Toggle" > 64.29</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_19_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_19_Path" >100.00</a></td>
+<td><a href="mod14.html#inst_tag_19" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></td>
+</tr><tr>
+<td class="s8 cl rt"> 88.57</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_20_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_20_Cond" > 66.67</a></td>
+<td class="s7 cl rt"><a href="mod14.html#inst_tag_20_Toggle" > 76.16</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_20_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_20_Path" >100.00</a></td>
+<td><a href="mod14.html#inst_tag_20" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></td>
+</tr><tr>
+<td class="s8 cl rt"> 89.15</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_18_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_18_Cond" > 66.67</a></td>
+<td class="s7 cl rt"><a href="mod14.html#inst_tag_18_Toggle" > 79.07</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_18_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_18_Path" >100.00</a></td>
+<td><a href="mod14.html#inst_tag_18" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl ( parameter AWIDTH=7,RAM_DEPTH=128,EARLY_READ=1,CLOCK_CROSSING=1,ALMOST_EMPTY_THRESH,ALMOST_FULL_THRESH ) </a><br clear=all>
+Line Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s8 cl rt"> 89.15</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_18_Line" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s8 cl rt"> 88.57</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_20_Line" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>30<td>30<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>143<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>156<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>164<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>183<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>191<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>206<td>7<td>7<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>220<td>7<td>7<td>100.00
+</table>
+<pre class="code"><br clear=all>
+142                     begin
+143        1/1              if (!wrst_n) begin
+144        1/1                  wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145                         end
+146        1/1              else if (wen &amp;&amp; !wfull) begin
+147        1/1                  wr_ptr &lt;= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+148                         end
+                        MISSING_ELSE
+149                     end
+150                     
+151                     //---
+152                     // Read Pointer
+153                     
+154                     always @(ren, rd_ptr, rck_wr_ptr)
+155                     begin
+156        1/1              next_rd_ptr = rd_ptr;
+157        1/1              if (ren &amp;&amp; rd_ptr != rck_wr_ptr) begin
+158        1/1                  next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+159                         end
+                        MISSING_ELSE
+160                     end
+161                     
+162                     always @(posedge rclk or negedge rrst_n)
+163                     begin
+164        1/1              if (!rrst_n) begin
+165        1/1                  rd_ptr &lt;= {(AWIDTH+1){1'b0}};
+166                         end
+167                         else begin
+168        1/1                  rd_ptr &lt;= next_rd_ptr;
+169                         end
+170                     end
+171                     
+172                     //---
+173                     // Binary to Gray conversion
+174                     
+175                     assign wr_gray = wr_ptr ^ (wr_ptr &gt;&gt; 1);
+176                     assign rd_gray = rd_ptr ^ (rd_ptr &gt;&gt; 1);
+177                     
+178                     //---
+179                     // Gray to Binary conversion
+180                     
+181                     always @(wr_gray_sync)
+182                     begin
+183        1/1              rck_wr_ptr[AWIDTH] = wr_gray_sync[AWIDTH];
+184        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+185        1/1                  rck_wr_ptr[AWIDTH-i-1] = rck_wr_ptr[AWIDTH-i] ^ wr_gray_sync[AWIDTH-i-1];
+186                         end
+187                     end
+188                     
+189                     always @(rd_gray_sync)
+190                     begin
+191        1/1              wck_rd_ptr[AWIDTH] = rd_gray_sync[AWIDTH];
+192        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+193        1/1                  wck_rd_ptr[AWIDTH-i-1] = wck_rd_ptr[AWIDTH-i] ^ rd_gray_sync[AWIDTH-i-1];
+194                         end
+195                     end
+196                     
+197                     //---
+198                     // Clock-Domain Crossing
+199                     
+200                     generate
+201                         if (CLOCK_CROSSING) begin
+202                     
+203                             // Instantiate metastability flops
+204                             always @(posedge rclk or negedge rrst_n)
+205                             begin
+206        1/1                      if (!rrst_n) begin
+207        1/1                          rd_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+208        1/1                          wr_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+209        1/1                          wr_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+210                                 end
+211                                 else begin
+212        1/1                          rd_gray_reg &lt;= rd_gray;
+213        1/1                          wr_gray_meta &lt;= wr_gray_reg;
+214        1/1                          wr_gray_sync &lt;= wr_gray_meta;
+215                                 end
+216                             end
+217                     
+218                             always @(posedge wclk or negedge wrst_n)
+219                             begin
+220        1/1                      if (!wrst_n) begin
+221        1/1                          wr_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+222        1/1                          rd_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+223        1/1                          rd_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+224                                 end
+225                                 else begin
+226        1/1                          wr_gray_reg &lt;= wr_gray;
+227        1/1                          rd_gray_meta &lt;= rd_gray_reg;
+228        1/1                          rd_gray_sync &lt;= rd_gray_meta;
+</pre>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl ( parameter AWIDTH=4,RAM_DEPTH=16,EARLY_READ=1,CLOCK_CROSSING=0,ALMOST_EMPTY_THRESH=7,ALMOST_FULL_THRESH ) </a><br clear=all>
+Line Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s8 cl rt"> 86.19</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_19_Line" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s8 cl rt"> 86.01</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_21_Line" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>18<td>18<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>143<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>156<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>164<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>183<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>191<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>237<td>2<td>2<td>100.00
+</table>
+<pre class="code"><br clear=all>
+142                     begin
+143        1/1              if (!wrst_n) begin
+144        1/1                  wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145                         end
+146        1/1              else if (wen &amp;&amp; !wfull) begin
+147        1/1                  wr_ptr &lt;= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+148                         end
+                        MISSING_ELSE
+149                     end
+150                     
+151                     //---
+152                     // Read Pointer
+153                     
+154                     always @(ren, rd_ptr, rck_wr_ptr)
+155                     begin
+156        1/1              next_rd_ptr = rd_ptr;
+157        1/1              if (ren &amp;&amp; rd_ptr != rck_wr_ptr) begin
+158        1/1                  next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+159                         end
+                        MISSING_ELSE
+160                     end
+161                     
+162                     always @(posedge rclk or negedge rrst_n)
+163                     begin
+164        1/1              if (!rrst_n) begin
+165        1/1                  rd_ptr &lt;= {(AWIDTH+1){1'b0}};
+166                         end
+167                         else begin
+168        1/1                  rd_ptr &lt;= next_rd_ptr;
+169                         end
+170                     end
+171                     
+172                     //---
+173                     // Binary to Gray conversion
+174                     
+175                     assign wr_gray = wr_ptr ^ (wr_ptr &gt;&gt; 1);
+176                     assign rd_gray = rd_ptr ^ (rd_ptr &gt;&gt; 1);
+177                     
+178                     //---
+179                     // Gray to Binary conversion
+180                     
+181                     always @(wr_gray_sync)
+182                     begin
+183        1/1              rck_wr_ptr[AWIDTH] = wr_gray_sync[AWIDTH];
+184        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+185        1/1                  rck_wr_ptr[AWIDTH-i-1] = rck_wr_ptr[AWIDTH-i] ^ wr_gray_sync[AWIDTH-i-1];
+186                         end
+187                     end
+188                     
+189                     always @(rd_gray_sync)
+190                     begin
+191        1/1              wck_rd_ptr[AWIDTH] = rd_gray_sync[AWIDTH];
+192        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+193        1/1                  wck_rd_ptr[AWIDTH-i-1] = wck_rd_ptr[AWIDTH-i] ^ rd_gray_sync[AWIDTH-i-1];
+194                         end
+195                     end
+196                     
+197                     //---
+198                     // Clock-Domain Crossing
+199                     
+200                     generate
+201                         if (CLOCK_CROSSING) begin
+202                     
+203                             // Instantiate metastability flops
+204                             always @(posedge rclk or negedge rrst_n)
+205                             begin
+206                                 if (!rrst_n) begin
+207                                     rd_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+208                                     wr_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+209                                     wr_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+210                                 end
+211                                 else begin
+212                                     rd_gray_reg &lt;= rd_gray;
+213                                     wr_gray_meta &lt;= wr_gray_reg;
+214                                     wr_gray_sync &lt;= wr_gray_meta;
+215                                 end
+216                             end
+217                     
+218                             always @(posedge wclk or negedge wrst_n)
+219                             begin
+220                                 if (!wrst_n) begin
+221                                     wr_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+222                                     rd_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+223                                     rd_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+224                                 end
+225                                 else begin
+226                                     wr_gray_reg &lt;= wr_gray;
+227                                     rd_gray_meta &lt;= rd_gray_reg;
+228                                     rd_gray_sync &lt;= rd_gray_meta;
+229                                 end
+230                             end
+231                         end
+232                         else begin
+233                     
+234                             // No clock domain crossing
+235                             always @(wr_gray or rd_gray)
+236                             begin
+237        1/1                      wr_gray_sync = wr_gray;
+238        1/1                      rd_gray_sync = rd_gray;
+</pre>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Conditions<td>9<td>6<td>66.67
+<tr class="s6"><td class="lf">Logical<td>9<td>6<td>66.67
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       146
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       157
+ EXPRESSION (ren &amp;&amp; (rd_ptr != rck_wr_ptr))
+             -1-    -----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       253
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl ( parameter AWIDTH=7,RAM_DEPTH=128,EARLY_READ=1,CLOCK_CROSSING=1,ALMOST_EMPTY_THRESH,ALMOST_FULL_THRESH ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 89.15</td>
+<td class="s7 cl rt"> 79.07</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_18_Toggle" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 88.57</td>
+<td class="s7 cl rt"> 76.16</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_20_Toggle" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">32</td>
+<td class="rt">23</td>
+<td class="rt">71.88 </td>
+</tr><tr class="s7">
+<td>Total Bits</td>
+<td class="rt">344</td>
+<td class="rt">272</td>
+<td class="rt">79.07 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">172</td>
+<td class="rt">137</td>
+<td class="rt">79.65 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">172</td>
+<td class="rt">135</td>
+<td class="rt">78.49 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">10</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">56</td>
+<td class="rt">50</td>
+<td class="rt">89.29 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">28</td>
+<td class="rt">26</td>
+<td class="rt">92.86 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">28</td>
+<td class="rt">24</td>
+<td class="rt">85.71 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Signals</td>
+<td class="rt">18</td>
+<td class="rt">13</td>
+<td class="rt">72.22 </td>
+</tr><tr class="s7">
+<td>Signal Bits</td>
+<td class="rt">288</td>
+<td class="rt">222</td>
+<td class="rt">77.08 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">144</td>
+<td class="rt">111</td>
+<td class="rt">77.08 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">144</td>
+<td class="rt">111</td>
+<td class="rt">77.08 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wfull</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>walmost_full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_waddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rempty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ralmost_empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_raddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>wr_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>next_rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_reg[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_meta[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_sync[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[7:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_reg[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_meta[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_sync[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_wr_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[7:3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>depth[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>empty_thresh[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>full_thresh[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl ( parameter AWIDTH=4,RAM_DEPTH=16,EARLY_READ=1,CLOCK_CROSSING=0,ALMOST_EMPTY_THRESH=7,ALMOST_FULL_THRESH ) </a><br clear=all>
+Toggle Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 86.19</td>
+<td class="s6 cl rt"> 64.29</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_19_Toggle" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>TOGGLE</td></tr><tr>
+<td class="s8 cl rt"> 86.01</td>
+<td class="s6 cl rt"> 63.39</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_21_Toggle" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">32</td>
+<td class="rt">19</td>
+<td class="rt">59.38 </td>
+</tr><tr class="s6">
+<td>Total Bits</td>
+<td class="rt">224</td>
+<td class="rt">144</td>
+<td class="rt">64.29 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">112</td>
+<td class="rt">73</td>
+<td class="rt">65.18 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">112</td>
+<td class="rt">71</td>
+<td class="rt">63.39 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">10</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">44</td>
+<td class="rt">38</td>
+<td class="rt">86.36 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">22</td>
+<td class="rt">20</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">22</td>
+<td class="rt">18</td>
+<td class="rt">81.82 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">18</td>
+<td class="rt">9</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td>Signal Bits</td>
+<td class="rt">180</td>
+<td class="rt">106</td>
+<td class="rt">58.89 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">90</td>
+<td class="rt">53</td>
+<td class="rt">58.89 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">90</td>
+<td class="rt">53</td>
+<td class="rt">58.89 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wfull</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>walmost_full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_waddr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rempty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ralmost_empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_raddr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>wr_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>next_rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_reg[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_gray_meta[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_gray_sync[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_reg[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray_meta[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray_sync[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_wr_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>depth[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>empty_thresh[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>full_thresh[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl ( parameter AWIDTH=7,RAM_DEPTH=128,EARLY_READ=1,CLOCK_CROSSING=1,ALMOST_EMPTY_THRESH,ALMOST_FULL_THRESH ) </a><br clear=all>
+Branch Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>BRANCH</td></tr><tr>
+<td class="s8 cl rt"> 89.15</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_18_Branch" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>BRANCH</td></tr><tr>
+<td class="s8 cl rt"> 88.57</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_20_Branch" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">143</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">157</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">164</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">206</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">220</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+143            if (!wrst_n) begin
+               <font color = "green">-1-</font>  
+144                wr_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+145            end
+146            else if (wen && !wfull) begin
+                    <font color = "green">-2-</font>  
+147                wr_ptr <= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+148            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+157            if (ren && rd_ptr != rck_wr_ptr) begin
+               <font color = "green">-1-</font>  
+158                next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+159            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+164            if (!rrst_n) begin
+               <font color = "green">-1-</font>  
+165                rd_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+166            end
+167            else begin
+168                rd_ptr <= next_rd_ptr;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+206                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+207                        rd_gray_reg <= {(AWIDTH+1){1'b0}};
+           <font color = "green">                ==></font>
+208                        wr_gray_meta <= {(AWIDTH+1){1'b0}};
+209                        wr_gray_sync <= {(AWIDTH+1){1'b0}};
+210                    end
+211                    else begin
+212                        rd_gray_reg <= rd_gray;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+220                    if (!wrst_n) begin
+                       <font color = "green">-1-</font>  
+221                        wr_gray_reg <= {(AWIDTH+1){1'b0}};
+           <font color = "green">                ==></font>
+222                        rd_gray_meta <= {(AWIDTH+1){1'b0}};
+223                        rd_gray_sync <= {(AWIDTH+1){1'b0}};
+224                    end
+225                    else begin
+226                        wr_gray_reg <= wr_gray;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl ( parameter AWIDTH=4,RAM_DEPTH=16,EARLY_READ=1,CLOCK_CROSSING=0,ALMOST_EMPTY_THRESH=7,ALMOST_FULL_THRESH ) </a><br clear=all>
+Branch Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>BRANCH</td></tr><tr>
+<td class="s8 cl rt"> 86.19</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_19_Branch" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>BRANCH</td></tr><tr>
+<td class="s8 cl rt"> 86.01</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod14.html#inst_tag_21_Branch" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></span></div>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">143</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">157</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">164</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+143            if (!wrst_n) begin
+               <font color = "green">-1-</font>  
+144                wr_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+145            end
+146            else if (wen && !wfull) begin
+                    <font color = "green">-2-</font>  
+147                wr_ptr <= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+148            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+157            if (ren && rd_ptr != rck_wr_ptr) begin
+               <font color = "green">-1-</font>  
+158                next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+159            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+164            if (!rrst_n) begin
+               <font color = "green">-1-</font>  
+165                rd_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+166            end
+167            else begin
+168                rd_ptr <= next_rd_ptr;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="Path"></a>
+Path Coverage for Module : <a href="mod14.html" >generic_fifo_ctrl</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">Paths<td><td>3<td>3<td>100.00
+<tr class="s10"><td><td>141<td>3<td>3<td>100.00
+</table>
+<br><pre class="code">
+141         always @(posedge wclk or negedge wrst_n)
+142         begin
+143             if (!wrst_n) begin
+                -1-
+144                 wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145             end
+146             else if (wen &amp;&amp; !wfull) begin
+                     -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+Go to <a href="mod14.html" >top</a>
+<hr>
+<a name="inst_tag_21"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_21" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 86.01</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_21_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_21_Cond" > 66.67</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_21_Toggle" > 63.39</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_21_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_21_Path" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 86.01</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s6 cl rt"> 63.39</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 87.67</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s7 cl rt"> 71.68</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod14.html" >generic_fifo_ctrl</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 90.36</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.36</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod21.html#inst_tag_42" >fifo0</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+<a name="inst_tag_21_Line"></a>
+<b>Line Coverage for Instance : <a href="mod14.html#inst_tag_21" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>18<td>18<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>143<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>156<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>164<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>183<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>191<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>237<td>2<td>2<td>100.00
+</table>
+<pre class="code"><br clear=all>
+142                     begin
+143        1/1              if (!wrst_n) begin
+144        1/1                  wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145                         end
+146        1/1              else if (wen &amp;&amp; !wfull) begin
+147        1/1                  wr_ptr &lt;= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+148                         end
+                        MISSING_ELSE
+149                     end
+150                     
+151                     //---
+152                     // Read Pointer
+153                     
+154                     always @(ren, rd_ptr, rck_wr_ptr)
+155                     begin
+156        1/1              next_rd_ptr = rd_ptr;
+157        1/1              if (ren &amp;&amp; rd_ptr != rck_wr_ptr) begin
+158        1/1                  next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+159                         end
+                        MISSING_ELSE
+160                     end
+161                     
+162                     always @(posedge rclk or negedge rrst_n)
+163                     begin
+164        1/1              if (!rrst_n) begin
+165        1/1                  rd_ptr &lt;= {(AWIDTH+1){1'b0}};
+166                         end
+167                         else begin
+168        1/1                  rd_ptr &lt;= next_rd_ptr;
+169                         end
+170                     end
+171                     
+172                     //---
+173                     // Binary to Gray conversion
+174                     
+175                     assign wr_gray = wr_ptr ^ (wr_ptr &gt;&gt; 1);
+176                     assign rd_gray = rd_ptr ^ (rd_ptr &gt;&gt; 1);
+177                     
+178                     //---
+179                     // Gray to Binary conversion
+180                     
+181                     always @(wr_gray_sync)
+182                     begin
+183        1/1              rck_wr_ptr[AWIDTH] = wr_gray_sync[AWIDTH];
+184        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+185        1/1                  rck_wr_ptr[AWIDTH-i-1] = rck_wr_ptr[AWIDTH-i] ^ wr_gray_sync[AWIDTH-i-1];
+186                         end
+187                     end
+188                     
+189                     always @(rd_gray_sync)
+190                     begin
+191        1/1              wck_rd_ptr[AWIDTH] = rd_gray_sync[AWIDTH];
+192        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+193        1/1                  wck_rd_ptr[AWIDTH-i-1] = wck_rd_ptr[AWIDTH-i] ^ rd_gray_sync[AWIDTH-i-1];
+194                         end
+195                     end
+196                     
+197                     //---
+198                     // Clock-Domain Crossing
+199                     
+200                     generate
+201                         if (CLOCK_CROSSING) begin
+202                     
+203                             // Instantiate metastability flops
+204                             always @(posedge rclk or negedge rrst_n)
+205                             begin
+206                                 if (!rrst_n) begin
+207                                     rd_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+208                                     wr_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+209                                     wr_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+210                                 end
+211                                 else begin
+212                                     rd_gray_reg &lt;= rd_gray;
+213                                     wr_gray_meta &lt;= wr_gray_reg;
+214                                     wr_gray_sync &lt;= wr_gray_meta;
+215                                 end
+216                             end
+217                     
+218                             always @(posedge wclk or negedge wrst_n)
+219                             begin
+220                                 if (!wrst_n) begin
+221                                     wr_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+222                                     rd_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+223                                     rd_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+224                                 end
+225                                 else begin
+226                                     wr_gray_reg &lt;= wr_gray;
+227                                     rd_gray_meta &lt;= rd_gray_reg;
+228                                     rd_gray_sync &lt;= rd_gray_meta;
+229                                 end
+230                             end
+231                         end
+232                         else begin
+233                     
+234                             // No clock domain crossing
+235                             always @(wr_gray or rd_gray)
+236                             begin
+237        1/1                      wr_gray_sync = wr_gray;
+238        1/1                      rd_gray_sync = rd_gray;
+</pre>
+<br clear=all>
+<a href="mod14.html#inst_tag_21" >Go to Instance</a><hr>
+<a name="inst_tag_21_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod14.html#inst_tag_21" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Conditions<td>9<td>6<td>66.67
+<tr class="s6"><td class="lf">Logical<td>9<td>6<td>66.67
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       146
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       157
+ EXPRESSION (ren &amp;&amp; (rd_ptr != rck_wr_ptr))
+             -1-    -----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       253
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_21" >Go to Instance</a><hr>
+<a name="inst_tag_21_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod14.html#inst_tag_21" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">32</td>
+<td class="rt">18</td>
+<td class="rt">56.25 </td>
+</tr><tr class="s6">
+<td>Total Bits</td>
+<td class="rt">224</td>
+<td class="rt">142</td>
+<td class="rt">63.39 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">112</td>
+<td class="rt">72</td>
+<td class="rt">64.29 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">112</td>
+<td class="rt">70</td>
+<td class="rt">62.50 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">9</td>
+<td class="rt">64.29 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">44</td>
+<td class="rt">36</td>
+<td class="rt">81.82 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">22</td>
+<td class="rt">19</td>
+<td class="rt">86.36 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">22</td>
+<td class="rt">17</td>
+<td class="rt">77.27 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">18</td>
+<td class="rt">9</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td>Signal Bits</td>
+<td class="rt">180</td>
+<td class="rt">106</td>
+<td class="rt">58.89 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">90</td>
+<td class="rt">53</td>
+<td class="rt">58.89 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">90</td>
+<td class="rt">53</td>
+<td class="rt">58.89 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wfull</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>walmost_full</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_waddr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rempty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ralmost_empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_raddr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>wr_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>next_rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_reg[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_gray_meta[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_gray_sync[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_reg[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray_meta[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray_sync[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_wr_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>depth[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>empty_thresh[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>full_thresh[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_21" >Go to Instance</a><hr>
+<a name="inst_tag_21_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod14.html#inst_tag_21" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">143</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">157</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">164</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+143            if (!wrst_n) begin
+               <font color = "green">-1-</font>  
+144                wr_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+145            end
+146            else if (wen && !wfull) begin
+                    <font color = "green">-2-</font>  
+147                wr_ptr <= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+148            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+157            if (ren && rd_ptr != rck_wr_ptr) begin
+               <font color = "green">-1-</font>  
+158                next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+159            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+164            if (!rrst_n) begin
+               <font color = "green">-1-</font>  
+165                rd_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+166            end
+167            else begin
+168                rd_ptr <= next_rd_ptr;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_21" >Go to Instance</a><hr>
+<a name="inst_tag_21_Path"></a>
+<b>Path Coverage for Instance : <a href="mod14.html#inst_tag_21" >tb.dut.tx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">Paths<td><td>3<td>3<td>100.00
+<tr class="s10"><td><td>141<td>3<td>3<td>100.00
+</table>
+<br><pre class="code">
+141         always @(posedge wclk or negedge wrst_n)
+142         begin
+143             if (!wrst_n) begin
+                -1-
+144                 wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145             end
+146             else if (wen &amp;&amp; !wfull) begin
+                     -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_21" >Go to Instance</a><hr>
+<a name="inst_tag_19"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_19" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 86.19</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_19_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_19_Cond" > 66.67</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_19_Toggle" > 64.29</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_19_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_19_Path" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 86.19</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s6 cl rt"> 64.29</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 87.67</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s7 cl rt"> 71.68</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod14.html" >generic_fifo_ctrl</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 90.96</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.96</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod21.html#inst_tag_40" >fifo0</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+<a name="inst_tag_19_Line"></a>
+<b>Line Coverage for Instance : <a href="mod14.html#inst_tag_19" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>18<td>18<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>143<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>156<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>164<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>183<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>191<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>237<td>2<td>2<td>100.00
+</table>
+<pre class="code"><br clear=all>
+142                     begin
+143        1/1              if (!wrst_n) begin
+144        1/1                  wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145                         end
+146        1/1              else if (wen &amp;&amp; !wfull) begin
+147        1/1                  wr_ptr &lt;= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+148                         end
+                        MISSING_ELSE
+149                     end
+150                     
+151                     //---
+152                     // Read Pointer
+153                     
+154                     always @(ren, rd_ptr, rck_wr_ptr)
+155                     begin
+156        1/1              next_rd_ptr = rd_ptr;
+157        1/1              if (ren &amp;&amp; rd_ptr != rck_wr_ptr) begin
+158        1/1                  next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+159                         end
+                        MISSING_ELSE
+160                     end
+161                     
+162                     always @(posedge rclk or negedge rrst_n)
+163                     begin
+164        1/1              if (!rrst_n) begin
+165        1/1                  rd_ptr &lt;= {(AWIDTH+1){1'b0}};
+166                         end
+167                         else begin
+168        1/1                  rd_ptr &lt;= next_rd_ptr;
+169                         end
+170                     end
+171                     
+172                     //---
+173                     // Binary to Gray conversion
+174                     
+175                     assign wr_gray = wr_ptr ^ (wr_ptr &gt;&gt; 1);
+176                     assign rd_gray = rd_ptr ^ (rd_ptr &gt;&gt; 1);
+177                     
+178                     //---
+179                     // Gray to Binary conversion
+180                     
+181                     always @(wr_gray_sync)
+182                     begin
+183        1/1              rck_wr_ptr[AWIDTH] = wr_gray_sync[AWIDTH];
+184        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+185        1/1                  rck_wr_ptr[AWIDTH-i-1] = rck_wr_ptr[AWIDTH-i] ^ wr_gray_sync[AWIDTH-i-1];
+186                         end
+187                     end
+188                     
+189                     always @(rd_gray_sync)
+190                     begin
+191        1/1              wck_rd_ptr[AWIDTH] = rd_gray_sync[AWIDTH];
+192        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+193        1/1                  wck_rd_ptr[AWIDTH-i-1] = wck_rd_ptr[AWIDTH-i] ^ rd_gray_sync[AWIDTH-i-1];
+194                         end
+195                     end
+196                     
+197                     //---
+198                     // Clock-Domain Crossing
+199                     
+200                     generate
+201                         if (CLOCK_CROSSING) begin
+202                     
+203                             // Instantiate metastability flops
+204                             always @(posedge rclk or negedge rrst_n)
+205                             begin
+206                                 if (!rrst_n) begin
+207                                     rd_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+208                                     wr_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+209                                     wr_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+210                                 end
+211                                 else begin
+212                                     rd_gray_reg &lt;= rd_gray;
+213                                     wr_gray_meta &lt;= wr_gray_reg;
+214                                     wr_gray_sync &lt;= wr_gray_meta;
+215                                 end
+216                             end
+217                     
+218                             always @(posedge wclk or negedge wrst_n)
+219                             begin
+220                                 if (!wrst_n) begin
+221                                     wr_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+222                                     rd_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+223                                     rd_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+224                                 end
+225                                 else begin
+226                                     wr_gray_reg &lt;= wr_gray;
+227                                     rd_gray_meta &lt;= rd_gray_reg;
+228                                     rd_gray_sync &lt;= rd_gray_meta;
+229                                 end
+230                             end
+231                         end
+232                         else begin
+233                     
+234                             // No clock domain crossing
+235                             always @(wr_gray or rd_gray)
+236                             begin
+237        1/1                      wr_gray_sync = wr_gray;
+238        1/1                      rd_gray_sync = rd_gray;
+</pre>
+<br clear=all>
+<a href="mod14.html#inst_tag_19" >Go to Instance</a><hr>
+<a name="inst_tag_19_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod14.html#inst_tag_19" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Conditions<td>9<td>6<td>66.67
+<tr class="s6"><td class="lf">Logical<td>9<td>6<td>66.67
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       146
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       157
+ EXPRESSION (ren &amp;&amp; (rd_ptr != rck_wr_ptr))
+             -1-    -----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       253
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_19" >Go to Instance</a><hr>
+<a name="inst_tag_19_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod14.html#inst_tag_19" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">32</td>
+<td class="rt">19</td>
+<td class="rt">59.38 </td>
+</tr><tr class="s6">
+<td>Total Bits</td>
+<td class="rt">224</td>
+<td class="rt">144</td>
+<td class="rt">64.29 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">112</td>
+<td class="rt">73</td>
+<td class="rt">65.18 </td>
+</tr><tr class="s6">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">112</td>
+<td class="rt">71</td>
+<td class="rt">63.39 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">10</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">44</td>
+<td class="rt">38</td>
+<td class="rt">86.36 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">22</td>
+<td class="rt">20</td>
+<td class="rt">90.91 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">22</td>
+<td class="rt">18</td>
+<td class="rt">81.82 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Signals</td>
+<td class="rt">18</td>
+<td class="rt">9</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td>Signal Bits</td>
+<td class="rt">180</td>
+<td class="rt">106</td>
+<td class="rt">58.89 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">90</td>
+<td class="rt">53</td>
+<td class="rt">58.89 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">90</td>
+<td class="rt">53</td>
+<td class="rt">58.89 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wfull</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>walmost_full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_waddr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rempty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ralmost_empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_raddr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>wr_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>next_rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_reg[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_gray_meta[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>wr_gray_sync[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_rd_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_reg[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray_meta[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray_sync[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_wr_ptr[4:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>depth[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>empty_thresh[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>full_thresh[4:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_19" >Go to Instance</a><hr>
+<a name="inst_tag_19_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod14.html#inst_tag_19" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">7</td>
+<td class="rt">7</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">143</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">157</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">164</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+143            if (!wrst_n) begin
+               <font color = "green">-1-</font>  
+144                wr_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+145            end
+146            else if (wen && !wfull) begin
+                    <font color = "green">-2-</font>  
+147                wr_ptr <= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+148            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+157            if (ren && rd_ptr != rck_wr_ptr) begin
+               <font color = "green">-1-</font>  
+158                next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+159            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+164            if (!rrst_n) begin
+               <font color = "green">-1-</font>  
+165                rd_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+166            end
+167            else begin
+168                rd_ptr <= next_rd_ptr;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_19" >Go to Instance</a><hr>
+<a name="inst_tag_19_Path"></a>
+<b>Path Coverage for Instance : <a href="mod14.html#inst_tag_19" >tb.dut.rx_hold_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">Paths<td><td>3<td>3<td>100.00
+<tr class="s10"><td><td>141<td>3<td>3<td>100.00
+</table>
+<br><pre class="code">
+141         always @(posedge wclk or negedge wrst_n)
+142         begin
+143             if (!wrst_n) begin
+                -1-
+144                 wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145             end
+146             else if (wen &amp;&amp; !wfull) begin
+                     -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_19" >Go to Instance</a><hr>
+<a name="inst_tag_20"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_20" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 88.57</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_20_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_20_Cond" > 66.67</a></td>
+<td class="s7 cl rt"><a href="mod14.html#inst_tag_20_Toggle" > 76.16</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_20_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_20_Path" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 88.57</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s7 cl rt"> 76.16</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 87.67</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s7 cl rt"> 71.68</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod14.html" >generic_fifo_ctrl</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 90.12</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.12</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod21.html#inst_tag_41" >fifo0</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+<a name="inst_tag_20_Line"></a>
+<b>Line Coverage for Instance : <a href="mod14.html#inst_tag_20" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>30<td>30<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>143<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>156<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>164<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>183<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>191<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>206<td>7<td>7<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>220<td>7<td>7<td>100.00
+</table>
+<pre class="code"><br clear=all>
+142                     begin
+143        1/1              if (!wrst_n) begin
+144        1/1                  wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145                         end
+146        1/1              else if (wen &amp;&amp; !wfull) begin
+147        1/1                  wr_ptr &lt;= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+148                         end
+                        MISSING_ELSE
+149                     end
+150                     
+151                     //---
+152                     // Read Pointer
+153                     
+154                     always @(ren, rd_ptr, rck_wr_ptr)
+155                     begin
+156        1/1              next_rd_ptr = rd_ptr;
+157        1/1              if (ren &amp;&amp; rd_ptr != rck_wr_ptr) begin
+158        1/1                  next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+159                         end
+                        MISSING_ELSE
+160                     end
+161                     
+162                     always @(posedge rclk or negedge rrst_n)
+163                     begin
+164        1/1              if (!rrst_n) begin
+165        1/1                  rd_ptr &lt;= {(AWIDTH+1){1'b0}};
+166                         end
+167                         else begin
+168        1/1                  rd_ptr &lt;= next_rd_ptr;
+169                         end
+170                     end
+171                     
+172                     //---
+173                     // Binary to Gray conversion
+174                     
+175                     assign wr_gray = wr_ptr ^ (wr_ptr &gt;&gt; 1);
+176                     assign rd_gray = rd_ptr ^ (rd_ptr &gt;&gt; 1);
+177                     
+178                     //---
+179                     // Gray to Binary conversion
+180                     
+181                     always @(wr_gray_sync)
+182                     begin
+183        1/1              rck_wr_ptr[AWIDTH] = wr_gray_sync[AWIDTH];
+184        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+185        1/1                  rck_wr_ptr[AWIDTH-i-1] = rck_wr_ptr[AWIDTH-i] ^ wr_gray_sync[AWIDTH-i-1];
+186                         end
+187                     end
+188                     
+189                     always @(rd_gray_sync)
+190                     begin
+191        1/1              wck_rd_ptr[AWIDTH] = rd_gray_sync[AWIDTH];
+192        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+193        1/1                  wck_rd_ptr[AWIDTH-i-1] = wck_rd_ptr[AWIDTH-i] ^ rd_gray_sync[AWIDTH-i-1];
+194                         end
+195                     end
+196                     
+197                     //---
+198                     // Clock-Domain Crossing
+199                     
+200                     generate
+201                         if (CLOCK_CROSSING) begin
+202                     
+203                             // Instantiate metastability flops
+204                             always @(posedge rclk or negedge rrst_n)
+205                             begin
+206        1/1                      if (!rrst_n) begin
+207        1/1                          rd_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+208        1/1                          wr_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+209        1/1                          wr_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+210                                 end
+211                                 else begin
+212        1/1                          rd_gray_reg &lt;= rd_gray;
+213        1/1                          wr_gray_meta &lt;= wr_gray_reg;
+214        1/1                          wr_gray_sync &lt;= wr_gray_meta;
+215                                 end
+216                             end
+217                     
+218                             always @(posedge wclk or negedge wrst_n)
+219                             begin
+220        1/1                      if (!wrst_n) begin
+221        1/1                          wr_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+222        1/1                          rd_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+223        1/1                          rd_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+224                                 end
+225                                 else begin
+226        1/1                          wr_gray_reg &lt;= wr_gray;
+227        1/1                          rd_gray_meta &lt;= rd_gray_reg;
+228        1/1                          rd_gray_sync &lt;= rd_gray_meta;
+</pre>
+<br clear=all>
+<a href="mod14.html#inst_tag_20" >Go to Instance</a><hr>
+<a name="inst_tag_20_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod14.html#inst_tag_20" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Conditions<td>9<td>6<td>66.67
+<tr class="s6"><td class="lf">Logical<td>9<td>6<td>66.67
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       146
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       157
+ EXPRESSION (ren &amp;&amp; (rd_ptr != rck_wr_ptr))
+             -1-    -----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       253
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_20" >Go to Instance</a><hr>
+<a name="inst_tag_20_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod14.html#inst_tag_20" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s6">
+<td>Totals</td>
+<td class="rt">32</td>
+<td class="rt">21</td>
+<td class="rt">65.62 </td>
+</tr><tr class="s7">
+<td>Total Bits</td>
+<td class="rt">344</td>
+<td class="rt">262</td>
+<td class="rt">76.16 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">172</td>
+<td class="rt">132</td>
+<td class="rt">76.74 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">172</td>
+<td class="rt">130</td>
+<td class="rt">75.58 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">8</td>
+<td class="rt">57.14 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">56</td>
+<td class="rt">46</td>
+<td class="rt">82.14 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">28</td>
+<td class="rt">24</td>
+<td class="rt">85.71 </td>
+</tr><tr class="s7">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">28</td>
+<td class="rt">22</td>
+<td class="rt">78.57 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Signals</td>
+<td class="rt">18</td>
+<td class="rt">13</td>
+<td class="rt">72.22 </td>
+</tr><tr class="s7">
+<td>Signal Bits</td>
+<td class="rt">288</td>
+<td class="rt">216</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">144</td>
+<td class="rt">108</td>
+<td class="rt">75.00 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">144</td>
+<td class="rt">108</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wfull</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>walmost_full</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_waddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rempty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ralmost_empty</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_raddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>wr_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>next_rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_reg[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_meta[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_sync[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[7:3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_reg[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_meta[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_sync[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_wr_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[7:1]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>depth[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>empty_thresh[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>full_thresh[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_20" >Go to Instance</a><hr>
+<a name="inst_tag_20_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod14.html#inst_tag_20" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">143</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">157</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">164</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">206</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">220</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+143            if (!wrst_n) begin
+               <font color = "green">-1-</font>  
+144                wr_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+145            end
+146            else if (wen && !wfull) begin
+                    <font color = "green">-2-</font>  
+147                wr_ptr <= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+148            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+157            if (ren && rd_ptr != rck_wr_ptr) begin
+               <font color = "green">-1-</font>  
+158                next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+159            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+164            if (!rrst_n) begin
+               <font color = "green">-1-</font>  
+165                rd_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+166            end
+167            else begin
+168                rd_ptr <= next_rd_ptr;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+206                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+207                        rd_gray_reg <= {(AWIDTH+1){1'b0}};
+           <font color = "green">                ==></font>
+208                        wr_gray_meta <= {(AWIDTH+1){1'b0}};
+209                        wr_gray_sync <= {(AWIDTH+1){1'b0}};
+210                    end
+211                    else begin
+212                        rd_gray_reg <= rd_gray;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+220                    if (!wrst_n) begin
+                       <font color = "green">-1-</font>  
+221                        wr_gray_reg <= {(AWIDTH+1){1'b0}};
+           <font color = "green">                ==></font>
+222                        rd_gray_meta <= {(AWIDTH+1){1'b0}};
+223                        rd_gray_sync <= {(AWIDTH+1){1'b0}};
+224                    end
+225                    else begin
+226                        wr_gray_reg <= wr_gray;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_20" >Go to Instance</a><hr>
+<a name="inst_tag_20_Path"></a>
+<b>Path Coverage for Instance : <a href="mod14.html#inst_tag_20" >tb.dut.tx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">Paths<td><td>3<td>3<td>100.00
+<tr class="s10"><td><td>141<td>3<td>3<td>100.00
+</table>
+<br><pre class="code">
+141         always @(posedge wclk or negedge wrst_n)
+142         begin
+143             if (!wrst_n) begin
+                -1-
+144                 wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145             end
+146             else if (wen &amp;&amp; !wfull) begin
+                     -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_20" >Go to Instance</a><hr>
+<a name="inst_tag_18"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_18" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 89.15</td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_18_Line" >100.00</a></td>
+<td class="s6 cl rt"><a href="mod14.html#inst_tag_18_Cond" > 66.67</a></td>
+<td class="s7 cl rt"><a href="mod14.html#inst_tag_18_Toggle" > 79.07</a></td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_18_Branch" >100.00</a></td>
+<td class="s10 cl rt"><a href="mod14.html#inst_tag_18_Path" >100.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 89.15</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s7 cl rt"> 79.07</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 87.67</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s6 cl rt"> 66.67</td>
+<td class="s7 cl rt"> 71.68</td>
+<td class="wht cl rt"></td>
+<td class="s10 cl rt">100.00</td>
+<td class="s10 cl rt">100.00</td>
+<td><a href="mod14.html" >generic_fifo_ctrl</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 91.28</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 91.28</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod21.html#inst_tag_39" >fifo0</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+<a name="inst_tag_18_Line"></a>
+<b>Line Coverage for Instance : <a href="mod14.html#inst_tag_18" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>30<td>30<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>143<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>156<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>164<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>183<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>191<td>3<td>3<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>206<td>7<td>7<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>220<td>7<td>7<td>100.00
+</table>
+<pre class="code"><br clear=all>
+142                     begin
+143        1/1              if (!wrst_n) begin
+144        1/1                  wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145                         end
+146        1/1              else if (wen &amp;&amp; !wfull) begin
+147        1/1                  wr_ptr &lt;= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+148                         end
+                        MISSING_ELSE
+149                     end
+150                     
+151                     //---
+152                     // Read Pointer
+153                     
+154                     always @(ren, rd_ptr, rck_wr_ptr)
+155                     begin
+156        1/1              next_rd_ptr = rd_ptr;
+157        1/1              if (ren &amp;&amp; rd_ptr != rck_wr_ptr) begin
+158        1/1                  next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+159                         end
+                        MISSING_ELSE
+160                     end
+161                     
+162                     always @(posedge rclk or negedge rrst_n)
+163                     begin
+164        1/1              if (!rrst_n) begin
+165        1/1                  rd_ptr &lt;= {(AWIDTH+1){1'b0}};
+166                         end
+167                         else begin
+168        1/1                  rd_ptr &lt;= next_rd_ptr;
+169                         end
+170                     end
+171                     
+172                     //---
+173                     // Binary to Gray conversion
+174                     
+175                     assign wr_gray = wr_ptr ^ (wr_ptr &gt;&gt; 1);
+176                     assign rd_gray = rd_ptr ^ (rd_ptr &gt;&gt; 1);
+177                     
+178                     //---
+179                     // Gray to Binary conversion
+180                     
+181                     always @(wr_gray_sync)
+182                     begin
+183        1/1              rck_wr_ptr[AWIDTH] = wr_gray_sync[AWIDTH];
+184        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+185        1/1                  rck_wr_ptr[AWIDTH-i-1] = rck_wr_ptr[AWIDTH-i] ^ wr_gray_sync[AWIDTH-i-1];
+186                         end
+187                     end
+188                     
+189                     always @(rd_gray_sync)
+190                     begin
+191        1/1              wck_rd_ptr[AWIDTH] = rd_gray_sync[AWIDTH];
+192        1/1              for (i = 0; i &lt; AWIDTH; i = i + 1) begin
+193        1/1                  wck_rd_ptr[AWIDTH-i-1] = wck_rd_ptr[AWIDTH-i] ^ rd_gray_sync[AWIDTH-i-1];
+194                         end
+195                     end
+196                     
+197                     //---
+198                     // Clock-Domain Crossing
+199                     
+200                     generate
+201                         if (CLOCK_CROSSING) begin
+202                     
+203                             // Instantiate metastability flops
+204                             always @(posedge rclk or negedge rrst_n)
+205                             begin
+206        1/1                      if (!rrst_n) begin
+207        1/1                          rd_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+208        1/1                          wr_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+209        1/1                          wr_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+210                                 end
+211                                 else begin
+212        1/1                          rd_gray_reg &lt;= rd_gray;
+213        1/1                          wr_gray_meta &lt;= wr_gray_reg;
+214        1/1                          wr_gray_sync &lt;= wr_gray_meta;
+215                                 end
+216                             end
+217                     
+218                             always @(posedge wclk or negedge wrst_n)
+219                             begin
+220        1/1                      if (!wrst_n) begin
+221        1/1                          wr_gray_reg &lt;= {(AWIDTH+1){1'b0}};
+222        1/1                          rd_gray_meta &lt;= {(AWIDTH+1){1'b0}};
+223        1/1                          rd_gray_sync &lt;= {(AWIDTH+1){1'b0}};
+224                                 end
+225                                 else begin
+226        1/1                          wr_gray_reg &lt;= wr_gray;
+227        1/1                          rd_gray_meta &lt;= rd_gray_reg;
+228        1/1                          rd_gray_sync &lt;= rd_gray_meta;
+</pre>
+<br clear=all>
+<a href="mod14.html#inst_tag_18" >Go to Instance</a><hr>
+<a name="inst_tag_18_Cond"></a>
+<b>Cond Coverage for Instance : <a href="mod14.html#inst_tag_18" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Conditions<td>9<td>6<td>66.67
+<tr class="s6"><td class="lf">Logical<td>9<td>6<td>66.67
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       146
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       157
+ EXPRESSION (ren &amp;&amp; (rd_ptr != rck_wr_ptr))
+             -1-    -----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       253
+ EXPRESSION (wen &amp;&amp; ((!wfull)))
+             -1-    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_18" >Go to Instance</a><hr>
+<a name="inst_tag_18_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod14.html#inst_tag_18" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">32</td>
+<td class="rt">23</td>
+<td class="rt">71.88 </td>
+</tr><tr class="s7">
+<td>Total Bits</td>
+<td class="rt">344</td>
+<td class="rt">272</td>
+<td class="rt">79.07 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">172</td>
+<td class="rt">137</td>
+<td class="rt">79.65 </td>
+</tr><tr class="s7">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">172</td>
+<td class="rt">135</td>
+<td class="rt">78.49 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">10</td>
+<td class="rt">71.43 </td>
+</tr><tr class="s8">
+<td>Port Bits</td>
+<td class="rt">56</td>
+<td class="rt">50</td>
+<td class="rt">89.29 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">28</td>
+<td class="rt">26</td>
+<td class="rt">92.86 </td>
+</tr><tr class="s8">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">28</td>
+<td class="rt">24</td>
+<td class="rt">85.71 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s7">
+<td>Signals</td>
+<td class="rt">18</td>
+<td class="rt">13</td>
+<td class="rt">72.22 </td>
+</tr><tr class="s7">
+<td>Signal Bits</td>
+<td class="rt">288</td>
+<td class="rt">222</td>
+<td class="rt">77.08 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">144</td>
+<td class="rt">111</td>
+<td class="rt">77.08 </td>
+</tr><tr class="s7">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">144</td>
+<td class="rt">111</td>
+<td class="rt">77.08 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wfull</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>walmost_full</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_waddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rempty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>ralmost_empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>mem_raddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>wr_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>next_rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_reg[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_meta[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wr_gray_sync[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_rd_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[3:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>wck_level[7:4]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>rd_gray[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_reg[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_meta[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rd_gray_sync[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_wr_ptr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>rck_level[7:3]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>depth[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>empty_thresh[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>full_thresh[7:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_18" >Go to Instance</a><hr>
+<a name="inst_tag_18_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod14.html#inst_tag_18" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s10">
+<td>Branches</td>
+<td></td>
+<td class="rt">11</td>
+<td class="rt">11</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">143</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">157</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">164</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">206</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">220</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+143            if (!wrst_n) begin
+               <font color = "green">-1-</font>  
+144                wr_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+145            end
+146            else if (wen && !wfull) begin
+                    <font color = "green">-2-</font>  
+147                wr_ptr <= wr_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+148            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+157            if (ren && rd_ptr != rck_wr_ptr) begin
+               <font color = "green">-1-</font>  
+158                next_rd_ptr = rd_ptr + {{(AWIDTH){1'b0}}, 1'b1};
+           <font color = "green">        ==></font>
+159            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+164            if (!rrst_n) begin
+               <font color = "green">-1-</font>  
+165                rd_ptr <= {(AWIDTH+1){1'b0}};
+           <font color = "green">        ==></font>
+166            end
+167            else begin
+168                rd_ptr <= next_rd_ptr;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+206                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+207                        rd_gray_reg <= {(AWIDTH+1){1'b0}};
+           <font color = "green">                ==></font>
+208                        wr_gray_meta <= {(AWIDTH+1){1'b0}};
+209                        wr_gray_sync <= {(AWIDTH+1){1'b0}};
+210                    end
+211                    else begin
+212                        rd_gray_reg <= rd_gray;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+220                    if (!wrst_n) begin
+                       <font color = "green">-1-</font>  
+221                        wr_gray_reg <= {(AWIDTH+1){1'b0}};
+           <font color = "green">                ==></font>
+222                        rd_gray_meta <= {(AWIDTH+1){1'b0}};
+223                        rd_gray_sync <= {(AWIDTH+1){1'b0}};
+224                    end
+225                    else begin
+226                        wr_gray_reg <= wr_gray;
+           <font color = "green">                ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod14.html#inst_tag_18" >Go to Instance</a><hr>
+<a name="inst_tag_18_Path"></a>
+<b>Path Coverage for Instance : <a href="mod14.html#inst_tag_18" >tb.dut.rx_data_fifo0.fifo0.ctrl0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">Paths<td><td>3<td>3<td>100.00
+<tr class="s10"><td><td>141<td>3<td>3<td>100.00
+</table>
+<br><pre class="code">
+141         always @(posedge wclk or negedge wrst_n)
+142         begin
+143             if (!wrst_n) begin
+                -1-
+144                 wr_ptr &lt;= {(AWIDTH+1){1'b0}};
+145             end
+146             else if (wen &amp;&amp; !wfull) begin
+                     -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod14.html#inst_tag_18" >Go to Instance</a><br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

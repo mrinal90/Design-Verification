@@ -1,0 +1,9 @@
+vcs -full64 +vcs+lic+wait -sverilog -R -l vcs.log \
+-override_timescale=1ps/1ps \
+../../rtl/verilog/*.v \
++incdir+../../rtl/include \
+../../testbench/verilog/testbench.sv \
+-cm line+cond+branch+fsm+tgl \
+-cm path -lca \
+-cm_log ./coverage.log \
+-cm_dir ./COVERAGE \

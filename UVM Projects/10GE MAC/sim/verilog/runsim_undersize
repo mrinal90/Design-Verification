@@ -1,0 +1,9 @@
+vcs -timescale=1ps/1ps -full64 -R -sverilog -l vcs.log -ntb_opts uvm-1.1 -debug_pp		\
++ntb_random_seed_automatic \
++incdir+../../rtl/include \
+../../rtl/verilog/*.v                                   \
++incdir+../../testbench  \
+../../testbench/verilog/testcase.sv						\
+../../testbench/verilog/testbench.sv					\
+../../testbench/verilog/xge_interface.sv                          \
+ +UVM_TESTNAME=test_undersize +UVM_VERBOSITY=HIGH                \

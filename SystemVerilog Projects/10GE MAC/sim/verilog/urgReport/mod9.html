@@ -1,0 +1,766 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: tx_enqueue</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_tx_enqueue" >tx_enqueue</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s6 cl rt"> 67.55</td>
+<td class="s9 cl rt"><a href="mod9.html#Line" > 90.48</a></td>
+<td class="s5 cl rt"><a href="mod9.html#Cond" > 50.00</a></td>
+<td class="s9 cl rt"><a href="mod9.html#Toggle" > 91.72</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod9.html#Branch" > 83.33</a></td>
+<td class="s2 cl rt"><a href="mod9.html#Path" > 22.22</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/tx_enqueue.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/tx_enqueue.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s6 cl rt"> 67.55</td>
+<td class="s9 cl rt"><a href="mod9.html#Line" > 90.48</a></td>
+<td class="s5 cl rt"><a href="mod9.html#Cond" > 50.00</a></td>
+<td class="s9 cl rt"><a href="mod9.html#Toggle" > 91.72</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod9.html#Branch" > 83.33</a></td>
+<td class="s2 cl rt"><a href="mod9.html#Path" > 22.22</a></td>
+<td><a href="mod9.html#inst_tag_13" >tb.dut.tx_eq0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod9.html" >tx_enqueue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s9"><td class="lf">TOTAL<td><td>21<td>19<td>90.48
+<tr class="s8"><td class="lf">ALWAYS<td>100<td>6<td>5<td>83.33
+<tr class="s9"><td class="lf">ALWAYS<td>125<td>15<td>14<td>93.33
+</table>
+<pre class="code"><br clear=all>
+99                      
+100        1/1              if (reset_156m25_n == 1'b0) begin
+101                     
+102        1/1                  txd_ovflow &lt;= 1'b0;
+103                     
+104        1/1                  status_txdfifo_ovflow_tog &lt;= 1'b0;
+105                     
+106                         end
+107                         else begin
+108                     
+109        1/1                  txd_ovflow &lt;= next_txd_ovflow;
+110                     
+111                             //---
+112                             // FIFO errors, used to generate interrupts
+113                     
+114        1/1                  if (next_txd_ovflow &amp;&amp; !txd_ovflow) begin
+115        <font color = "red">0/1     ==>              status_txdfifo_ovflow_tog &lt;= ~status_txdfifo_ovflow_tog;</font>
+116                             end
+                        MISSING_ELSE
+117                     
+118                         end
+119                     
+120                     end
+121                     
+122                     always @(/*AS*/pkt_tx_data or pkt_tx_eop or pkt_tx_mod or pkt_tx_sop
+123                              or pkt_tx_val or txd_ovflow or txdfifo_wfull) begin
+124                     
+125        1/1              txdfifo_wstatus = `TXSTATUS_NONE;
+126        1/1              txdfifo_wen = pkt_tx_val;
+127                     
+128        1/1              next_txd_ovflow = txd_ovflow;
+129                     
+130                         `ifdef BIGENDIAN
+131        1/1              txdfifo_wdata = {pkt_tx_data[7:0], pkt_tx_data[15:8], pkt_tx_data[23:16], pkt_tx_data[31:24],
+132                                          pkt_tx_data[39:32], pkt_tx_data[47:40], pkt_tx_data[55:48],
+133                                          pkt_tx_data[63:56]};
+134                         `else
+135                         txdfifo_wdata = pkt_tx_data;
+136                         `endif
+137                     
+138                         // Write SOP marker to fifo.
+139                     
+140        1/1              if (pkt_tx_val &amp;&amp; pkt_tx_sop) begin
+141                     
+142        1/1                  txdfifo_wstatus[`TXSTATUS_SOP] = 1'b1;
+143                     
+144                         end
+                        MISSING_ELSE
+145                     
+146                     
+147                         // Write EOP marker to fifo.
+148                     
+149        1/1              if (pkt_tx_val) begin
+150                     
+151        1/1                  if (pkt_tx_eop) begin
+152        1/1                      txdfifo_wstatus[2:0] = pkt_tx_mod;
+153        1/1                      txdfifo_wstatus[`TXSTATUS_EOP] = 1'b1;
+154                             end
+                        MISSING_ELSE
+155                     
+156                         end
+                        MISSING_ELSE
+157                     
+158                     
+159                         // Overflow indication
+160                     
+161        1/1              if (pkt_tx_val) begin
+162                     
+163        1/1                  if (txdfifo_wfull) begin
+164                     
+165        <font color = "red">0/1     ==>              next_txd_ovflow = 1'b1;</font>
+166                     
+167                             end
+168        1/1                  else if (pkt_tx_sop) begin
+169                     
+170        1/1                      next_txd_ovflow = 1'b0;
+171                     
+172                             end
+                        MISSING_ELSE
+173                         end
+                        MISSING_ELSE
+</pre>
+<br clear=all>
+Go to <a href="mod9.html" >top</a>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod9.html" >tx_enqueue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s5"><td class="lf">Conditions<td>6<td>3<td>50.00
+<tr class="s5"><td class="lf">Logical<td>6<td>3<td>50.00
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       114
+ EXPRESSION (next_txd_ovflow &amp;&amp; ((!txd_ovflow)))
+             -------1-------    -------2-------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       140
+ EXPRESSION (pkt_tx_val &amp;&amp; pkt_tx_sop)
+             -----1----    -----2----
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+Go to <a href="mod9.html" >top</a>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod9.html" >tx_enqueue</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">16</td>
+<td class="rt">8</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">302</td>
+<td class="rt">277</td>
+<td class="rt">91.72 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">151</td>
+<td class="rt">139</td>
+<td class="rt">92.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">151</td>
+<td class="rt">138</td>
+<td class="rt">91.39 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">14</td>
+<td class="rt">8</td>
+<td class="rt">57.14 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">298</td>
+<td class="rt">277</td>
+<td class="rt">92.95 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">149</td>
+<td class="rt">139</td>
+<td class="rt">93.29 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">149</td>
+<td class="rt">138</td>
+<td class="rt">92.62 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s0">
+<td>Signals</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s0">
+<td>Signal Bits</td>
+<td class="rt">4</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s0">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s0">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">2</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>clk_156m25</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_156m25_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pkt_tx_data[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pkt_tx_val</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pkt_tx_sop</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pkt_tx_eop</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pkt_tx_mod[2:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>txdfifo_wfull</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>txdfifo_walmost_full</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pkt_tx_full</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>txdfifo_wdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>txdfifo_wstatus[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>txdfifo_wstatus[7:6]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>txdfifo_wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>status_txdfifo_ovflow_tog</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>txd_ovflow</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>next_txd_ovflow</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod9.html" >top</a>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod9.html" >tx_enqueue</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">12</td>
+<td class="rt">10</td>
+<td class="rt">83.33 </td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">100</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">140</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">149</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr><tr class="s7">
+<td>IF</td>
+<td class="rt">161</td>
+<td class="rt">4</td>
+<td class="rt">3</td>
+<td class="rt">75.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+100            if (reset_156m25_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+101        
+102                txd_ovflow <= 1'b0;
+           <font color = "green">        ==></font>
+103        
+104                status_txdfifo_ovflow_tog <= 1'b0;
+105        
+106            end
+107            else begin
+108        
+109                txd_ovflow <= next_txd_ovflow;
+110        
+111                //---
+112                // FIFO errors, used to generate interrupts
+113        
+114                if (next_txd_ovflow && !txd_ovflow) begin
+                   <font color = "red">-2-</font>  
+115                    status_txdfifo_ovflow_tog <= ~status_txdfifo_ovflow_tog;
+           <font color = "red">            ==></font>
+116                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+140            if (pkt_tx_val && pkt_tx_sop) begin
+               <font color = "green">-1-</font>  
+141        
+142                txdfifo_wstatus[`TXSTATUS_SOP] = 1'b1;
+           <font color = "green">        ==></font>
+143        
+144            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+149            if (pkt_tx_val) begin
+               <font color = "green">-1-</font>  
+150        
+151                if (pkt_tx_eop) begin
+                   <font color = "green">-2-</font>  
+152                    txdfifo_wstatus[2:0] = pkt_tx_mod;
+           <font color = "green">            ==></font>
+153                    txdfifo_wstatus[`TXSTATUS_EOP] = 1'b1;
+154                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+155        
+156            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+161            if (pkt_tx_val) begin
+               <font color = "green">-1-</font>  
+162        
+163                if (txdfifo_wfull) begin
+                   <font color = "red">-2-</font>        
+164        
+165                    next_txd_ovflow = 1'b1;
+           <font color = "red">            ==></font>
+166        
+167                end
+168                else if (pkt_tx_sop) begin
+                        <font color = "green">-3-</font>  
+169        
+170                    next_txd_ovflow = 1'b0;
+           <font color = "green">            ==></font>
+171        
+172                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+173            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod9.html" >top</a>
+<hr>
+<a name="Path"></a>
+Path Coverage for Module : <a href="mod9.html" >tx_enqueue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s2"><td class="lf">Paths<td><td>27<td>6<td>22.22
+<tr class="s6"><td><td>98<td>3<td>2<td>66.67
+<tr class="s1"><td><td>122<td>24<td>4<td>16.67
+</table>
+<br><pre class="code">
+98          always @(posedge clk_156m25 or negedge reset_156m25_n) begin
+99          
+100             if (reset_156m25_n == 1'b0) begin
+                -1-
+101         
+102                 txd_ovflow &lt;= 1'b0;
+103         
+104                 status_txdfifo_ovflow_tog &lt;= 1'b0;
+105         
+106             end
+107             else begin
+108         
+109                 txd_ovflow &lt;= next_txd_ovflow;
+110         
+111                 //---
+112                 // FIFO errors, used to generate interrupts
+113         
+114                 if (next_txd_ovflow &amp;&amp; !txd_ovflow) begin
+                    -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br><pre class="code">
+122         always @(/*AS*/pkt_tx_data or pkt_tx_eop or pkt_tx_mod or pkt_tx_sop
+123                  or pkt_tx_val or txd_ovflow or txdfifo_wfull) begin
+124         
+125             txdfifo_wstatus = `TXSTATUS_NONE;
+126             txdfifo_wen = pkt_tx_val;
+127         
+128             next_txd_ovflow = txd_ovflow;
+129         
+130             `ifdef BIGENDIAN
+131             txdfifo_wdata = {pkt_tx_data[7:0], pkt_tx_data[15:8], pkt_tx_data[23:16], pkt_tx_data[31:24],
+132                              pkt_tx_data[39:32], pkt_tx_data[47:40], pkt_tx_data[55:48],
+133                              pkt_tx_data[63:56]};
+134             `else
+135             txdfifo_wdata = pkt_tx_data;
+136             `endif
+137         
+138             // Write SOP marker to fifo.
+139         
+140             if (pkt_tx_val &amp;&amp; pkt_tx_sop) begin
+                -1-
+141         
+142                 txdfifo_wstatus[`TXSTATUS_SOP] = 1'b1;
+143         
+144             end
+145         
+146         
+147             // Write EOP marker to fifo.
+148         
+149             if (pkt_tx_val) begin
+                -2-
+150         
+151                 if (pkt_tx_eop) begin
+                    -3-
+152                     txdfifo_wstatus[2:0] = pkt_tx_mod;
+153                     txdfifo_wstatus[`TXSTATUS_EOP] = 1'b1;
+154                 end
+155         
+156             end
+157         
+158         
+159             // Overflow indication
+160         
+161             if (pkt_tx_val) begin
+                -4-
+162         
+163                 if (txdfifo_wfull) begin
+                    -5-
+164         
+165                     next_txd_ovflow = 1'b1;
+166         
+167                 end
+168                 else if (pkt_tx_sop) begin
+                         -6-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="6" width="25">
+<tr><th>-1-<th>-2-<th>-3-<th>-4-<th>-5-<th>-6-<th>Status
+<tr class="uRed"><td>0<td>0<td>-<td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>0<td>-<td>1<td>0<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>0<td>-<td>1<td>1<td>-<td class="lf">Not Covered
+<tr class="uGreen"><td>0<td>0<td>-<td>0<td>-<td>-<td class="lf">Covered
+<tr class="uRed"><td>0<td>1<td>1<td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>0<td>1<td>1<td>1<td>0<td>0<td class="lf">Covered
+<tr class="uRed"><td>0<td>1<td>1<td>1<td>1<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>1<td>1<td>0<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>1<td>0<td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>0<td>1<td>0<td>1<td>0<td>0<td class="lf">Covered
+<tr class="uRed"><td>0<td>1<td>0<td>1<td>1<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>1<td>0<td>0<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td>-<td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td>-<td>1<td>0<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td>-<td>1<td>1<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td>-<td>0<td>-<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>0<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>1<td>1<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td>0<td>-<td>-<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>1<td>0<td>1<td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td>0<td>1<td>0<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>0<td>1<td>1<td>-<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>0<td>0<td>-<td>-<td class="lf">Not Covered
+</table>
+<br clear=all>
+Go to <a href="mod9.html" >top</a>
+<hr>
+<a name="inst_tag_13"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_13" >tb.dut.tx_eq0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s6 cl rt"> 67.55</td>
+<td class="s9 cl rt"><a href="mod9.html#Line" > 90.48</a></td>
+<td class="s5 cl rt"><a href="mod9.html#Cond" > 50.00</a></td>
+<td class="s9 cl rt"><a href="mod9.html#Toggle" > 91.72</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod9.html#Branch" > 83.33</a></td>
+<td class="s2 cl rt"><a href="mod9.html#Path" > 22.22</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s6 cl rt"> 67.55</td>
+<td class="s9 cl rt"> 90.48</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="s9 cl rt"> 91.72</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.33</td>
+<td class="s2 cl rt"> 22.22</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s6 cl rt"> 67.55</td>
+<td class="s9 cl rt"> 90.48</td>
+<td class="s5 cl rt"> 50.00</td>
+<td class="s9 cl rt"> 91.72</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.33</td>
+<td class="s2 cl rt"> 22.22</td>
+<td><a href="mod9.html" >tx_enqueue</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 83.43</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.43</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod22.html#inst_tag_43" >dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

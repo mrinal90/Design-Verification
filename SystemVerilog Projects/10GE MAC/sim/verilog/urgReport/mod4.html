@@ -1,0 +1,975 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: rx_dequeue</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_rx_dequeue" >rx_dequeue</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s6 cl rt"> 64.89</td>
+<td class="s8 cl rt"><a href="mod4.html#Line" > 84.38</a></td>
+<td class="s6 cl rt"><a href="mod4.html#Cond" > 62.50</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Toggle" > 92.43</a></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod4.html#Branch" > 76.92</a></td>
+<td class="s0 cl rt"><a href="mod4.html#Path" >  8.22</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_dequeue.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_dequeue.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s6 cl rt"> 64.89</td>
+<td class="s8 cl rt"><a href="mod4.html#Line" > 84.38</a></td>
+<td class="s6 cl rt"><a href="mod4.html#Cond" > 62.50</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Toggle" > 92.43</a></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod4.html#Branch" > 76.92</a></td>
+<td class="s0 cl rt"><a href="mod4.html#Path" >  8.22</a></td>
+<td><a href="mod4.html#inst_tag_4" >tb.dut.rx_dq0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod4.html" >rx_dequeue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s8"><td class="lf">TOTAL<td><td>32<td>27<td>84.38
+<tr class="s8"><td class="lf">ALWAYS<td>97<td>32<td>27<td>84.38
+</table>
+<pre class="code"><br clear=all>
+96                      
+97         1/1              if (reset_156m25_n == 1'b0) begin
+98                      
+99         1/1                  pkt_rx_avail &lt;= 1'b0;
+100                     
+101        1/1                  pkt_rx_data &lt;= 64'b0;
+102        1/1                  pkt_rx_sop &lt;= 1'b0;
+103        1/1                  pkt_rx_eop &lt;= 1'b0;
+104        1/1                  pkt_rx_err &lt;= 1'b0;
+105        1/1                  pkt_rx_mod &lt;= 3'b0;
+106                     
+107        1/1                  pkt_rx_val &lt;= 1'b0;
+108                     
+109        1/1                  end_eop &lt;= 1'b0;
+110                     
+111        1/1                  status_rxdfifo_udflow_tog &lt;= 1'b0;
+112                     
+113                         end
+114                         else begin
+115                     
+116        1/1                  pkt_rx_avail &lt;= !rxdfifo_ralmost_empty;
+117                     
+118                     
+119                     
+120                             // If eop shows up at the output of the fifo, we drive eop on
+121                             // the bus on the next read. This will be the last read for this
+122                             // packet. The fifo is designed to output data early. On last read,
+123                             // data from next packet will appear at the output of fifo. Modulus
+124                             // of packet length is in lower bits.
+125                     
+126        1/1                  pkt_rx_eop &lt;= rxdfifo_ren &amp;&amp; rxdfifo_rstatus[`RXSTATUS_EOP];
+127        1/1                  pkt_rx_mod &lt;= {3{rxdfifo_ren &amp; rxdfifo_rstatus[`RXSTATUS_EOP]}} &amp; rxdfifo_rstatus[2:0];
+128                     
+129                     
+130        1/1                  pkt_rx_val &lt;= rxdfifo_ren;
+131                     
+132        1/1                  if (rxdfifo_ren) begin
+133                     
+134                                 `ifdef BIGENDIAN
+135        1/1          	    pkt_rx_data &lt;= {rxdfifo_rdata[7:0],
+136                                                 rxdfifo_rdata[15:8],
+137                                                 rxdfifo_rdata[23:16],
+138                                                 rxdfifo_rdata[31:24],
+139                                                 rxdfifo_rdata[39:32],
+140                                                 rxdfifo_rdata[47:40],
+141                                                 rxdfifo_rdata[55:48],
+142                                                 rxdfifo_rdata[63:56]};
+143                                 `else
+144                     	    pkt_rx_data &lt;= rxdfifo_rdata;
+145                                 `endif
+146                     
+147                             end
+                        MISSING_ELSE
+148                     
+149                     
+150        1/1                  if (rxdfifo_ren &amp;&amp; rxdfifo_rstatus[`RXSTATUS_SOP]) begin
+151                     
+152                                 // SOP indication on first word
+153                     
+154        1/1                      pkt_rx_sop &lt;= 1'b1;
+155        1/1                      pkt_rx_err &lt;= 1'b0;
+156                     
+157                             end
+158                             else begin
+159                     
+160        1/1                      pkt_rx_sop &lt;= 1'b0;
+161                     
+162                     
+163                                 // Give an error if FIFO is to underflow
+164                     
+165        1/1                      if (rxdfifo_rempty &amp;&amp; pkt_rx_ren &amp;&amp; !end_eop) begin
+166        <font color = "red">0/1     ==>                  pkt_rx_val &lt;= 1'b1;</font>
+167        <font color = "red">0/1     ==>                  pkt_rx_eop &lt;= 1'b1;</font>
+168        <font color = "red">0/1     ==>                  pkt_rx_err &lt;= 1'b1;</font>
+169                                 end
+                        MISSING_ELSE
+170                     
+171                             end
+172                     
+173                     
+174        1/1                  if (rxdfifo_ren &amp;&amp; |(rxdfifo_rstatus[`RXSTATUS_ERR])) begin
+175                     
+176                                 // Status stored in FIFO is propagated to error signal.
+177                     
+178        <font color = "red">0/1     ==>              pkt_rx_err &lt;= 1'b1;</font>
+179                     
+180                             end
+                        MISSING_ELSE
+181                     
+182                     
+183                             //---
+184                             // EOP indication at the end of the frame. Cleared otherwise.
+185                     
+186        1/1                  if (rxdfifo_ren &amp;&amp; rxdfifo_rstatus[`RXSTATUS_EOP]) begin
+187        1/1                      end_eop &lt;= 1'b1;
+188                             end
+189        1/1                  else if (pkt_rx_ren) begin
+190        1/1                      end_eop &lt;= 1'b0;
+191                             end
+                        MISSING_ELSE
+192                     
+193                     
+194                     
+195                             //---
+196                             // FIFO errors, used to generate interrupts
+197                     
+198        1/1                  if (rxdfifo_rempty &amp;&amp; pkt_rx_ren &amp;&amp; !end_eop) begin
+199        <font color = "red">0/1     ==>              status_rxdfifo_udflow_tog &lt;= ~status_rxdfifo_udflow_tog;</font>
+200                             end
+                        MISSING_ELSE
+</pre>
+<br clear=all>
+Go to <a href="mod4.html" >top</a>
+<hr>
+<a name="Cond"></a>
+Cond Coverage for Module : <a href="mod4.html" >rx_dequeue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="3" width="82">
+<tr><th><th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Conditions<td>24<td>15<td>62.50
+<tr class="s6"><td class="lf">Logical<td>24<td>15<td>62.50
+<tr class="wht"><td class="lf">Non-Logical<td>0<td>0<td>
+<tr class="wht"><td class="lf">Event<td>0<td>0<td>
+</table>
+<br clear=all>
+<pre class="code"> LINE       91
+ EXPRESSION (((!rxdfifo_rempty)) &amp;&amp; pkt_rx_ren &amp;&amp; ((!end_eop)))
+             ---------1---------    -----2----    ------3-----
+</pre>
+<table class="ct">
+<col span="3" width="40">
+<tr><th>-1-<th>-2-<th>-3-<th>Status
+<tr class="uRed"><td>0<td>1<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       126
+ EXPRESSION (rxdfifo_ren &amp;&amp; rxdfifo_rstatus[3'd6])
+             -----1-----    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       150
+ EXPRESSION (rxdfifo_ren &amp;&amp; rxdfifo_rstatus[3'd7])
+             -----1-----    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       165
+ EXPRESSION (rxdfifo_rempty &amp;&amp; pkt_rx_ren &amp;&amp; ((!end_eop)))
+             -------1------    -----2----    ------3-----
+</pre>
+<table class="ct">
+<col span="3" width="40">
+<tr><th>-1-<th>-2-<th>-3-<th>Status
+<tr class="uGreen"><td>0<td>1<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       174
+ EXPRESSION (rxdfifo_ren &amp;&amp; ((|rxdfifo_rstatus[3'd5])))
+             -----1-----    -------------2------------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       186
+ EXPRESSION (rxdfifo_ren &amp;&amp; rxdfifo_rstatus[3'd6])
+             -----1-----    ----------2----------
+</pre>
+<table class="ct">
+<col span="2" width="40">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uRed"><td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+</table>
+<br clear=all>
+<pre class="code"> LINE       198
+ EXPRESSION (rxdfifo_rempty &amp;&amp; pkt_rx_ren &amp;&amp; ((!end_eop)))
+             -------1------    -----2----    ------3-----
+</pre>
+<table class="ct">
+<col span="3" width="40">
+<tr><th>-1-<th>-2-<th>-3-<th>Status
+<tr class="uGreen"><td>0<td>1<td>1<td class="lf">Covered
+<tr class="uGreen"><td>1<td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>1<td class="lf">Not Covered
+</table>
+<br clear=all>
+Go to <a href="mod4.html" >top</a>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod4.html" >rx_dequeue</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Totals</td>
+<td class="rt">17</td>
+<td class="rt">12</td>
+<td class="rt">70.59 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">304</td>
+<td class="rt">281</td>
+<td class="rt">92.43 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">152</td>
+<td class="rt">141</td>
+<td class="rt">92.76 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">152</td>
+<td class="rt">140</td>
+<td class="rt">92.11 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s6">
+<td>Ports</td>
+<td class="rt">16</td>
+<td class="rt">11</td>
+<td class="rt">68.75 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">302</td>
+<td class="rt">279</td>
+<td class="rt">92.38 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">151</td>
+<td class="rt">140</td>
+<td class="rt">92.72 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">151</td>
+<td class="rt">139</td>
+<td class="rt">92.05 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s10">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>Signal Bits</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">1</td>
+<td class="rt">1</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>clk_156m25</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>reset_156m25_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rxdfifo_rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rxdfifo_rstatus[5:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rxdfifo_rstatus[7:6]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rxdfifo_rempty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rxdfifo_ralmost_empty</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>pkt_rx_ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rxdfifo_ren</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pkt_rx_data[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pkt_rx_val</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pkt_rx_sop</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pkt_rx_eop</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pkt_rx_err</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pkt_rx_mod[2:0]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>pkt_rx_avail</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>status_rxdfifo_udflow_tog</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>end_eop</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod4.html" >top</a>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod4.html" >rx_dequeue</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s7">
+<td>Branches</td>
+<td></td>
+<td class="rt">13</td>
+<td class="rt">10</td>
+<td class="rt">76.92 </td>
+</tr><tr class="s7">
+<td>IF</td>
+<td class="rt">97</td>
+<td class="rt">13</td>
+<td class="rt">10</td>
+<td class="rt">76.92 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+97             if (reset_156m25_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+98         
+99                 pkt_rx_avail <= 1'b0;
+           <font color = "green">        ==></font>
+100        
+101                pkt_rx_data <= 64'b0;
+102                pkt_rx_sop <= 1'b0;
+103                pkt_rx_eop <= 1'b0;
+104                pkt_rx_err <= 1'b0;
+105                pkt_rx_mod <= 3'b0;
+106        
+107                pkt_rx_val <= 1'b0;
+108        
+109                end_eop <= 1'b0;
+110        
+111                status_rxdfifo_udflow_tog <= 1'b0;
+112        
+113            end
+114            else begin
+115        
+116                pkt_rx_avail <= !rxdfifo_ralmost_empty;
+117        
+118        
+119        
+120                // If eop shows up at the output of the fifo, we drive eop on
+121                // the bus on the next read. This will be the last read for this
+122                // packet. The fifo is designed to output data early. On last read,
+123                // data from next packet will appear at the output of fifo. Modulus
+124                // of packet length is in lower bits.
+125        
+126                pkt_rx_eop <= rxdfifo_ren && rxdfifo_rstatus[`RXSTATUS_EOP];
+127                pkt_rx_mod <= {3{rxdfifo_ren & rxdfifo_rstatus[`RXSTATUS_EOP]}} & rxdfifo_rstatus[2:0];
+128        
+129        
+130                pkt_rx_val <= rxdfifo_ren;
+131        
+132                if (rxdfifo_ren) begin
+                   <font color = "green">-2-</font>        
+133        
+134                    `ifdef BIGENDIAN
+135        	    pkt_rx_data <= {rxdfifo_rdata[7:0],
+           <font color = "green">	    ==></font>
+136                                    rxdfifo_rdata[15:8],
+137                                    rxdfifo_rdata[23:16],
+138                                    rxdfifo_rdata[31:24],
+139                                    rxdfifo_rdata[39:32],
+140                                    rxdfifo_rdata[47:40],
+141                                    rxdfifo_rdata[55:48],
+142                                    rxdfifo_rdata[63:56]};
+143                    `else
+144        	    pkt_rx_data <= rxdfifo_rdata;
+145                    `endif
+146        
+147                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+148        
+149        
+150                if (rxdfifo_ren && rxdfifo_rstatus[`RXSTATUS_SOP]) begin
+                   <font color = "green">-3-</font>                       
+151        
+152                    // SOP indication on first word
+153        
+154                    pkt_rx_sop <= 1'b1;
+           <font color = "green">            ==></font>
+155                    pkt_rx_err <= 1'b0;
+156        
+157                end
+158                else begin
+159        
+160                    pkt_rx_sop <= 1'b0;
+161        
+162        
+163                    // Give an error if FIFO is to underflow
+164        
+165                    if (rxdfifo_rempty && pkt_rx_ren && !end_eop) begin
+                       <font color = "red">-4-</font>        
+166                        pkt_rx_val <= 1'b1;
+           <font color = "red">                ==></font>
+167                        pkt_rx_eop <= 1'b1;
+168                        pkt_rx_err <= 1'b1;
+169                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+170        
+171                end
+172        
+173        
+174                if (rxdfifo_ren && |(rxdfifo_rstatus[`RXSTATUS_ERR])) begin
+                   <font color = "red">-5-</font>                         
+175        
+176                    // Status stored in FIFO is propagated to error signal.
+177        
+178                    pkt_rx_err <= 1'b1;
+           <font color = "red">            ==></font>
+179        
+180                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+181        
+182        
+183                //---
+184                // EOP indication at the end of the frame. Cleared otherwise.
+185        
+186                if (rxdfifo_ren && rxdfifo_rstatus[`RXSTATUS_EOP]) begin
+                   <font color = "green">-6-</font>                       
+187                    end_eop <= 1'b1;
+           <font color = "green">            ==></font>
+188                end
+189                else if (pkt_rx_ren) begin
+                        <font color = "green">-7-</font>  
+190                    end_eop <= 1'b0;
+           <font color = "green">            ==></font>
+191                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+192        
+193        
+194        
+195                //---
+196                // FIFO errors, used to generate interrupts
+197        
+198                if (rxdfifo_rempty && pkt_rx_ren && !end_eop) begin
+                   <font color = "red">-8-</font>        
+199                    status_rxdfifo_udflow_tog <= ~status_rxdfifo_udflow_tog;
+           <font color = "red">            ==></font>
+200                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod4.html" >top</a>
+<hr>
+<a name="Path"></a>
+Path Coverage for Module : <a href="mod4.html" >rx_dequeue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s0"><td class="lf">Paths<td><td>73<td>6<td>8.22
+<tr class="s0"><td><td>95<td>73<td>6<td>8.22
+</table>
+<br><pre class="code">
+95          always @(posedge clk_156m25 or negedge reset_156m25_n) begin
+96          
+97              if (reset_156m25_n == 1'b0) begin
+                -1-
+98          
+99                  pkt_rx_avail &lt;= 1'b0;
+100         
+101                 pkt_rx_data &lt;= 64'b0;
+102                 pkt_rx_sop &lt;= 1'b0;
+103                 pkt_rx_eop &lt;= 1'b0;
+104                 pkt_rx_err &lt;= 1'b0;
+105                 pkt_rx_mod &lt;= 3'b0;
+106         
+107                 pkt_rx_val &lt;= 1'b0;
+108         
+109                 end_eop &lt;= 1'b0;
+110         
+111                 status_rxdfifo_udflow_tog &lt;= 1'b0;
+112         
+113             end
+114             else begin
+115         
+116                 pkt_rx_avail &lt;= !rxdfifo_ralmost_empty;
+117         
+118         
+119         
+120                 // If eop shows up at the output of the fifo, we drive eop on
+121                 // the bus on the next read. This will be the last read for this
+122                 // packet. The fifo is designed to output data early. On last read,
+123                 // data from next packet will appear at the output of fifo. Modulus
+124                 // of packet length is in lower bits.
+125         
+126                 pkt_rx_eop &lt;= rxdfifo_ren &amp;&amp; rxdfifo_rstatus[`RXSTATUS_EOP];
+127                 pkt_rx_mod &lt;= {3{rxdfifo_ren &amp; rxdfifo_rstatus[`RXSTATUS_EOP]}} &amp; rxdfifo_rstatus[2:0];
+128         
+129         
+130                 pkt_rx_val &lt;= rxdfifo_ren;
+131         
+132                 if (rxdfifo_ren) begin
+                    -2-
+133         
+134                     `ifdef BIGENDIAN
+135                 pkt_rx_data &lt;= {rxdfifo_rdata[7:0],
+136                                     rxdfifo_rdata[15:8],
+137                                     rxdfifo_rdata[23:16],
+138                                     rxdfifo_rdata[31:24],
+139                                     rxdfifo_rdata[39:32],
+140                                     rxdfifo_rdata[47:40],
+141                                     rxdfifo_rdata[55:48],
+142                                     rxdfifo_rdata[63:56]};
+143                     `else
+144                 pkt_rx_data &lt;= rxdfifo_rdata;
+145                     `endif
+146         
+147                 end
+148         
+149         
+150                 if (rxdfifo_ren &amp;&amp; rxdfifo_rstatus[`RXSTATUS_SOP]) begin
+                    -3-
+151         
+152                     // SOP indication on first word
+153         
+154                     pkt_rx_sop &lt;= 1'b1;
+155                     pkt_rx_err &lt;= 1'b0;
+156         
+157                 end
+158                 else begin
+159         
+160                     pkt_rx_sop &lt;= 1'b0;
+161         
+162         
+163                     // Give an error if FIFO is to underflow
+164         
+165                     if (rxdfifo_rempty &amp;&amp; pkt_rx_ren &amp;&amp; !end_eop) begin
+                        -4-
+166                         pkt_rx_val &lt;= 1'b1;
+167                         pkt_rx_eop &lt;= 1'b1;
+168                         pkt_rx_err &lt;= 1'b1;
+169                     end
+170         
+171                 end
+172         
+173         
+174                 if (rxdfifo_ren &amp;&amp; |(rxdfifo_rstatus[`RXSTATUS_ERR])) begin
+                    -5-
+175         
+176                     // Status stored in FIFO is propagated to error signal.
+177         
+178                     pkt_rx_err &lt;= 1'b1;
+179         
+180                 end
+181         
+182         
+183                 //---
+184                 // EOP indication at the end of the frame. Cleared otherwise.
+185         
+186                 if (rxdfifo_ren &amp;&amp; rxdfifo_rstatus[`RXSTATUS_EOP]) begin
+                    -6-
+187                     end_eop &lt;= 1'b1;
+188                 end
+189                 else if (pkt_rx_ren) begin
+                         -7-
+190                     end_eop &lt;= 1'b0;
+191                 end
+192         
+193         
+194         
+195                 //---
+196                 // FIFO errors, used to generate interrupts
+197         
+198                 if (rxdfifo_rempty &amp;&amp; pkt_rx_ren &amp;&amp; !end_eop) begin
+                    -8-
+</pre>
+<b>Paths:</b><br>
+Uncovered paths are not available because they are not computed at compile time when there are more than 50 paths in the block.<br>
+<table class="ct">
+<col span="8" width="25">
+<tr><th>-1-<th>-2-<th>-3-<th>-4-<th>-5-<th>-6-<th>-7-<th>-8-<th>Status
+<tr class="uGreen"><td>1<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Covered
+<tr class="uGreen"><td>0<td>1<td>0<td>0<td>0<td>1<td>-<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>1<td>1<td>-<td>0<td>0<td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>1<td>0<td>0<td>0<td>0<td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td>0<td>0<td>0<td>0<td>1<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+</table>
+<br clear=all>
+Go to <a href="mod4.html" >top</a>
+<hr>
+<a name="inst_tag_4"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_4" >tb.dut.rx_dq0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s6 cl rt"> 64.89</td>
+<td class="s8 cl rt"><a href="mod4.html#Line" > 84.38</a></td>
+<td class="s6 cl rt"><a href="mod4.html#Cond" > 62.50</a></td>
+<td class="s9 cl rt"><a href="mod4.html#Toggle" > 92.43</a></td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"><a href="mod4.html#Branch" > 76.92</a></td>
+<td class="s0 cl rt"><a href="mod4.html#Path" >  8.22</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s6 cl rt"> 64.89</td>
+<td class="s8 cl rt"> 84.38</td>
+<td class="s6 cl rt"> 62.50</td>
+<td class="s9 cl rt"> 92.43</td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 76.92</td>
+<td class="s0 cl rt">  8.22</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s6 cl rt"> 64.89</td>
+<td class="s8 cl rt"> 84.38</td>
+<td class="s6 cl rt"> 62.50</td>
+<td class="s9 cl rt"> 92.43</td>
+<td class="wht cl rt"></td>
+<td class="s7 cl rt"> 76.92</td>
+<td class="s0 cl rt">  8.22</td>
+<td><a href="mod4.html" >rx_dequeue</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 83.43</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.43</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod22.html#inst_tag_43" >dut</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

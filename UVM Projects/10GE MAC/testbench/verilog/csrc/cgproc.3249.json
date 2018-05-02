@@ -1,0 +1,166 @@
+{
+    "CompUnits": {
+        "PATxq_d": {
+            "mod": "testcase",
+            "checksum": 0,
+            "out": "PATxq_d.o",
+            "bytes": 2757556,
+            "mode": 4,
+            "archive": "archive.142/_3249_archive_1.a"
+        }
+    },
+    "Modules": {
+        "xge_mac": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "fault_sm": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "meta_sync_single_0001": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "...MASTER...": {},
+        "uvm_custom_install_recording": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "vcs_paramclassrepository": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "_vcs_unit__2861983952": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "_vcs_msglog": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "uvm_pkg": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "generic_fifo_ctrl_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "meta_sync_single_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "wishbone_if": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "tx_data_fifo": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "sync_clk_wb": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "sync_clk_xgmii_tx": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "tx_hold_fifo": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "testcase": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        },
+        "xge_interface": {
+            "Compiled": "Yes",
+            "Compiled Times": 143
+        }
+    },
+    "reusePaths": {
+        "amcQw_d": {
+            "icPath": "csrc"
+        },
+        "hEeZs_d": {
+            "icPath": "csrc"
+        },
+        "iYS5S_d": {
+            "icPath": "csrc"
+        },
+        "reYIK_d": {
+            "icPath": "csrc"
+        },
+        "zk6Si_d": {
+            "icPath": "csrc"
+        },
+        "zQBzV_d": {
+            "icPath": "csrc"
+        },
+        "nhiwz_d": {
+            "icPath": "csrc"
+        },
+        "Z0GYV_d": {
+            "icPath": "csrc"
+        },
+        "zr7M1_d": {
+            "icPath": "csrc"
+        },
+        "NY7Gb_d": {
+            "icPath": "csrc"
+        },
+        "rpjqj_d": {
+            "icPath": "csrc"
+        },
+        "s4ZT9_d": {
+            "icPath": "csrc"
+        },
+        "hgiba_d": {
+            "icPath": "csrc"
+        },
+        "UjwLm_d": {
+            "icPath": "csrc"
+        },
+        "srKWe_d": {
+            "icPath": "csrc"
+        },
+        "GJcQF_d": {
+            "icPath": "csrc"
+        },
+        "ymzz2_d": {
+            "icPath": "csrc"
+        },
+        "g7hgQ_d": {
+            "icPath": "csrc"
+        },
+        "K4hma_d": {
+            "icPath": "csrc"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.142/_3249_archive_1.a",
+            "objects": [
+                [
+                    "PATxq_d.o",
+                    2757556
+                ],
+                [
+                    "amcQwB.o",
+                    345822
+                ]
+            ],
+            "size": 3103378
+        }
+    ]
+}

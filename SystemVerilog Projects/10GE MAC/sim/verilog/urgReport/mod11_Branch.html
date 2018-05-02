@@ -1,0 +1,1678 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Branch Coverage for Module : rx_enqueue</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_rx_enqueue" >rx_enqueue</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s5 cl rt"> 54.96</td>
+<td class="s7 cl rt"><a href="mod11_Line.html" > 76.09</a></td>
+<td class="s4 cl rt"><a href="mod11_Cond.html" > 45.45</a></td>
+<td class="s9 cl rt"><a href="mod11_Toggle.html" > 90.89</a></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod11_Branch.html" > 61.90</a></td>
+<td class="s0 cl rt"><a href="mod11_Path.html" >  0.48</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_enqueue.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_enqueue.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 54.96</td>
+<td class="s7 cl rt"><a href="mod11_Line.html" > 76.09</a></td>
+<td class="s4 cl rt"><a href="mod11_Cond.html" > 45.45</a></td>
+<td class="s9 cl rt"><a href="mod11_Toggle.html" > 90.89</a></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod11_Branch.html" > 61.90</a></td>
+<td class="s0 cl rt"><a href="mod11_Path.html" >  0.48</a></td>
+<td><a href="mod11_15.html" >tb.dut.rx_eq0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+Branch Coverage for Module : <a href="mod11.html" >rx_enqueue</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s6">
+<td>Branches</td>
+<td></td>
+<td class="rt">63</td>
+<td class="rt">39</td>
+<td class="rt">61.90 </td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">176</td>
+<td class="rt">22</td>
+<td class="rt">14</td>
+<td class="rt">63.64 </td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">374</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">389</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s5">
+<td>CASE</td>
+<td class="rt">449</td>
+<td class="rt">28</td>
+<td class="rt">15</td>
+<td class="rt">53.57 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">682</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">726</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s5">
+<td>IF</td>
+<td class="rt">734</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td>IF</td>
+<td class="rt">751</td>
+<td class="rt">2</td>
+<td class="rt">1</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+176            if (reset_xgmii_rx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+177        
+178                xgmii_rxd_d1 <= 32'b0;
+           <font color = "green">        ==></font>
+179                xgmii_rxc_d1 <= 4'b0;
+180        
+181                xgxs_rxd_barrel <= 64'b0;
+182                xgxs_rxc_barrel <= 8'b0;
+183        
+184                xgxs_rxd_barrel_d1 <= 64'b0;
+185                xgxs_rxc_barrel_d1 <= 8'b0;
+186        
+187                barrel_shift <= 1'b0;
+188        
+189                local_fault_msg_det <= 2'b0;
+190                remote_fault_msg_det <= 2'b0;
+191        
+192                crc32_d64 <= 32'b0;
+193                crc32_d8 <= 32'b0;
+194                crc_bytes <= 4'b0;
+195        
+196                crc_shift_data <= 64'b0;
+197                crc_done <= 1'b0;
+198                crc_rx <= 32'b0;
+199        
+200                pause_frame_hold <= 1'b0;
+201        
+202                status_crc_error_tog <= 1'b0;
+203                status_fragment_error_tog <= 1'b0;
+204                status_rxdfifo_ovflow_tog <= 1'b0;
+205        
+206                status_pause_frame_rx_tog <= 1'b0;
+207        
+208            end
+209            else begin
+210        
+211                //---
+212                // Link status RC layer
+213                // Look for local/remote messages on lower 4 lanes and upper
+214                // 4 lanes. This is a 64-bit interface but look at each 32-bit
+215                // independantly.
+216                
+217                local_fault_msg_det[1] <= (xgmii_rxd[63:32] ==
+218                                           {`LOCAL_FAULT, 8'h0, 8'h0, `SEQUENCE} &&
+219                                           xgmii_rxc[7:4] == 4'b0001);
+220        
+221                local_fault_msg_det[0] <= (xgmii_rxd[31:0] ==
+222                                           {`LOCAL_FAULT, 8'h0, 8'h0, `SEQUENCE} &&
+223                                           xgmii_rxc[3:0] == 4'b0001);
+224        
+225                remote_fault_msg_det[1] <= (xgmii_rxd[63:32] ==
+226                                            {`REMOTE_FAULT, 8'h0, 8'h0, `SEQUENCE} &&
+227                                            xgmii_rxc[7:4] == 4'b0001);
+228        
+229                remote_fault_msg_det[0] <= (xgmii_rxd[31:0] ==
+230                                            {`REMOTE_FAULT, 8'h0, 8'h0, `SEQUENCE} &&
+231                                            xgmii_rxc[3:0] == 4'b0001);
+232        
+233        
+234                //---
+235                // Rotating barrel. This function allow us to always align the start of
+236                // a frame with LANE0. If frame starts in LANE4, it will be shifted 4 bytes
+237                // to LANE0, thus reducing the amount of logic needed at the next stage.
+238        
+239                xgmii_rxd_d1[63:32] <= xgmii_rxd[63:32];
+240                xgmii_rxc_d1[7:4] <= xgmii_rxc[7:4];
+241        
+242                if (xgmii_rxd[`LANE0] == `START && xgmii_rxc[0]) begin
+                   <font color = "green">-2-</font>  
+243                    
+244                    xgxs_rxd_barrel <= xgmii_rxd;
+           <font color = "green">            ==></font>
+245                    xgxs_rxc_barrel <= xgmii_rxc;
+246        
+247                    barrel_shift <= 1'b0;
+248        
+249                end
+250                else if (xgmii_rxd[`LANE4] == `START && xgmii_rxc[4]) begin
+                        <font color = "red">-3-</font>  
+251        
+252                    xgxs_rxd_barrel <= {xgmii_rxd[31:0], xgmii_rxd_d1[63:32]};
+           <font color = "red">            ==></font>
+253                    xgxs_rxc_barrel <= {xgmii_rxc[3:0], xgmii_rxc_d1[7:4]};
+254        
+255                    barrel_shift <= 1'b1;
+256        
+257                end
+258                else if (barrel_shift) begin
+                        <font color = "red">-4-</font>             
+259        
+260                    xgxs_rxd_barrel <= {xgmii_rxd[31:0], xgmii_rxd_d1[63:32]};
+           <font color = "red">            ==></font>
+261                    xgxs_rxc_barrel <= {xgmii_rxc[3:0], xgmii_rxc_d1[7:4]};
+262        
+263                end
+264                else begin
+265        
+266                    xgxs_rxd_barrel <= xgmii_rxd;
+           <font color = "green">            ==></font>
+267                    xgxs_rxc_barrel <= xgmii_rxc;
+268        
+269                end
+270        
+271                xgxs_rxd_barrel_d1 <= xgxs_rxd_barrel;
+272                xgxs_rxc_barrel_d1 <= xgxs_rxc_barrel;
+273        
+274        
+275                //---
+276                // When final CRC calculation begins we capture info relevant to
+277                // current frame CRC claculation continues while next frame is
+278                // being received.
+279        
+280                if (crc_start_8b) begin
+                   <font color = "green">-5-</font>  
+281        
+282                    pause_frame_hold <= pause_frame;
+           <font color = "green">            ==></font>
+283        
+284                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+285        
+286                //---
+287                // CRC Checking
+288        
+289                crc_rx <= next_crc_rx;
+290        
+291                if (crc_clear) begin
+                   <font color = "green">-6-</font>  
+292        
+293                    // CRC is cleared at the beginning of the frame, calculate
+294                    // 64-bit at a time otherwise
+295        
+296                    crc32_d64 <= 32'hffffffff;
+           <font color = "green">            ==></font>
+297        
+298                end
+299                else begin
+300        
+301                    crc32_d64 <= nextCRC32_D64(reverse_64b(xgxs_rxd_barrel_d1), crc32_d64);
+           <font color = "green">            ==></font>
+302        
+303                end
+304        
+305                if (crc_bytes != 4'b0) begin
+                   <font color = "green">-7-</font>  
+306        
+307                    // When reaching the end of the frame we switch from 64-bit mode
+308                    // to 8-bit mode to accomodate odd number of bytes in the frame.
+309                    // crc_bytes indicated the number of remaining payload byte to
+310                    // compute CRC on. Calculate and decrement until it reaches 0.
+311        
+312                    if (crc_bytes == 4'b1) begin
+                       <font color = "green">-8-</font>  
+313                        crc_done <= 1'b1;
+           <font color = "green">                ==></font>
+314                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+315        
+316                    crc32_d8 <= nextCRC32_D8(reverse_8b(crc_shift_data[7:0]), crc32_d8);
+317                    crc_shift_data <= {8'h00, crc_shift_data[63:8]};
+318                    crc_bytes <= crc_bytes - 4'b1;
+319        
+320                end
+321                else if (crc_bytes == 4'b0) begin
+                        <font color = "red">-9-</font>  
+322        
+323                    // Per Clause 46. Control code during data must be reported
+324                    // as a CRC error. Indicated here by coding_error. Corrupt CRC
+325                    // if coding error is detected.
+326                
+327                    if (coding_error || next_coding_error) begin
+                       <font color = "red">-10-</font>  
+328                        crc32_d8 <= ~crc32_d64;
+           <font color = "red">                ==></font>
+329                    end
+330                    else begin
+331                        crc32_d8 <= crc32_d64;
+           <font color = "green">                ==></font>
+332                    end
+333        
+334                    crc_done <= 1'b0;
+335        
+336                    crc_shift_data <= xgxs_rxd_barrel_d1;
+337                    crc_bytes <= next_crc_bytes;
+338        
+339                end
+                   MISSING_ELSE
+           <font color = "red">        ==></font>
+340        
+341                //---
+342                // Error detection
+343        
+344                if (crc_done && !crc_good) begin
+                   <font color = "red">-11-</font>  
+345                    status_crc_error_tog <= ~status_crc_error_tog;
+           <font color = "red">            ==></font>
+346                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+347        
+348                if (fragment_error) begin
+                   <font color = "red">-12-</font>  
+349                    status_fragment_error_tog <= ~status_fragment_error_tog;
+           <font color = "red">            ==></font>
+350                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+351        
+352                if (rxd_ovflow_error) begin
+                   <font color = "red">-13-</font>  
+353                    status_rxdfifo_ovflow_tog <= ~status_rxdfifo_ovflow_tog;
+           <font color = "red">            ==></font>
+354                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+355        
+356                //---
+357                // Frame receive indication
+358        
+359                if (good_pause_frame) begin
+                   <font color = "red">-14-</font>  
+360                    status_pause_frame_rx_tog <= ~status_pause_frame_rx_tog;
+           <font color = "red">            ==></font>
+361                end
+                   MISSING_ELSE
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>-14-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+374            if (crc_done) begin
+               <font color = "green">-1-</font>  
+375        
+376                // Check CRC. If this is a pause frame, report it to cpu.
+377        
+378                if (crc_rx == ~reverse_32b(crc32_d8)) begin
+                   <font color = "red">-2-</font>  
+379                    crc_good = 1'b1;
+           <font color = "green">            ==></font>
+380                    good_pause_frame = pause_frame_hold;
+381                end
+                   MISSING_ELSE
+           <font color = "red">        ==></font>
+382        
+383            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>1</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+389            if (reset_xgmii_rx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+390        
+391                curr_state <= SM_IDLE;
+           <font color = "green">        ==></font>
+392                curr_byte_cnt <= 14'b0;
+393                coding_error <= 1'b0;
+394                pause_frame <= 1'b0;
+395        
+396            end
+397            else begin
+398        
+399                curr_state <= next_state;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+449            case (curr_state)
+               <font color = "red">-1-</font>  
+450        
+451                SM_IDLE:
+452                  begin
+453        
+454                      next_byte_cnt = 14'b0;
+455                      crc_clear = 1'b1;
+456                      next_coding_error = 1'b0;
+457                      next_pause_frame = 1'b0;
+458         
+459        
+460                      // Detect the start of a frame
+461                      
+462                      if (xgxs_rxd_barrel_d1[`LANE0] == `START && xgxs_rxc_barrel_d1[0] &&
+                         <font color = "green">-2-</font>  
+463                          xgxs_rxd_barrel_d1[`LANE1] == `PREAMBLE && !xgxs_rxc_barrel_d1[1] &&
+464                          xgxs_rxd_barrel_d1[`LANE2] == `PREAMBLE && !xgxs_rxc_barrel_d1[2] &&
+465                          xgxs_rxd_barrel_d1[`LANE3] == `PREAMBLE && !xgxs_rxc_barrel_d1[3] &&
+466                          xgxs_rxd_barrel_d1[`LANE4] == `PREAMBLE && !xgxs_rxc_barrel_d1[4] &&
+467                          xgxs_rxd_barrel_d1[`LANE5] == `PREAMBLE && !xgxs_rxc_barrel_d1[5] &&
+468                          xgxs_rxd_barrel_d1[`LANE6] == `PREAMBLE && !xgxs_rxc_barrel_d1[6] &&
+469                          xgxs_rxd_barrel_d1[`LANE7] == `SFD && !xgxs_rxc_barrel_d1[7]) begin
+470        
+471                          next_state = SM_RX;
+           <font color = "green">                  ==></font>
+472                      end
+                         MISSING_ELSE
+           <font color = "green">              ==></font>
+473        
+474                  end
+475        
+476                SM_RX:
+477                  begin
+478        
+479                      // Pause frames are filtered
+480                      
+481                      rxhfifo_wen = !pause_frame;
+482        
+483        
+484                      if (xgxs_rxd_barrel_d1[`LANE0] == `START && xgxs_rxc_barrel_d1[0] &&
+                         <font color = "red">-3-</font>  
+485                          xgxs_rxd_barrel_d1[`LANE7] == `SFD && !xgxs_rxc_barrel_d1[7]) begin
+486        
+487                          // Fragment received, if we are still at SOP stage don't store
+488                          // the frame. If not, write a fake EOP and flag frame as bad.
+489        
+490                          next_byte_cnt = 14'b0;
+491                          crc_clear = 1'b1;
+492                          next_coding_error = 1'b0;
+493        
+494                          fragment_error = 1'b1;
+495                          rxhfifo_wstatus[`RXSTATUS_ERR] = 1'b1;
+496        
+497                          if (curr_byte_cnt == 14'b0) begin
+                             <font color = "red">-4-</font>  
+498                              rxhfifo_wen = 1'b0;
+           <font color = "red">                      ==></font>
+499                          end
+500                          else begin
+501                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+502                          end
+503        
+504                      end
+505                      else if (curr_byte_cnt > 14'd9900) begin
+                              <font color = "red">-5-</font>  
+506        
+507                          // Frame too long, TERMMINATE must have been corrupted.
+508                          // Abort transfer, write a fake EOP, report as fragment.
+509        
+510                          fragment_error = 1'b1;
+           <font color = "red">                  ==></font>
+511                          rxhfifo_wstatus[`RXSTATUS_ERR] = 1'b1;
+512        
+513                          rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+514                          next_state = SM_IDLE;
+515        
+516                      end
+517                      else begin
+518        
+519                          // Pause frame receive, these frame will be filtered
+520        
+521                          if (curr_byte_cnt == 14'd0 &&
+                             <font color = "red">-6-</font>  
+522                              xgxs_rxd_barrel_d1[47:0] == `PAUSE_FRAME) begin
+523        
+524                              rxhfifo_wen = 1'b0;
+           <font color = "red">                      ==></font>
+525                              next_pause_frame = 1'b1;
+526                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+527        
+528        
+529                          // Control character during data phase, force CRC error
+530                          
+531                          if (|(xgxs_rxc_barrel_d1 & datamask)) begin
+                             <font color = "red">-7-</font>  
+532        
+533                              next_coding_error = 1'b1;
+           <font color = "red">                      ==></font>
+534                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+535        
+536        
+537                          // Write SOP to status bits during first byte
+538        
+539                          if (curr_byte_cnt == 14'b0) begin
+                             <font color = "green">-8-</font>  
+540                              rxhfifo_wstatus[`RXSTATUS_SOP] = 1'b1;
+           <font color = "green">                      ==></font>
+541                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+542        
+543                          /* verilator lint_off WIDTH */
+544                          next_byte_cnt = curr_byte_cnt +
+545                                          addmask[0] + addmask[1] + addmask[2] + addmask[3] +
+546                                          addmask[4] + addmask[5] + addmask[6] + addmask[7];
+547                          /* verilator lint_on WIDTH */
+548        
+549        
+550        
+551                          // We will not write to the fifo if all is left
+552                          // are four or less bytes of crc. We also strip off the
+553                          // crc, which requires looking one cycle ahead
+554                          // wstatus: 
+555                          //   [2:0] modulus of packet length
+556        
+557                          // Look one cycle ahead for TERMINATE in lanes 0 to 4
+558        
+559                          if (xgxs_rxd_barrel[`LANE4] == `TERMINATE && xgxs_rxc_barrel[4]) begin
+                             <font color = "green">-9-</font>  
+560         
+561                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "green">                      ==></font>
+562                              rxhfifo_wstatus[2:0] = 3'd0;
+563        
+564                              crc_start_8b = 1'b1;
+565                              next_crc_bytes = 4'd8;
+566                              next_crc_rx = xgxs_rxd_barrel[31:0];
+567        
+568                              next_state = SM_IDLE;
+569        
+570                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+571        
+572                          if (xgxs_rxd_barrel[`LANE3] == `TERMINATE && xgxs_rxc_barrel[3]) begin
+                             <font color = "red">-10-</font>  
+573        
+574                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+575                              rxhfifo_wstatus[2:0] = 3'd7;
+576        
+577                              crc_start_8b = 1'b1;
+578                              next_crc_bytes = 4'd7;
+579                              next_crc_rx = {xgxs_rxd_barrel[23:0], xgxs_rxd_barrel_d1[63:56]};
+580                          
+581                              next_state = SM_IDLE;
+582        
+583                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+584                      
+585                          if (xgxs_rxd_barrel[`LANE2] == `TERMINATE && xgxs_rxc_barrel[2]) begin
+                             <font color = "red">-11-</font>  
+586        
+587                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+588                              rxhfifo_wstatus[2:0] = 3'd6;
+589        
+590                              crc_start_8b = 1'b1;
+591                              next_crc_bytes = 4'd6;
+592                              next_crc_rx = {xgxs_rxd_barrel[15:0], xgxs_rxd_barrel_d1[63:48]};
+593        
+594                              next_state = SM_IDLE;
+595        
+596                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+597        
+598                          if (xgxs_rxd_barrel[`LANE1] == `TERMINATE && xgxs_rxc_barrel[1]) begin
+                             <font color = "red">-12-</font>  
+599        
+600                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+601                              rxhfifo_wstatus[2:0] = 3'd5;
+602        
+603                              crc_start_8b = 1'b1;
+604                              next_crc_bytes = 4'd5;
+605                              next_crc_rx = {xgxs_rxd_barrel[7:0], xgxs_rxd_barrel_d1[63:40]};
+606        
+607                              next_state = SM_IDLE;
+608        
+609                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+610                      
+611                          if (xgxs_rxd_barrel[`LANE0] == `TERMINATE && xgxs_rxc_barrel[0]) begin
+                             <font color = "red">-13-</font>  
+612        
+613                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+614                              rxhfifo_wstatus[2:0] = 3'd4;
+615        
+616                              crc_start_8b = 1'b1;
+617                              next_crc_bytes = 4'd4;
+618                              next_crc_rx = xgxs_rxd_barrel_d1[63:32];
+619        
+620                              next_state = SM_IDLE;
+621        
+622                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+623        
+624                          // Look at current cycle for TERMINATE in lanes 5 to 7
+625        
+626                          if (xgxs_rxd_barrel_d1[`LANE7] == `TERMINATE &&
+                             <font color = "red">-14-</font>  
+627                              xgxs_rxc_barrel_d1[7]) begin
+628        
+629                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+630                              rxhfifo_wstatus[2:0] = 3'd3;
+631        
+632                              crc_start_8b = 1'b1;
+633                              next_crc_bytes = 4'd3;
+634                              next_crc_rx = xgxs_rxd_barrel_d1[55:24];
+635        
+636                              next_state = SM_IDLE;
+637        
+638                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+639                      
+640                          if (xgxs_rxd_barrel_d1[`LANE6] == `TERMINATE &&
+                             <font color = "red">-15-</font>  
+641                              xgxs_rxc_barrel_d1[6]) begin
+642        
+643                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+644                              rxhfifo_wstatus[2:0] = 3'd2;
+645        
+646                              crc_start_8b = 1'b1;
+647                              next_crc_bytes = 4'd2;
+648                              next_crc_rx = xgxs_rxd_barrel_d1[47:16];
+649        
+650                              next_state = SM_IDLE;
+651        
+652                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+653                      
+654                          if (xgxs_rxd_barrel_d1[`LANE5] == `TERMINATE &&
+                             <font color = "red">-16-</font>  
+655                              xgxs_rxc_barrel_d1[5]) begin
+656        
+657                              rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+           <font color = "red">                      ==></font>
+658                              rxhfifo_wstatus[2:0] = 3'd1;
+659        
+660                              crc_start_8b = 1'b1;
+661                              next_crc_bytes = 4'd1;
+662                              next_crc_rx = xgxs_rxd_barrel_d1[39:8];
+663        
+664                              next_state = SM_IDLE;
+665        
+666                          end
+                             MISSING_ELSE
+           <font color = "green">                  ==></font>
+667                      end
+668                  end
+669        
+670                default:
+671                  begin
+672                      next_state = SM_IDLE;
+           <font color = "red">              ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>-3-</th><th nowrap width=80>-4-</th><th nowrap width=80>-5-</th><th nowrap width=80>-6-</th><th nowrap width=80>-7-</th><th nowrap width=80>-8-</th><th nowrap width=80>-9-</th><th nowrap width=80>-10-</th><th nowrap width=80>-11-</th><th nowrap width=80>-12-</th><th nowrap width=80>-13-</th><th nowrap width=80>-14-</th><th nowrap width=80>-15-</th><th nowrap width=80>-16-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>SM_IDLE </td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_IDLE </td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>SM_RX </td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>default</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td align=center nowrap>-</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+682            if (reset_xgmii_rx_n == 1'b0) begin
+               <font color = "green">-1-</font>  
+683        
+684                rxhfifo_ralmost_empty_d1 <= 1'b1;
+           <font color = "green">        ==></font>
+685        
+686                drop_data <= 1'b0;
+687        
+688                pkt_pending <= 1'b0;
+689        
+690                rxhfifo_ren_d1 <= 1'b0;
+691        
+692            end
+693            else begin
+694        
+695                rxhfifo_ralmost_empty_d1 <= rxhfifo_ralmost_empty;
+           <font color = "green">        ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+726            if (rxhfifo_ren_d1 && rxhfifo_rstatus[`RXSTATUS_SOP]) begin
+               <font color = "green">-1-</font>                          
+727        
+728                // Reset drop flag on SOP
+729                
+730                next_drop_data = 1'b0;
+           <font color = "green">        ==></font>
+731        
+732            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+734            if (rxhfifo_ren_d1 && rxdfifo_wfull && !next_drop_data) begin
+               <font color = "red">-1-</font>                          
+735        
+736                // FIFO overflow, abort transfer. The rest of the frame
+737                // will be dropped. Since we can't put an EOP indication
+738                // in a fifo already full, there will be no EOP and receive
+739                // side will need to sync on next SOP.
+740        
+741                rxd_ovflow_error = 1'b1;
+           <font color = "red">        ==></font>
+742                next_drop_data = 1'b1;
+743        
+744            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+751            if (crc_done && !crc_good) begin
+               <font color = "red">-1-</font>  
+752        
+753                // Flag packet with error when CRC error is detected
+754           
+755                rxdfifo_wstatus[`RXSTATUS_ERR] = 1'b1;
+           <font color = "red">        ==></font>
+756        
+757            end
+               MISSING_ELSE
+           <font color = "green">    ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uRed">
+<td align=center>1</td>
+<td>Not Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

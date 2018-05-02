@@ -1,0 +1,82 @@
+{
+    "tx_data_fifo": [
+        "tx_data_fifo",
+        "srKWe",
+        "module"
+    ],
+    "sync_clk_wb": [
+        "sync_clk_wb",
+        "UjwLm",
+        "module"
+    ],
+    "_vcs_unit__1306960131": [
+        "_vcs_unit__1306960131",
+        "fijuy",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
+    "generic_fifo_ctrl_0000": [
+        "generic_fifo_ctrl_0000",
+        "NY7Gb",
+        "module"
+    ],
+    "fault_sm": [
+        "fault_sm",
+        "zk6Si",
+        "module"
+    ],
+    "xge_interface": [
+        "xge_interface",
+        "K4hma",
+        "module"
+    ],
+    "meta_sync_single_0000": [
+        "meta_sync_single_0000",
+        "Z0GYV",
+        "module"
+    ],
+    "sync_clk_xgmii_tx": [
+        "sync_clk_xgmii_tx",
+        "rpjqj",
+        "module"
+    ],
+    "meta_sync_single_0001": [
+        "meta_sync_single_0001",
+        "hgiba",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module"
+    ],
+    "xge_mac": [
+        "xge_mac",
+        "ymzz2",
+        "module"
+    ],
+    "wishbone_if": [
+        "wishbone_if",
+        "s4ZT9",
+        "module"
+    ],
+    "tx_hold_fifo": [
+        "tx_hold_fifo",
+        "GJcQF",
+        "module"
+    ],
+    "tb": [
+        "tb",
+        "g7hgQ",
+        "module"
+    ],
+    "testcase": [
+        "testcase",
+        "PATxq",
+        "module"
+    ]
+}

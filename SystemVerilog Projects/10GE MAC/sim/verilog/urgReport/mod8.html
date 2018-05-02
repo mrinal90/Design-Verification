@@ -1,0 +1,1677 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: generic_mem_medium</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_generic_mem_medium" >generic_mem_medium</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 87.60</td>
+<td class="s10 cl rt"><a href="mod8.html#Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod8.html#Toggle" > 91.63</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod8.html#Branch" > 83.75</a></td>
+<td class="s7 cl rt"><a href="mod8.html#Path" > 75.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/generic_mem_medium.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/generic_mem_medium.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sortable sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 84.57</td>
+<td class="s10 cl rt"><a href="mod8.html#inst_tag_11_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod8.html#inst_tag_11_Toggle" > 91.63</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod8.html#inst_tag_11_Branch" > 80.00</a></td>
+<td class="s6 cl rt"><a href="mod8.html#inst_tag_11_Path" > 66.67</a></td>
+<td><a href="mod8.html#inst_tag_11" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></td>
+</tr><tr>
+<td class="s9 cl rt"> 90.62</td>
+<td class="s10 cl rt"><a href="mod8.html#inst_tag_12_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod8.html#inst_tag_12_Toggle" > 91.63</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod8.html#inst_tag_12_Branch" > 87.50</a></td>
+<td class="s8 cl rt"><a href="mod8.html#inst_tag_12_Path" > 83.33</a></td>
+<td><a href="mod8.html#inst_tag_12" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod8.html" >generic_mem_medium ( parameter DWIDTH=72,AWIDTH=7,RAM_DEPTH=128,SYNC_WRITE=1,SYNC_READ=1,REGISTER_READ=0 ) </a><br clear=all>
+Line Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s8 cl rt"> 84.57</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod8.html#inst_tag_11_Line" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></span></div>
+<br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>7<td>7<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>112<td>2<td>2<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>138<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>174<td>1<td>1<td>100.00
+</table>
+<pre class="code"><br clear=all>
+111                             begin
+112        1/1                      if (wen) begin
+113        1/1                          mem[waddr[AWIDTH-1:0]] &lt;= wdata;
+114                                 end
+                        MISSING_ELSE
+115                             end
+116                         end
+117                         else begin
+118                     
+119                             // Generate asynchronous write
+120                             always @(wen, waddr, wdata)
+121                             begin
+122                                 if (wen) begin
+123                                     mem[waddr[AWIDTH-1:0]] = wdata;
+124                                 end
+125                             end
+126                         end
+127                     endgenerate
+128                     
+129                     //---
+130                     // Memory Read
+131                     
+132                     generate
+133                         if (SYNC_READ) begin
+134                     
+135                             // Generate registered memory read
+136                             always @(posedge rclk or negedge rrst_n)
+137                             begin
+138        1/1                      if (!rrst_n) begin
+139        1/1                          mem_rdata &lt;= {(DWIDTH){1'b0}};
+140        1/1                      end else if (ren) begin
+141        1/1                          mem_rdata &lt;= mem[raddr[AWIDTH-1:0]];
+142                                 end
+                   <font color = "red">==>  MISSING_ELSE</font>
+143                             end
+144                         end
+145                         else begin
+146                     
+147                             // Generate unregisters memory read
+148                             always @(raddr, rclk)
+149                             begin
+150                                 mem_rdata = mem[raddr[AWIDTH-1:0]];
+151                             end
+152                         end
+153                     endgenerate
+154                     
+155                     generate
+156                         if (REGISTER_READ) begin
+157                     
+158                             // Generate registered output
+159                             always @(posedge rclk or negedge rrst_n)
+160                             begin
+161                                 if (!rrst_n) begin
+162                                     rdata &lt;= {(DWIDTH){1'b0}};
+163                                 end else if (roen) begin
+164                                     rdata &lt;= mem_rdata;
+165                                 end
+166                             end
+167                     
+168                         end
+169                         else begin
+170                     
+171                             // Generate unregisters output
+172                             always @(mem_rdata)
+173                             begin
+174        1/1                      rdata = mem_rdata;
+</pre>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod8.html" >generic_mem_medium ( parameter DWIDTH=72,AWIDTH=7,RAM_DEPTH=128,SYNC_WRITE=1,SYNC_READ=1,REGISTER_READ=1 ) </a><br clear=all>
+Line Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td></tr><tr>
+<td class="s9 cl rt"> 90.62</td>
+<td class="s10 cl rt">100.00</td>
+</tr></table>
+<span class=inst><a href="mod8.html#inst_tag_12_Line" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></span></div>
+<br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>10<td>10<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>112<td>2<td>2<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>138<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>161<td>4<td>4<td>100.00
+</table>
+<pre class="code"><br clear=all>
+111                             begin
+112        1/1                      if (wen) begin
+113        1/1                          mem[waddr[AWIDTH-1:0]] &lt;= wdata;
+114                                 end
+                        MISSING_ELSE
+115                             end
+116                         end
+117                         else begin
+118                     
+119                             // Generate asynchronous write
+120                             always @(wen, waddr, wdata)
+121                             begin
+122                                 if (wen) begin
+123                                     mem[waddr[AWIDTH-1:0]] = wdata;
+124                                 end
+125                             end
+126                         end
+127                     endgenerate
+128                     
+129                     //---
+130                     // Memory Read
+131                     
+132                     generate
+133                         if (SYNC_READ) begin
+134                     
+135                             // Generate registered memory read
+136                             always @(posedge rclk or negedge rrst_n)
+137                             begin
+138        1/1                      if (!rrst_n) begin
+139        1/1                          mem_rdata &lt;= {(DWIDTH){1'b0}};
+140        1/1                      end else if (ren) begin
+141        1/1                          mem_rdata &lt;= mem[raddr[AWIDTH-1:0]];
+142                                 end
+                   <font color = "red">==>  MISSING_ELSE</font>
+143                             end
+144                         end
+145                         else begin
+146                     
+147                             // Generate unregisters memory read
+148                             always @(raddr, rclk)
+149                             begin
+150                                 mem_rdata = mem[raddr[AWIDTH-1:0]];
+151                             end
+152                         end
+153                     endgenerate
+154                     
+155                     generate
+156                         if (REGISTER_READ) begin
+157                     
+158                             // Generate registered output
+159                             always @(posedge rclk or negedge rrst_n)
+160                             begin
+161        1/1                      if (!rrst_n) begin
+162        1/1                          rdata &lt;= {(DWIDTH){1'b0}};
+163        1/1                      end else if (roen) begin
+164        1/1                          rdata &lt;= mem_rdata;
+165                                 end
+                        MISSING_ELSE
+</pre>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod8.html" >generic_mem_medium</a><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">478</td>
+<td class="rt">438</td>
+<td class="rt">91.63 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">239</td>
+<td class="rt">220</td>
+<td class="rt">92.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">239</td>
+<td class="rt">218</td>
+<td class="rt">91.21 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">6</td>
+<td class="rt">54.55 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">334</td>
+<td class="rt">306</td>
+<td class="rt">91.62 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">167</td>
+<td class="rt">154</td>
+<td class="rt">92.22 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">167</td>
+<td class="rt">152</td>
+<td class="rt">91.02 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s0">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s9">
+<td>Signal Bits</td>
+<td class="rt">144</td>
+<td class="rt">132</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">72</td>
+<td class="rt">66</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">72</td>
+<td class="rt">66</td>
+<td class="rt">91.67 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>waddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>roen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>raddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>mem_rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mem_rdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>mem_rdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod8.html" >generic_mem_medium ( parameter DWIDTH=72,AWIDTH=7,RAM_DEPTH=128,SYNC_WRITE=1,SYNC_READ=1,REGISTER_READ=0 ) </a><br clear=all>
+Branch Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>BRANCH</td></tr><tr>
+<td class="s8 cl rt"> 84.57</td>
+<td class="s8 cl rt"> 80.00</td>
+</tr></table>
+<span class=inst><a href="mod8.html#inst_tag_11_Branch" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></span></div>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">112</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">138</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+112                    if (wen) begin
+                       <font color = "green">-1-</font>  
+113                        mem[waddr[AWIDTH-1:0]] <= wdata;
+           <font color = "green">                ==></font>
+114                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+138                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+139                        mem_rdata <= {(DWIDTH){1'b0}};
+           <font color = "green">                ==></font>
+140                    end else if (ren) begin
+                                <font color = "red">-2-</font>  
+141                        mem_rdata <= mem[raddr[AWIDTH-1:0]];
+           <font color = "green">                ==></font>
+142                    end
+                       MISSING_ELSE
+           <font color = "red">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="Branch"></a>
+Branch Coverage for Module : <a href="mod8.html" >generic_mem_medium ( parameter DWIDTH=72,AWIDTH=7,RAM_DEPTH=128,SYNC_WRITE=1,SYNC_READ=1,REGISTER_READ=1 ) </a><br clear=all>
+Branch Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>BRANCH</td></tr><tr>
+<td class="s9 cl rt"> 90.62</td>
+<td class="s8 cl rt"> 87.50</td>
+</tr></table>
+<span class=inst><a href="mod8.html#inst_tag_12_Branch" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></span></div>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">8</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">112</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">138</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">161</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+112                    if (wen) begin
+                       <font color = "green">-1-</font>  
+113                        mem[waddr[AWIDTH-1:0]] <= wdata;
+           <font color = "green">                ==></font>
+114                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+138                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+139                        mem_rdata <= {(DWIDTH){1'b0}};
+           <font color = "green">                ==></font>
+140                    end else if (ren) begin
+                                <font color = "red">-2-</font>  
+141                        mem_rdata <= mem[raddr[AWIDTH-1:0]];
+           <font color = "green">                ==></font>
+142                    end
+                       MISSING_ELSE
+           <font color = "red">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+161                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+162                        rdata <= {(DWIDTH){1'b0}};
+           <font color = "green">                ==></font>
+163                    end else if (roen) begin
+                                <font color = "green">-2-</font>  
+164                        rdata <= mem_rdata;
+           <font color = "green">                ==></font>
+165                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="Path"></a>
+Path Coverage for Module : <a href="mod8.html" >generic_mem_medium ( parameter DWIDTH=72,AWIDTH=7,RAM_DEPTH=128,SYNC_WRITE=1,SYNC_READ=1,REGISTER_READ=0 ) </a><br clear=all>
+Path Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 84.57</td>
+<td class="s6 cl rt"> 66.67</td>
+</tr></table>
+<span class=inst><a href="mod8.html#inst_tag_11_Path" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></span></div>
+<br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Paths<td><td>3<td>2<td>66.67
+<tr class="s6"><td><td>136<td>3<td>2<td>66.67
+</table>
+<br><pre class="code">
+136                 always @(posedge rclk or negedge rrst_n)
+137                 begin
+138                     if (!rrst_n) begin
+                        -1-
+139                         mem_rdata &lt;= {(DWIDTH){1'b0}};
+140                     end else if (ren) begin
+                                 -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>0<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="Path"></a>
+Path Coverage for Module : <a href="mod8.html" >generic_mem_medium ( parameter DWIDTH=72,AWIDTH=7,RAM_DEPTH=128,SYNC_WRITE=1,SYNC_READ=1,REGISTER_READ=1 ) </a><br clear=all>
+Path Coverage for Module self-instances : 
+<div>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>PATH</td></tr><tr>
+<td class="s9 cl rt"> 90.62</td>
+<td class="s8 cl rt"> 83.33</td>
+</tr></table>
+<span class=inst><a href="mod8.html#inst_tag_12_Path" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></span></div>
+<br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s8"><td class="lf">Paths<td><td>6<td>5<td>83.33
+<tr class="s6"><td><td>136<td>3<td>2<td>66.67
+<tr class="s10"><td><td>159<td>3<td>3<td>100.00
+</table>
+<br><pre class="code">
+136                 always @(posedge rclk or negedge rrst_n)
+137                 begin
+138                     if (!rrst_n) begin
+                        -1-
+139                         mem_rdata &lt;= {(DWIDTH){1'b0}};
+140                     end else if (ren) begin
+                                 -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>0<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br><pre class="code">
+159                 always @(posedge rclk or negedge rrst_n)
+160                 begin
+161                     if (!rrst_n) begin
+                        -1-
+162                         rdata &lt;= {(DWIDTH){1'b0}};
+163                     end else if (roen) begin
+                                 -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+Go to <a href="mod8.html" >top</a>
+<hr>
+<a name="inst_tag_11"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_11" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 84.57</td>
+<td class="s10 cl rt"><a href="mod8.html#inst_tag_11_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod8.html#inst_tag_11_Toggle" > 91.63</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod8.html#inst_tag_11_Branch" > 80.00</a></td>
+<td class="s6 cl rt"><a href="mod8.html#inst_tag_11_Path" > 66.67</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s8 cl rt"> 84.57</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 91.63</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 80.00</td>
+<td class="s6 cl rt"> 66.67</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 87.60</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 91.63</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.75</td>
+<td class="s7 cl rt"> 75.00</td>
+<td><a href="mod8.html" >generic_mem_medium</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 91.28</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 91.28</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod21.html#inst_tag_39" >fifo0</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+<a name="inst_tag_11_Line"></a>
+<b>Line Coverage for Instance : <a href="mod8.html#inst_tag_11" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>7<td>7<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>112<td>2<td>2<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>138<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>174<td>1<td>1<td>100.00
+</table>
+<pre class="code"><br clear=all>
+111                             begin
+112        1/1                      if (wen) begin
+113        1/1                          mem[waddr[AWIDTH-1:0]] &lt;= wdata;
+114                                 end
+                        MISSING_ELSE
+115                             end
+116                         end
+117                         else begin
+118                     
+119                             // Generate asynchronous write
+120                             always @(wen, waddr, wdata)
+121                             begin
+122                                 if (wen) begin
+123                                     mem[waddr[AWIDTH-1:0]] = wdata;
+124                                 end
+125                             end
+126                         end
+127                     endgenerate
+128                     
+129                     //---
+130                     // Memory Read
+131                     
+132                     generate
+133                         if (SYNC_READ) begin
+134                     
+135                             // Generate registered memory read
+136                             always @(posedge rclk or negedge rrst_n)
+137                             begin
+138        1/1                      if (!rrst_n) begin
+139        1/1                          mem_rdata &lt;= {(DWIDTH){1'b0}};
+140        1/1                      end else if (ren) begin
+141        1/1                          mem_rdata &lt;= mem[raddr[AWIDTH-1:0]];
+142                                 end
+                   <font color = "red">==>  MISSING_ELSE</font>
+143                             end
+144                         end
+145                         else begin
+146                     
+147                             // Generate unregisters memory read
+148                             always @(raddr, rclk)
+149                             begin
+150                                 mem_rdata = mem[raddr[AWIDTH-1:0]];
+151                             end
+152                         end
+153                     endgenerate
+154                     
+155                     generate
+156                         if (REGISTER_READ) begin
+157                     
+158                             // Generate registered output
+159                             always @(posedge rclk or negedge rrst_n)
+160                             begin
+161                                 if (!rrst_n) begin
+162                                     rdata &lt;= {(DWIDTH){1'b0}};
+163                                 end else if (roen) begin
+164                                     rdata &lt;= mem_rdata;
+165                                 end
+166                             end
+167                     
+168                         end
+169                         else begin
+170                     
+171                             // Generate unregisters output
+172                             always @(mem_rdata)
+173                             begin
+174        1/1                      rdata = mem_rdata;
+</pre>
+<br clear=all>
+<a href="mod8.html#inst_tag_11" >Go to Instance</a><hr>
+<a name="inst_tag_11_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod8.html#inst_tag_11" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">478</td>
+<td class="rt">438</td>
+<td class="rt">91.63 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">239</td>
+<td class="rt">220</td>
+<td class="rt">92.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">239</td>
+<td class="rt">218</td>
+<td class="rt">91.21 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">6</td>
+<td class="rt">54.55 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">334</td>
+<td class="rt">306</td>
+<td class="rt">91.62 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">167</td>
+<td class="rt">154</td>
+<td class="rt">92.22 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">167</td>
+<td class="rt">152</td>
+<td class="rt">91.02 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s0">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s9">
+<td>Signal Bits</td>
+<td class="rt">144</td>
+<td class="rt">132</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">72</td>
+<td class="rt">66</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">72</td>
+<td class="rt">66</td>
+<td class="rt">91.67 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>waddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>roen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>raddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>mem_rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mem_rdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>mem_rdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod8.html#inst_tag_11" >Go to Instance</a><hr>
+<a name="inst_tag_11_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod8.html#inst_tag_11" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">5</td>
+<td class="rt">4</td>
+<td class="rt">80.00 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">112</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">138</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+112                    if (wen) begin
+                       <font color = "green">-1-</font>  
+113                        mem[waddr[AWIDTH-1:0]] <= wdata;
+           <font color = "green">                ==></font>
+114                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+138                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+139                        mem_rdata <= {(DWIDTH){1'b0}};
+           <font color = "green">                ==></font>
+140                    end else if (ren) begin
+                                <font color = "red">-2-</font>  
+141                        mem_rdata <= mem[raddr[AWIDTH-1:0]];
+           <font color = "green">                ==></font>
+142                    end
+                       MISSING_ELSE
+           <font color = "red">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod8.html#inst_tag_11" >Go to Instance</a><hr>
+<a name="inst_tag_11_Path"></a>
+<b>Path Coverage for Instance : <a href="mod8.html#inst_tag_11" >tb.dut.rx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s6"><td class="lf">Paths<td><td>3<td>2<td>66.67
+<tr class="s6"><td><td>136<td>3<td>2<td>66.67
+</table>
+<br><pre class="code">
+136                 always @(posedge rclk or negedge rrst_n)
+137                 begin
+138                     if (!rrst_n) begin
+                        -1-
+139                         mem_rdata &lt;= {(DWIDTH){1'b0}};
+140                     end else if (ren) begin
+                                 -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>0<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod8.html#inst_tag_11" >Go to Instance</a><hr>
+<a name="inst_tag_12"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_12" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></span>
+<br clear=all>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s9 cl rt"> 90.62</td>
+<td class="s10 cl rt"><a href="mod8.html#inst_tag_12_Line" >100.00</a></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"><a href="mod8.html#inst_tag_12_Toggle" > 91.63</a></td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"><a href="mod8.html#inst_tag_12_Branch" > 87.50</a></td>
+<td class="s8 cl rt"><a href="mod8.html#inst_tag_12_Path" > 83.33</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s9 cl rt"> 90.62</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 91.63</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 87.50</td>
+<td class="s8 cl rt"> 83.33</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Module : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s8 cl rt"> 87.60</td>
+<td class="s10 cl rt">100.00</td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 91.63</td>
+<td class="wht cl rt"></td>
+<td class="s8 cl rt"> 83.75</td>
+<td class="s7 cl rt"> 75.00</td>
+<td><a href="mod8.html" >generic_mem_medium</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s9 cl rt"> 90.12</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="s9 cl rt"> 90.12</td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td class="wht cl rt"></td>
+<td><a href="mod21.html#inst_tag_41" >fifo0</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<br clear=all>
+<span class=inst>no children</span>
+</div>
+<hr>
+<a name="inst_tag_12_Line"></a>
+<b>Line Coverage for Instance : <a href="mod8.html#inst_tag_12" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s10"><td class="lf">TOTAL<td><td>10<td>10<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>112<td>2<td>2<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>138<td>4<td>4<td>100.00
+<tr class="s10"><td class="lf">ALWAYS<td>161<td>4<td>4<td>100.00
+</table>
+<pre class="code"><br clear=all>
+111                             begin
+112        1/1                      if (wen) begin
+113        1/1                          mem[waddr[AWIDTH-1:0]] &lt;= wdata;
+114                                 end
+                        MISSING_ELSE
+115                             end
+116                         end
+117                         else begin
+118                     
+119                             // Generate asynchronous write
+120                             always @(wen, waddr, wdata)
+121                             begin
+122                                 if (wen) begin
+123                                     mem[waddr[AWIDTH-1:0]] = wdata;
+124                                 end
+125                             end
+126                         end
+127                     endgenerate
+128                     
+129                     //---
+130                     // Memory Read
+131                     
+132                     generate
+133                         if (SYNC_READ) begin
+134                     
+135                             // Generate registered memory read
+136                             always @(posedge rclk or negedge rrst_n)
+137                             begin
+138        1/1                      if (!rrst_n) begin
+139        1/1                          mem_rdata &lt;= {(DWIDTH){1'b0}};
+140        1/1                      end else if (ren) begin
+141        1/1                          mem_rdata &lt;= mem[raddr[AWIDTH-1:0]];
+142                                 end
+                   <font color = "red">==>  MISSING_ELSE</font>
+143                             end
+144                         end
+145                         else begin
+146                     
+147                             // Generate unregisters memory read
+148                             always @(raddr, rclk)
+149                             begin
+150                                 mem_rdata = mem[raddr[AWIDTH-1:0]];
+151                             end
+152                         end
+153                     endgenerate
+154                     
+155                     generate
+156                         if (REGISTER_READ) begin
+157                     
+158                             // Generate registered output
+159                             always @(posedge rclk or negedge rrst_n)
+160                             begin
+161        1/1                      if (!rrst_n) begin
+162        1/1                          rdata &lt;= {(DWIDTH){1'b0}};
+163        1/1                      end else if (roen) begin
+164        1/1                          rdata &lt;= mem_rdata;
+165                                 end
+                        MISSING_ELSE
+</pre>
+<br clear=all>
+<a href="mod8.html#inst_tag_12" >Go to Instance</a><hr>
+<a name="inst_tag_12_Toggle"></a>
+<b>Toggle Coverage for Instance : <a href="mod8.html#inst_tag_12" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s5">
+<td>Totals</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s9">
+<td>Total Bits</td>
+<td class="rt">478</td>
+<td class="rt">438</td>
+<td class="rt">91.63 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">239</td>
+<td class="rt">220</td>
+<td class="rt">92.05 </td>
+</tr><tr class="s9">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">239</td>
+<td class="rt">218</td>
+<td class="rt">91.21 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s5">
+<td>Ports</td>
+<td class="rt">11</td>
+<td class="rt">6</td>
+<td class="rt">54.55 </td>
+</tr><tr class="s9">
+<td>Port Bits</td>
+<td class="rt">334</td>
+<td class="rt">306</td>
+<td class="rt">91.62 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 0->1</td>
+<td class="rt">167</td>
+<td class="rt">154</td>
+<td class="rt">92.22 </td>
+</tr><tr class="s9">
+<td nowrap>Port Bits 1->0</td>
+<td class="rt">167</td>
+<td class="rt">152</td>
+<td class="rt">91.02 </td>
+</tr></table><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s0">
+<td>Signals</td>
+<td class="rt">1</td>
+<td class="rt">0</td>
+<td class="rt">0.00  </td>
+</tr><tr class="s9">
+<td>Signal Bits</td>
+<td class="rt">144</td>
+<td class="rt">132</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">72</td>
+<td class="rt">66</td>
+<td class="rt">91.67 </td>
+</tr><tr class="s9">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">72</td>
+<td class="rt">66</td>
+<td class="rt">91.67 </td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Port Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th><th nowrap width=80>Direction</th></tr><tr>
+<td>wclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>waddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>wdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rclk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rrst_n</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>ren</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>INPUT</td>
+</tr><tr>
+<td>roen</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>raddr[7:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>INPUT</td>
+</tr><tr>
+<td>rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td>OUTPUT</td>
+</tr><tr>
+<td>rdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td>OUTPUT</td>
+</tr></table><br clear=all>
+<table align=left>
+<caption><b>Signal Details</b></caption>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Toggle</th><th nowrap width=80>Toggle 1->0</th><th nowrap width=80>Toggle 0->1</th></tr><tr>
+<td>mem_rdata[63:0]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>mem_rdata[69:64]</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>mem_rdata[71:70]</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod8.html#inst_tag_12" >Go to Instance</a><hr>
+<a name="inst_tag_12_Branch"></a>
+<b>Branch Coverage for Instance : <a href="mod8.html#inst_tag_12" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Line No.</th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s8">
+<td>Branches</td>
+<td></td>
+<td class="rt">8</td>
+<td class="rt">7</td>
+<td class="rt">87.50 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">112</td>
+<td class="rt">2</td>
+<td class="rt">2</td>
+<td class="rt">100.00</td>
+</tr><tr class="s6">
+<td>IF</td>
+<td class="rt">138</td>
+<td class="rt">3</td>
+<td class="rt">2</td>
+<td class="rt">66.67 </td>
+</tr><tr class="s10">
+<td>IF</td>
+<td class="rt">161</td>
+<td class="rt">3</td>
+<td class="rt">3</td>
+<td class="rt">100.00</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+112                    if (wen) begin
+                       <font color = "green">-1-</font>  
+113                        mem[waddr[AWIDTH-1:0]] <= wdata;
+           <font color = "green">                ==></font>
+114                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+138                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+139                        mem_rdata <= {(DWIDTH){1'b0}};
+           <font color = "green">                ==></font>
+140                    end else if (ren) begin
+                                <font color = "red">-2-</font>  
+141                        mem_rdata <= mem[raddr[AWIDTH-1:0]];
+           <font color = "green">                ==></font>
+142                    end
+                       MISSING_ELSE
+           <font color = "red">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uRed">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Not Covered</td>
+</tr></table><br clear=all>
+<pre class="code"><br clear=all>
+161                    if (!rrst_n) begin
+                       <font color = "green">-1-</font>  
+162                        rdata <= {(DWIDTH){1'b0}};
+           <font color = "green">                ==></font>
+163                    end else if (roen) begin
+                                <font color = "green">-2-</font>  
+164                        rdata <= mem_rdata;
+           <font color = "green">                ==></font>
+165                    end
+                       MISSING_ELSE
+           <font color = "green">            ==></font>
+</pre>
+<br clear=all>
+<span class=repname>Branches:</span>
+<br clear=all>
+<table align=left>
+<tr>
+<th nowrap width=80>-1-</th><th nowrap width=80>-2-</th><th nowrap width=80>Status</th></tr><tr class="uGreen">
+<td align=center>1</td>
+<td align=center nowrap>-</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>1</td>
+<td>Covered</td>
+</tr><tr class="uGreen">
+<td align=center>0</td>
+<td align=center>0</td>
+<td>Covered</td>
+</tr></table><br clear=all>
+<br clear=all>
+<a href="mod8.html#inst_tag_12" >Go to Instance</a><hr>
+<a name="inst_tag_12_Path"></a>
+<b>Path Coverage for Instance : <a href="mod8.html#inst_tag_12" >tb.dut.tx_data_fifo0.fifo0.genblk2.mem0</a></b><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s8"><td class="lf">Paths<td><td>6<td>5<td>83.33
+<tr class="s6"><td><td>136<td>3<td>2<td>66.67
+<tr class="s10"><td><td>159<td>3<td>3<td>100.00
+</table>
+<br><pre class="code">
+136                 always @(posedge rclk or negedge rrst_n)
+137                 begin
+138                     if (!rrst_n) begin
+                        -1-
+139                         mem_rdata &lt;= {(DWIDTH){1'b0}};
+140                     end else if (ren) begin
+                                 -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uRed"><td>0<td>0<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br><pre class="code">
+159                 always @(posedge rclk or negedge rrst_n)
+160                 begin
+161                     if (!rrst_n) begin
+                        -1-
+162                         rdata &lt;= {(DWIDTH){1'b0}};
+163                     end else if (roen) begin
+                                 -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>1<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>1<td>-<td class="lf">Covered
+</table>
+<br clear=all>
+<a href="mod8.html#inst_tag_12" >Go to Instance</a><br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>

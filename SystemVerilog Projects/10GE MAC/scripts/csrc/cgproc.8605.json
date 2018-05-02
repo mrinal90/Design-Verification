@@ -1,0 +1,267 @@
+{
+    "Modules": {
+        "_vcs_unit__1306960131": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "meta_sync_single_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "tx_data_fifo": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "...MASTER...": {},
+        "testcase": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "wishbone_if": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "tx_hold_fifo": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "meta_sync_single_0001": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "fault_sm": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "tb": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "sync_clk_wb": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "generic_fifo_ctrl_0000": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "sync_clk_xgmii_tx": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "xge_mac": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "xge_interface": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "amcQw_d": {
+            "bytes": 7709,
+            "out": "objs/amcQw_d.o",
+            "mod": "...MASTER...",
+            "mode": 4,
+            "checksum": 0
+        },
+        "fijuy_d": {
+            "bytes": 180029,
+            "out": "fijuy_d.o",
+            "mod": "_vcs_unit__1306960131",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "PATxq_d": {
+            "bytes": 23385,
+            "out": "PATxq_d.o",
+            "mod": "testcase",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "reYIK_d": {
+            "bytes": 33706,
+            "out": "reYIK_d.o",
+            "mod": "std",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "hgiba_d": {
+            "bytes": 9745,
+            "out": "hgiba_d.o",
+            "mod": "meta_sync_single_0001",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "NY7Gb_d": {
+            "bytes": 25982,
+            "out": "NY7Gb_d.o",
+            "mod": "generic_fifo_ctrl_0000",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "K4hma_d": {
+            "bytes": 127617,
+            "out": "K4hma_d.o",
+            "mod": "xge_interface",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "UjwLm_d": {
+            "bytes": 10192,
+            "out": "UjwLm_d.o",
+            "mod": "sync_clk_wb",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "GJcQF_d": {
+            "bytes": 29988,
+            "out": "GJcQF_d.o",
+            "mod": "tx_hold_fifo",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "zk6Si_d": {
+            "bytes": 23616,
+            "out": "zk6Si_d.o",
+            "mod": "fault_sm",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "s4ZT9_d": {
+            "bytes": 23695,
+            "out": "s4ZT9_d.o",
+            "mod": "wishbone_if",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "srKWe_d": {
+            "bytes": 17029,
+            "out": "srKWe_d.o",
+            "mod": "tx_data_fifo",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "Z0GYV_d": {
+            "bytes": 10226,
+            "out": "Z0GYV_d.o",
+            "mod": "meta_sync_single_0000",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "rpjqj_d": {
+            "bytes": 8509,
+            "out": "rpjqj_d.o",
+            "mod": "sync_clk_xgmii_tx",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "ymzz2_d": {
+            "bytes": 235300,
+            "out": "ymzz2_d.o",
+            "mod": "xge_mac",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        },
+        "g7hgQ_d": {
+            "bytes": 14371,
+            "out": "g7hgQ_d.o",
+            "mod": "tb",
+            "mode": 4,
+            "checksum": 0,
+            "archive": "archive.0/_8605_archive_1.a"
+        }
+    },
+    "reusePaths": {},
+    "ObjArchives": [
+        {
+            "objects": [
+                [
+                    "fijuy_d.o",
+                    180029
+                ],
+                [
+                    "reYIK_d.o",
+                    33706
+                ],
+                [
+                    "zk6Si_d.o",
+                    23616
+                ],
+                [
+                    "NY7Gb_d.o",
+                    25982
+                ],
+                [
+                    "Z0GYV_d.o",
+                    10226
+                ],
+                [
+                    "hgiba_d.o",
+                    9745
+                ],
+                [
+                    "UjwLm_d.o",
+                    10192
+                ],
+                [
+                    "rpjqj_d.o",
+                    8509
+                ],
+                [
+                    "srKWe_d.o",
+                    17029
+                ],
+                [
+                    "GJcQF_d.o",
+                    29988
+                ],
+                [
+                    "s4ZT9_d.o",
+                    23695
+                ],
+                [
+                    "ymzz2_d.o",
+                    235300
+                ],
+                [
+                    "g7hgQ_d.o",
+                    14371
+                ],
+                [
+                    "K4hma_d.o",
+                    127617
+                ],
+                [
+                    "PATxq_d.o",
+                    23385
+                ],
+                [
+                    "amcQwB.o",
+                    83772
+                ]
+            ],
+            "archive": "archive.0/_8605_archive_1.a",
+            "size": 857162
+        }
+    ]
+}

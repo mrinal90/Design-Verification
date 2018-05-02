@@ -1,0 +1,12 @@
+#!/bin/sh
+vcs -full64 +vcs+lic+wait -sverilog -R -l /home/sf100212/SV_Project/testcases/loopback/vcs.log \
++ntb_random_seed_automatic \
+-override_timescale=1ps/1ps \
+/home/sf100212/SV_Project/rtl/verilog/*.v \
++incdir+/home/sf100212/SV_Project/rtl/include \
+/home/sf100212/SV_Project/testbench/verilog/testbench.sv \
+/home/sf100212/SV_Project/testcases/loopback/testcase.sv \
+-cm line+cond+branch+fsm+tgl \
+-cm path -lca \
+-cm_log ./coverage.log \
+-cm_dir ./COVERAGE \

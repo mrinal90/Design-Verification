@@ -1,0 +1,651 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Path Coverage for Module : rx_enqueue</title>
+<link type="text/css" rel="stylesheet" href=".urg.css">
+<script type="text/javascript" src=".sortable.js"></script></head>
+<body><center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="modlist.html#tag_rx_enqueue" >rx_enqueue</a></span>
+<br clear=all>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td></tr><tr>
+<td class="s5 cl rt"> 54.96</td>
+<td class="s7 cl rt"><a href="mod11_Line.html" > 76.09</a></td>
+<td class="s4 cl rt"><a href="mod11_Cond.html" > 45.45</a></td>
+<td class="s9 cl rt"><a href="mod11_Toggle.html" > 90.89</a></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod11_Branch.html" > 61.90</a></td>
+<td class="s0 cl rt"><a href="mod11_Path.html" >  0.48</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="file:///home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_enqueue.v" >/home/sf100212/SV_Project/sim/verilog/../../rtl/verilog/rx_enqueue.v</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left class="sml">
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>COND</td><td>TOGGLE</td><td>FSM</td><td>BRANCH</td><td>PATH</td><td class="alfsrt">NAME</td></tr><tr>
+<td class="s5 cl rt"> 54.96</td>
+<td class="s7 cl rt"><a href="mod11_Line.html" > 76.09</a></td>
+<td class="s4 cl rt"><a href="mod11_Cond.html" > 45.45</a></td>
+<td class="s9 cl rt"><a href="mod11_Toggle.html" > 90.89</a></td>
+<td class="wht cl rt"></td>
+<td class="s6 cl rt"><a href="mod11_Branch.html" > 61.90</a></td>
+<td class="s0 cl rt"><a href="mod11_Path.html" >  0.48</a></td>
+<td><a href="mod11_15.html" >tb.dut.rx_eq0</a></td>
+</tr></table></div>
+<br clear=all>
+<hr>
+Path Coverage for Module : <a href="mod11.html" >rx_enqueue</a><br clear=all>
+<table class="rt">
+<col width="122">
+<col span="4" width="82">
+<tr><th><th>Line No.<th>Total<th>Covered<th>Percent
+<tr class="s0"><td class="lf">Paths<td><td>3346<td>16<td>0.48
+<tr class="s0"><td><td>174<td>1281<td>7<td>0.55
+<tr class="s6"><td><td>368<td>3<td>2<td>66.67
+<tr class="s0"><td><td>409<td>2054<td>5<td>0.24
+<tr class="s2"><td><td>707<td>8<td>2<td>25.00
+</table>
+<br><pre class="code">
+174         always @(posedge clk_xgmii_rx or negedge reset_xgmii_rx_n) begin
+175         
+176             if (reset_xgmii_rx_n == 1'b0) begin
+                -1-
+177         
+178                 xgmii_rxd_d1 &lt;= 32'b0;
+179                 xgmii_rxc_d1 &lt;= 4'b0;
+180         
+181                 xgxs_rxd_barrel &lt;= 64'b0;
+182                 xgxs_rxc_barrel &lt;= 8'b0;
+183         
+184                 xgxs_rxd_barrel_d1 &lt;= 64'b0;
+185                 xgxs_rxc_barrel_d1 &lt;= 8'b0;
+186         
+187                 barrel_shift &lt;= 1'b0;
+188         
+189                 local_fault_msg_det &lt;= 2'b0;
+190                 remote_fault_msg_det &lt;= 2'b0;
+191         
+192                 crc32_d64 &lt;= 32'b0;
+193                 crc32_d8 &lt;= 32'b0;
+194                 crc_bytes &lt;= 4'b0;
+195         
+196                 crc_shift_data &lt;= 64'b0;
+197                 crc_done &lt;= 1'b0;
+198                 crc_rx &lt;= 32'b0;
+199         
+200                 pause_frame_hold &lt;= 1'b0;
+201         
+202                 status_crc_error_tog &lt;= 1'b0;
+203                 status_fragment_error_tog &lt;= 1'b0;
+204                 status_rxdfifo_ovflow_tog &lt;= 1'b0;
+205         
+206                 status_pause_frame_rx_tog &lt;= 1'b0;
+207         
+208             end
+209             else begin
+210         
+211                 //---
+212                 // Link status RC layer
+213                 // Look for local/remote messages on lower 4 lanes and upper
+214                 // 4 lanes. This is a 64-bit interface but look at each 32-bit
+215                 // independantly.
+216                 
+217                 local_fault_msg_det[1] &lt;= (xgmii_rxd[63:32] ==
+218                                            {`LOCAL_FAULT, 8'h0, 8'h0, `SEQUENCE} &amp;&amp;
+219                                            xgmii_rxc[7:4] == 4'b0001);
+220         
+221                 local_fault_msg_det[0] &lt;= (xgmii_rxd[31:0] ==
+222                                            {`LOCAL_FAULT, 8'h0, 8'h0, `SEQUENCE} &amp;&amp;
+223                                            xgmii_rxc[3:0] == 4'b0001);
+224         
+225                 remote_fault_msg_det[1] &lt;= (xgmii_rxd[63:32] ==
+226                                             {`REMOTE_FAULT, 8'h0, 8'h0, `SEQUENCE} &amp;&amp;
+227                                             xgmii_rxc[7:4] == 4'b0001);
+228         
+229                 remote_fault_msg_det[0] &lt;= (xgmii_rxd[31:0] ==
+230                                             {`REMOTE_FAULT, 8'h0, 8'h0, `SEQUENCE} &amp;&amp;
+231                                             xgmii_rxc[3:0] == 4'b0001);
+232         
+233         
+234                 //---
+235                 // Rotating barrel. This function allow us to always align the start of
+236                 // a frame with LANE0. If frame starts in LANE4, it will be shifted 4 bytes
+237                 // to LANE0, thus reducing the amount of logic needed at the next stage.
+238         
+239                 xgmii_rxd_d1[63:32] &lt;= xgmii_rxd[63:32];
+240                 xgmii_rxc_d1[7:4] &lt;= xgmii_rxc[7:4];
+241         
+242                 if (xgmii_rxd[`LANE0] == `START &amp;&amp; xgmii_rxc[0]) begin
+                    -2-
+243                     
+244                     xgxs_rxd_barrel &lt;= xgmii_rxd;
+245                     xgxs_rxc_barrel &lt;= xgmii_rxc;
+246         
+247                     barrel_shift &lt;= 1'b0;
+248         
+249                 end
+250                 else if (xgmii_rxd[`LANE4] == `START &amp;&amp; xgmii_rxc[4]) begin
+                         -3-
+251         
+252                     xgxs_rxd_barrel &lt;= {xgmii_rxd[31:0], xgmii_rxd_d1[63:32]};
+253                     xgxs_rxc_barrel &lt;= {xgmii_rxc[3:0], xgmii_rxc_d1[7:4]};
+254         
+255                     barrel_shift &lt;= 1'b1;
+256         
+257                 end
+258                 else if (barrel_shift) begin
+                         -4-
+259         
+260                     xgxs_rxd_barrel &lt;= {xgmii_rxd[31:0], xgmii_rxd_d1[63:32]};
+261                     xgxs_rxc_barrel &lt;= {xgmii_rxc[3:0], xgmii_rxc_d1[7:4]};
+262         
+263                 end
+264                 else begin
+265         
+266                     xgxs_rxd_barrel &lt;= xgmii_rxd;
+267                     xgxs_rxc_barrel &lt;= xgmii_rxc;
+268         
+269                 end
+270         
+271                 xgxs_rxd_barrel_d1 &lt;= xgxs_rxd_barrel;
+272                 xgxs_rxc_barrel_d1 &lt;= xgxs_rxc_barrel;
+273         
+274         
+275                 //---
+276                 // When final CRC calculation begins we capture info relevant to
+277                 // current frame CRC claculation continues while next frame is
+278                 // being received.
+279         
+280                 if (crc_start_8b) begin
+                    -5-
+281         
+282                     pause_frame_hold &lt;= pause_frame;
+283         
+284                 end
+285         
+286                 //---
+287                 // CRC Checking
+288         
+289                 crc_rx &lt;= next_crc_rx;
+290         
+291                 if (crc_clear) begin
+                    -6-
+292         
+293                     // CRC is cleared at the beginning of the frame, calculate
+294                     // 64-bit at a time otherwise
+295         
+296                     crc32_d64 &lt;= 32'hffffffff;
+297         
+298                 end
+299                 else begin
+300         
+301                     crc32_d64 &lt;= nextCRC32_D64(reverse_64b(xgxs_rxd_barrel_d1), crc32_d64);
+302         
+303                 end
+304         
+305                 if (crc_bytes != 4'b0) begin
+                    -7-
+306         
+307                     // When reaching the end of the frame we switch from 64-bit mode
+308                     // to 8-bit mode to accomodate odd number of bytes in the frame.
+309                     // crc_bytes indicated the number of remaining payload byte to
+310                     // compute CRC on. Calculate and decrement until it reaches 0.
+311         
+312                     if (crc_bytes == 4'b1) begin
+                        -8-
+313                         crc_done &lt;= 1'b1;
+314                     end
+315         
+316                     crc32_d8 &lt;= nextCRC32_D8(reverse_8b(crc_shift_data[7:0]), crc32_d8);
+317                     crc_shift_data &lt;= {8'h00, crc_shift_data[63:8]};
+318                     crc_bytes &lt;= crc_bytes - 4'b1;
+319         
+320                 end
+321                 else if (crc_bytes == 4'b0) begin
+                         -9-
+322         
+323                     // Per Clause 46. Control code during data must be reported
+324                     // as a CRC error. Indicated here by coding_error. Corrupt CRC
+325                     // if coding error is detected.
+326                 
+327                     if (coding_error || next_coding_error) begin
+                        -10-
+328                         crc32_d8 &lt;= ~crc32_d64;
+329                     end
+330                     else begin
+331                         crc32_d8 &lt;= crc32_d64;
+332                     end
+333         
+334                     crc_done &lt;= 1'b0;
+335         
+336                     crc_shift_data &lt;= xgxs_rxd_barrel_d1;
+337                     crc_bytes &lt;= next_crc_bytes;
+338         
+339                 end
+340         
+341                 //---
+342                 // Error detection
+343         
+344                 if (crc_done &amp;&amp; !crc_good) begin
+                    -11-
+345                     status_crc_error_tog &lt;= ~status_crc_error_tog;
+346                 end
+347         
+348                 if (fragment_error) begin
+                    -12-
+349                     status_fragment_error_tog &lt;= ~status_fragment_error_tog;
+350                 end
+351         
+352                 if (rxd_ovflow_error) begin
+                    -13-
+353                     status_rxdfifo_ovflow_tog &lt;= ~status_rxdfifo_ovflow_tog;
+354                 end
+355         
+356                 //---
+357                 // Frame receive indication
+358         
+359                 if (good_pause_frame) begin
+                    -14-
+</pre>
+<b>Paths:</b><br>
+Uncovered paths are not available because they are not computed at compile time when there are more than 50 paths in the block.<br>
+<table class="ct">
+<col span="14" width="25">
+<tr><th>-1-<th>-2-<th>-3-<th>-4-<th>-5-<th>-6-<th>-7-<th>-8-<th>-9-<th>-10-<th>-11-<th>-12-<th>-13-<th>-14-<th>Status
+<tr class="uGreen"><td>1<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td>0<td>0<td>0<td>1<td>1<td>1<td>-<td>-<td>0<td>0<td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td>0<td>0<td>0<td>1<td>1<td>0<td>-<td>-<td>0<td>0<td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>1<td>-<td>-<td>0<td>1<td>0<td>-<td>1<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td>0<td>0<td>0<td>1<td>0<td>-<td>1<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td>0<td>0<td>1<td>0<td>0<td>-<td>1<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>-<td>1<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+</table>
+<br><pre class="code">
+368         always @(/*AS*/crc32_d8 or crc_done or crc_rx or pause_frame_hold) begin
+369         
+370         
+371             crc_good = 1'b0;
+372             good_pause_frame = 1'b0;
+373         
+374             if (crc_done) begin
+                -1-
+375         
+376                 // Check CRC. If this is a pause frame, report it to cpu.
+377         
+378                 if (crc_rx == ~reverse_32b(crc32_d8)) begin
+                    -2-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="2" width="25">
+<tr><th>-1-<th>-2-<th>Status
+<tr class="uGreen"><td>0<td>-<td class="lf">Covered
+<tr class="uGreen"><td>1<td>1<td class="lf">Covered
+<tr class="uRed"><td>1<td>0<td class="lf">Not Covered
+</table>
+<br><pre class="code">
+409         always @(/*AS*/coding_error or crc_rx or curr_byte_cnt or curr_state
+410                  or pause_frame or xgxs_rxc_barrel or xgxs_rxc_barrel_d1
+411                  or xgxs_rxd_barrel or xgxs_rxd_barrel_d1) begin
+412         
+413             next_state = curr_state;
+414         
+415             rxhfifo_wdata = xgxs_rxd_barrel_d1;
+416             rxhfifo_wstatus = `RXSTATUS_NONE;
+417             rxhfifo_wen = 1'b0;
+418         
+419             addmask[0] = !(xgxs_rxd_barrel_d1[`LANE0] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[0]);
+420             addmask[1] = !(xgxs_rxd_barrel_d1[`LANE1] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[1]);
+421             addmask[2] = !(xgxs_rxd_barrel_d1[`LANE2] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[2]);
+422             addmask[3] = !(xgxs_rxd_barrel_d1[`LANE3] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[3]);
+423             addmask[4] = !(xgxs_rxd_barrel_d1[`LANE4] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[4]);
+424             addmask[5] = !(xgxs_rxd_barrel_d1[`LANE5] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[5]);
+425             addmask[6] = !(xgxs_rxd_barrel_d1[`LANE6] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[6]);
+426             addmask[7] = !(xgxs_rxd_barrel_d1[`LANE7] == `TERMINATE &amp;&amp; xgxs_rxc_barrel_d1[7]);
+427         
+428             datamask[0] = addmask[0];
+429             datamask[1] = &amp;addmask[1:0];
+430             datamask[2] = &amp;addmask[2:0];
+431             datamask[3] = &amp;addmask[3:0];
+432             datamask[4] = &amp;addmask[4:0];
+433             datamask[5] = &amp;addmask[5:0];
+434             datamask[6] = &amp;addmask[6:0];
+435             datamask[7] = &amp;addmask[7:0];
+436         
+437             next_crc_bytes = 4'b0;
+438             next_crc_rx = crc_rx;
+439             crc_start_8b = 1'b0;
+440             crc_clear = 1'b0;
+441         
+442             next_byte_cnt = curr_byte_cnt;
+443         
+444             fragment_error = 1'b0;
+445         
+446             next_coding_error = coding_error;
+447             next_pause_frame = pause_frame;
+448         
+449             case (curr_state)
+                -1-
+450         
+451                 SM_IDLE:
+452                   begin
+453         
+454                       next_byte_cnt = 14'b0;
+455                       crc_clear = 1'b1;
+456                       next_coding_error = 1'b0;
+457                       next_pause_frame = 1'b0;
+458          
+459         
+460                       // Detect the start of a frame
+461                       
+462                       if (xgxs_rxd_barrel_d1[`LANE0] == `START &amp;&amp; xgxs_rxc_barrel_d1[0] &amp;&amp;
+                          -2-
+463                           xgxs_rxd_barrel_d1[`LANE1] == `PREAMBLE &amp;&amp; !xgxs_rxc_barrel_d1[1] &amp;&amp;
+464                           xgxs_rxd_barrel_d1[`LANE2] == `PREAMBLE &amp;&amp; !xgxs_rxc_barrel_d1[2] &amp;&amp;
+465                           xgxs_rxd_barrel_d1[`LANE3] == `PREAMBLE &amp;&amp; !xgxs_rxc_barrel_d1[3] &amp;&amp;
+466                           xgxs_rxd_barrel_d1[`LANE4] == `PREAMBLE &amp;&amp; !xgxs_rxc_barrel_d1[4] &amp;&amp;
+467                           xgxs_rxd_barrel_d1[`LANE5] == `PREAMBLE &amp;&amp; !xgxs_rxc_barrel_d1[5] &amp;&amp;
+468                           xgxs_rxd_barrel_d1[`LANE6] == `PREAMBLE &amp;&amp; !xgxs_rxc_barrel_d1[6] &amp;&amp;
+469                           xgxs_rxd_barrel_d1[`LANE7] == `SFD &amp;&amp; !xgxs_rxc_barrel_d1[7]) begin
+470         
+471                           next_state = SM_RX;
+472                       end
+473         
+474                   end
+475         
+476                 SM_RX:
+477                   begin
+478         
+479                       // Pause frames are filtered
+480                       
+481                       rxhfifo_wen = !pause_frame;
+482         
+483         
+484                       if (xgxs_rxd_barrel_d1[`LANE0] == `START &amp;&amp; xgxs_rxc_barrel_d1[0] &amp;&amp;
+                          -3-
+485                           xgxs_rxd_barrel_d1[`LANE7] == `SFD &amp;&amp; !xgxs_rxc_barrel_d1[7]) begin
+486         
+487                           // Fragment received, if we are still at SOP stage don't store
+488                           // the frame. If not, write a fake EOP and flag frame as bad.
+489         
+490                           next_byte_cnt = 14'b0;
+491                           crc_clear = 1'b1;
+492                           next_coding_error = 1'b0;
+493         
+494                           fragment_error = 1'b1;
+495                           rxhfifo_wstatus[`RXSTATUS_ERR] = 1'b1;
+496         
+497                           if (curr_byte_cnt == 14'b0) begin
+                              -4-
+498                               rxhfifo_wen = 1'b0;
+499                           end
+500                           else begin
+501                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+502                           end
+503         
+504                       end
+505                       else if (curr_byte_cnt &gt; 14'd9900) begin
+                               -5-
+506         
+507                           // Frame too long, TERMMINATE must have been corrupted.
+508                           // Abort transfer, write a fake EOP, report as fragment.
+509         
+510                           fragment_error = 1'b1;
+511                           rxhfifo_wstatus[`RXSTATUS_ERR] = 1'b1;
+512         
+513                           rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+514                           next_state = SM_IDLE;
+515         
+516                       end
+517                       else begin
+518         
+519                           // Pause frame receive, these frame will be filtered
+520         
+521                           if (curr_byte_cnt == 14'd0 &amp;&amp;
+                              -6-
+522                               xgxs_rxd_barrel_d1[47:0] == `PAUSE_FRAME) begin
+523         
+524                               rxhfifo_wen = 1'b0;
+525                               next_pause_frame = 1'b1;
+526                           end
+527         
+528         
+529                           // Control character during data phase, force CRC error
+530                           
+531                           if (|(xgxs_rxc_barrel_d1 &amp; datamask)) begin
+                              -7-
+532         
+533                               next_coding_error = 1'b1;
+534                           end
+535         
+536         
+537                           // Write SOP to status bits during first byte
+538         
+539                           if (curr_byte_cnt == 14'b0) begin
+                              -8-
+540                               rxhfifo_wstatus[`RXSTATUS_SOP] = 1'b1;
+541                           end
+542         
+543                           /* verilator lint_off WIDTH */
+544                           next_byte_cnt = curr_byte_cnt +
+545                                           addmask[0] + addmask[1] + addmask[2] + addmask[3] +
+546                                           addmask[4] + addmask[5] + addmask[6] + addmask[7];
+547                           /* verilator lint_on WIDTH */
+548         
+549         
+550         
+551                           // We will not write to the fifo if all is left
+552                           // are four or less bytes of crc. We also strip off the
+553                           // crc, which requires looking one cycle ahead
+554                           // wstatus: 
+555                           //   [2:0] modulus of packet length
+556         
+557                           // Look one cycle ahead for TERMINATE in lanes 0 to 4
+558         
+559                           if (xgxs_rxd_barrel[`LANE4] == `TERMINATE &amp;&amp; xgxs_rxc_barrel[4]) begin
+                              -9-
+560          
+561                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+562                               rxhfifo_wstatus[2:0] = 3'd0;
+563         
+564                               crc_start_8b = 1'b1;
+565                               next_crc_bytes = 4'd8;
+566                               next_crc_rx = xgxs_rxd_barrel[31:0];
+567         
+568                               next_state = SM_IDLE;
+569         
+570                           end
+571         
+572                           if (xgxs_rxd_barrel[`LANE3] == `TERMINATE &amp;&amp; xgxs_rxc_barrel[3]) begin
+                              -10-
+573         
+574                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+575                               rxhfifo_wstatus[2:0] = 3'd7;
+576         
+577                               crc_start_8b = 1'b1;
+578                               next_crc_bytes = 4'd7;
+579                               next_crc_rx = {xgxs_rxd_barrel[23:0], xgxs_rxd_barrel_d1[63:56]};
+580                           
+581                               next_state = SM_IDLE;
+582         
+583                           end
+584                       
+585                           if (xgxs_rxd_barrel[`LANE2] == `TERMINATE &amp;&amp; xgxs_rxc_barrel[2]) begin
+                              -11-
+586         
+587                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+588                               rxhfifo_wstatus[2:0] = 3'd6;
+589         
+590                               crc_start_8b = 1'b1;
+591                               next_crc_bytes = 4'd6;
+592                               next_crc_rx = {xgxs_rxd_barrel[15:0], xgxs_rxd_barrel_d1[63:48]};
+593         
+594                               next_state = SM_IDLE;
+595         
+596                           end
+597         
+598                           if (xgxs_rxd_barrel[`LANE1] == `TERMINATE &amp;&amp; xgxs_rxc_barrel[1]) begin
+                              -12-
+599         
+600                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+601                               rxhfifo_wstatus[2:0] = 3'd5;
+602         
+603                               crc_start_8b = 1'b1;
+604                               next_crc_bytes = 4'd5;
+605                               next_crc_rx = {xgxs_rxd_barrel[7:0], xgxs_rxd_barrel_d1[63:40]};
+606         
+607                               next_state = SM_IDLE;
+608         
+609                           end
+610                       
+611                           if (xgxs_rxd_barrel[`LANE0] == `TERMINATE &amp;&amp; xgxs_rxc_barrel[0]) begin
+                              -13-
+612         
+613                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+614                               rxhfifo_wstatus[2:0] = 3'd4;
+615         
+616                               crc_start_8b = 1'b1;
+617                               next_crc_bytes = 4'd4;
+618                               next_crc_rx = xgxs_rxd_barrel_d1[63:32];
+619         
+620                               next_state = SM_IDLE;
+621         
+622                           end
+623         
+624                           // Look at current cycle for TERMINATE in lanes 5 to 7
+625         
+626                           if (xgxs_rxd_barrel_d1[`LANE7] == `TERMINATE &amp;&amp;
+                              -14-
+627                               xgxs_rxc_barrel_d1[7]) begin
+628         
+629                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+630                               rxhfifo_wstatus[2:0] = 3'd3;
+631         
+632                               crc_start_8b = 1'b1;
+633                               next_crc_bytes = 4'd3;
+634                               next_crc_rx = xgxs_rxd_barrel_d1[55:24];
+635         
+636                               next_state = SM_IDLE;
+637         
+638                           end
+639                       
+640                           if (xgxs_rxd_barrel_d1[`LANE6] == `TERMINATE &amp;&amp;
+                              -15-
+641                               xgxs_rxc_barrel_d1[6]) begin
+642         
+643                               rxhfifo_wstatus[`RXSTATUS_EOP] = 1'b1;
+644                               rxhfifo_wstatus[2:0] = 3'd2;
+645         
+646                               crc_start_8b = 1'b1;
+647                               next_crc_bytes = 4'd2;
+648                               next_crc_rx = xgxs_rxd_barrel_d1[47:16];
+649         
+650                               next_state = SM_IDLE;
+651         
+652                           end
+653                       
+654                           if (xgxs_rxd_barrel_d1[`LANE5] == `TERMINATE &amp;&amp;
+                              -16-
+</pre>
+<b>Paths:</b><br>
+Uncovered paths are not available because they are not computed at compile time when there are more than 50 paths in the block.<br>
+<table class="ct">
+<col span="16" width="25">
+<tr><th>-1-<th>-2-<th>-3-<th>-4-<th>-5-<th>-6-<th>-7-<th>-8-<th>-9-<th>-10-<th>-11-<th>-12-<th>-13-<th>-14-<th>-15-<th>-16-<th>Status
+<tr class="uGreen"><td>SM_IDLE<td>1<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Covered
+<tr class="uGreen"><td>SM_IDLE<td>0<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td>-<td class="lf">Covered
+<tr class="uGreen"><td>SM_RX<td>-<td>0<td>-<td>0<td>0<td>0<td>0<td>1<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>SM_RX<td>-<td>0<td>-<td>0<td>0<td>0<td>1<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+<tr class="uGreen"><td>SM_RX<td>-<td>0<td>-<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td>0<td class="lf">Covered
+</table>
+<br><pre class="code">
+707         always @(/*AS*/crc_done or crc_good or drop_data or pkt_pending
+708                  or rxdfifo_wfull or rxhfifo_ralmost_empty_d1 or rxhfifo_rdata
+709                  or rxhfifo_ren_d1 or rxhfifo_rstatus) begin
+710         
+711             rxd_ovflow_error = 1'b0;
+712         
+713             rxdfifo_wdata = rxhfifo_rdata;
+714             rxdfifo_wstatus = rxhfifo_rstatus;
+715         
+716             next_drop_data = drop_data;
+717         
+718         
+719             // There must be at least 8 words in holding FIFO before we start reading.
+720             // This provides enough time for CRC calculation.
+721         
+722             rxhfifo_ren = !rxhfifo_ralmost_empty_d1 ||
+723                           (pkt_pending &amp;&amp; !rxhfifo_rstatus[`RXSTATUS_EOP]);
+724             
+725         
+726             if (rxhfifo_ren_d1 &amp;&amp; rxhfifo_rstatus[`RXSTATUS_SOP]) begin
+                -1-
+727         
+728                 // Reset drop flag on SOP
+729                 
+730                 next_drop_data = 1'b0;
+731         
+732             end
+733         
+734             if (rxhfifo_ren_d1 &amp;&amp; rxdfifo_wfull &amp;&amp; !next_drop_data) begin
+                -2-
+735         
+736                 // FIFO overflow, abort transfer. The rest of the frame
+737                 // will be dropped. Since we can't put an EOP indication
+738                 // in a fifo already full, there will be no EOP and receive
+739                 // side will need to sync on next SOP.
+740         
+741                 rxd_ovflow_error = 1'b1;
+742                 next_drop_data = 1'b1;
+743         
+744             end
+745         
+746         
+747             rxdfifo_wen = rxhfifo_ren_d1 &amp;&amp; !next_drop_data;
+748         
+749         
+750         
+751             if (crc_done &amp;&amp; !crc_good) begin
+                -3-
+</pre>
+<b>Paths:</b><br>
+<table class="ct">
+<col span="3" width="25">
+<tr><th>-1-<th>-2-<th>-3-<th>Status
+<tr class="uRed"><td>0<td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>0<td>0<td>0<td class="lf">Covered
+<tr class="uRed"><td>0<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>0<td>1<td>0<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>0<td>1<td class="lf">Not Covered
+<tr class="uGreen"><td>1<td>0<td>0<td class="lf">Covered
+<tr class="uRed"><td>1<td>1<td>1<td class="lf">Not Covered
+<tr class="uRed"><td>1<td>1<td>0<td class="lf">Not Covered
+</table>
+<br clear=all>
+<hr>
+<center><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</center>
+<br>
+<br clear=all>
+<br clear=all>
+<table align=center><tr><td class="s0 cl">0%
+<td class="s1 cl">10%
+<td class="s2 cl">20%
+<td class="s3 cl">30%
+<td class="s4 cl">40%
+<td class="s5 cl">50%
+<td class="s6 cl">60%
+<td class="s7 cl">70%
+<td class="s8 cl">80%
+<td class="s9 cl">90%
+<td class="s10 cl">100%</table></body>
+</html>
