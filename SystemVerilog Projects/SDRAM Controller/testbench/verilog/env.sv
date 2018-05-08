@@ -11,11 +11,11 @@ class env;
   mailbox drv2sb;
   mailbox mon2sb;
   
-  virtual xge_interface vi;
-  virtual xge_interface mi;
+  virtual sdramc_interface vi;
+  virtual sdramc_interface mi;
     
-  function new(input virtual xge_interface vif,
-              input virtual xge_interface mif);
+  function new(input virtual sdramc_interface vif,
+              input virtual sdramc_interface mif);
     
       drv2sb = new();
       mon2sb = new();
@@ -31,16 +31,16 @@ class env;
   endfunction
   
 //------------Making hierarchical calls to driver, monitor and scoreboard-------// 
-  task run(int num_packet =4);
+  task run(int addr =32'h4_000);
     
-//     fork        
-    $display("time = %3d: Sending packet ... ",$time);
-    drv.send_data(num_packet);
-//       $display("time = %3d: Collecting packet ... ",$time);
-//        mon.collect_packet();
-//        $display("time = %3d: Comparing packet ... ",$time);
-//        sb.compare(drv2sb,mon2sb);  
-//     join_any     
+//    fork        
+    $display("time = %3d: Writing data ... ",$time);
+    drv.send_data(addr);
+    $display("time = %3d: Reading Data ... ",$time);
+    mon.collect_data(addr);
+//    $display("time = %3d: Comparing Data ... ",$time);
+//    sb.compare_data(drv2sb,mon2sb);  
+//    join     
  
   endtask
 //---------------------------------------------------------//  

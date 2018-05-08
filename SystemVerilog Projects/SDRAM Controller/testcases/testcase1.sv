@@ -22,13 +22,13 @@ program testcase
    env0 = new(tcifdriver,tcifmonitor);
    
    //------------Send, Receive and Verify Data-------//
-   env0.run();
    
-/*   #1000;
+   #1000;
    wait(tcifdriver.sdr_init_done == 1);
 
    #1000;
-  
+   env0.run();
+/*  
   $display("-------------------------------------- ");
   $display(" Case-1: Single Write/Read Case        ");
   $display("-------------------------------------- ");
