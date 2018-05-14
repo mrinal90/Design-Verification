@@ -5,45 +5,57 @@
 program testcase 
   ( 	
   interface tcifdriver, interface tcifmonitor);
-        
- env env0;
     
- initial begin
+    class test_bringup extends packet;
+        constraint legal_burst_length {
+          burst_length == 8'd4;
+        }
+        
+        constraint mem_address {
+          mem_addr == 32'h4_0000;
+        }
+     endclass
+    
+    env env0;
+    test_bringup testpacket;
+    
+    initial begin
  
-   //-----------------Waveform Dump-----------//
+    //-----------------Waveform Dump-----------//
    
-   $dumpfile("dump.vcd"); $dumpvars();
+      $dumpfile("dump.vcd"); $dumpvars();
    
-   //------------Initializing Variables-------//
+    //------------Initializing Variables-------//
    
-   tcifdriver.configure();
-   tcifdriver.init(); 
+      tcifdriver.configure();
+      tcifdriver.init(); 
   
-   env0 = new(tcifdriver,tcifmonitor);
+      env0 = new(tcifdriver,tcifmonitor);
    
    //------------Send, Receive and Verify Data-------//
-   
-   #1000;
-   wait(tcifdriver.sdr_init_done == 1);
+      testpacket = new();
+      env0.drv.ethernet = testpacket;
+      #1000;
+      wait(tcifdriver.sdr_init_done == 1);
 
-   #1000;
-   env0.run();
+      #1000;
+      env0.run();
 /*  
   $display("-------------------------------------- ");
   $display(" Case-1: Single Write/Read Case        ");
   $display("-------------------------------------- ");
     begin
-      tcifdriver.burst_write(32'h4_0000,8'h4);
+      tcifdriver.burst_write(32'h0000_0FF0,8'h8);
     end
     #5000;
     begin
       tcifdriver.burst_read();
     end
-  #10000;
-*/ 
-  $finish;
-   
- end
+*/
+      #10000;
+
+      $finish;
+    end
     
  final begin 
    $display("================================End of Display==================================");

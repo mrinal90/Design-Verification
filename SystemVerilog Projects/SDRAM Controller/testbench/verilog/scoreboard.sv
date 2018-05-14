@@ -15,7 +15,6 @@ class scoreboard;
    packet pkt_from_drv;
    packet pkt_from_mon;
     
-   forever begin
    rcv_from_drv.get(pkt_from_drv);
     
    rcv_from_mon.get(pkt_from_mon);
@@ -28,11 +27,11 @@ class scoreboard;
     end
     
     if(!error) begin 
-       $display("time=%0t ------------SCOREBOARD: PACKET VERIFIED-------\n",$time);
+      $display("time=%0t -------------------------SCOREBOARD: DATA VERIFIED-------------------------------\n",$time);
     end
-    else $display("time=%0t ------------SCOREBOARD: ERROR IN DATA-------\n",$time);
+    else $display("time=%0t ----------------------SCOREBOARD: ERROR IN DATA--------------------------\n",$time);
     
-   end 
+    
   endtask
   
 endclass
