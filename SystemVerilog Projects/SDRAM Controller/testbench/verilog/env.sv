@@ -31,17 +31,17 @@ class env;
   endfunction
   
 //------------Making hierarchical calls to driver, monitor and scoreboard-------// 
-  task run();
-    
+  task run(int num_of_writes= 4);
     fork        
-    $display("time = %3d: ============================Writing data ============================",$time);
-    drv.send_data();
-    $display("time = %3d: ============================Reading Data============================",$time);
-    mon.collect_data();
+      $display("time = %3d: ============================Writing data ============================",$time);
+      drv.send_data(num_of_writes);
+    
+      $display("time = %3d: ============================Reading data ============================",$time);
+      mon.collect_data();
+      
 //    $display("time = %3d: ============================Comparing Data============================",$time);
 //    sb.compare_data(drv2sb,mon2sb);  
     join_any    
- 
   endtask
 //---------------------------------------------------------//  
   

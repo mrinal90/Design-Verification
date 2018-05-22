@@ -48,7 +48,7 @@ class monitor;
             rcvpkt.mem_addr = mi.wb_addr_i;
 
       //      rcvpkt.print("READ");
-            $display("Status: Read Address: %x Burst Size: %x Read Data: %x ", mi.wb_addr_i, bl, mi.wb_dat_o);
+            $display("Time = %3d Status: Read Address: %x Burst Size: %x Read Data: %x ", $time, mi.wb_addr_i, bl, mi.wb_dat_o);
           end
         end
       end
@@ -59,6 +59,7 @@ class monitor;
           mi.wb_cyc_i        = 0;
           mi.wb_we_i         = 'hx;
           mi.wb_addr_i       = 'hx;
+          bl = 8'b0;
         end
       
     end

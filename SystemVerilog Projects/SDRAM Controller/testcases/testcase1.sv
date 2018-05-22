@@ -18,6 +18,7 @@ program testcase
     
     env env0;
     test_bringup testpacket;
+    int num_of_writes;
     
     initial begin
  
@@ -29,6 +30,7 @@ program testcase
    
       tcifdriver.configure();
       tcifdriver.init(); 
+      num_of_writes = $urandom_range(2,5);
   
       env0 = new(tcifdriver,tcifmonitor);
    
@@ -39,7 +41,7 @@ program testcase
       wait(tcifdriver.sdr_init_done == 1);
 
       #1000;
-      env0.run();
+      env0.run(num_of_writes);
 /*  
   $display("-------------------------------------- ");
   $display(" Case-1: Single Write/Read Case        ");
