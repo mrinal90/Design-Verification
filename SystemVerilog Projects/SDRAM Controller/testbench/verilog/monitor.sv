@@ -11,7 +11,9 @@ class monitor;
   task collect_data();
     packet rcvpkt;
     bit [25:0] Address[$];
+    bit [31:0] Read_data[$];
     bit [7:0] bl;
+    int j;
     bit read_process;
     bit address_fetch;
     
@@ -26,6 +28,10 @@ class monitor;
           bl            = bl +1;
           address_fetch = 1;
           read_process  = 0;
+          rcvpkt.mem_data = new [0]; 
+          while ( Read_data.size()>0 ) begin
+              Read_data.pop_front();
+          end
         end
       end
    
@@ -43,13 +49,25 @@ class monitor;
             do begin
               @ (posedge mi.sys_clk);
             end while(mi.wb_ack_o == 1'b0);
-
-            rcvpkt.mem_data = mi.wb_dat_o;
+            
+            Read_data.push_back(mi.wb_dat_o);
+            
+            //rcvpkt.mem_data = mi.wb_dat_o;
             rcvpkt.mem_addr = mi.wb_addr_i;
 
       //      rcvpkt.print("READ");
-            $display("Time = %3d Status: Read Address: %x Burst Size: %x Read Data: %x ", $time, mi.wb_addr_i, bl, mi.wb_dat_o);
+            /*$display("Time = %3d Status: Read Address: %x Burst Size: %x Read Data: %x ", $time, mi.wb_addr_i, bl, mi.wb_dat_o);
+          end*/
+          
           end
+          rcvpkt.mem_data = new[Read_data.size()];
+          j = 0;
+          while ( Read_data.size()>0 ) begin
+            rcvpkt.mem_data[j]  = Read_data.pop_front();
+            j++;
+          end
+          mon2sb.put(rcvpkt);
+          rcvpkt.print("READ");
         end
       end
       
@@ -61,10 +79,9 @@ class monitor;
           mi.wb_addr_i       = 'hx;
           bl = 8'b0;
         end
-      
+       
     end
-    
-    mon2sb.put(rcvpkt); 
+   
   endtask
   
 endclass

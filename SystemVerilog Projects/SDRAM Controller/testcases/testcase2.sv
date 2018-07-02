@@ -7,13 +7,20 @@ program testcase
   interface tcifdriver, interface tcifmonitor);
     
     class test_bringup extends packet;
-
+     
         constraint burst_length {
-          mem_data.size() == 8'd4;
-        }
+          mem_data.size() dist {8'd4:=1, 8'd5:=1};
+        } 
       
+        // Address Decodeing:
+        //  with cfg_col bit configured as: 00
+        //    <12 Bit Row> <2 Bit Bank> <8 Bit Column> <2'b00>
         constraint mem_address {
-          mem_addr == 32'h4_0000;
+          mem_addr[1:0] == 10'b0;
+          mem_addr[9:2] inside {[0:7]}; 
+          mem_addr[11:10] inside {[1:4]};
+          mem_addr[23:12] inside {[0:3]};
+          mem_addr[31:24] == 8'b0;
         }
      endclass
     
@@ -31,7 +38,7 @@ program testcase
    
       tcifdriver.configure();
       tcifdriver.init(); 
-      num_of_writes = $urandom_range(2,5);
+      num_of_writes = $urandom_range(2,10);
   
       env0 = new(tcifdriver,tcifmonitor);
    
@@ -55,7 +62,7 @@ program testcase
       tcifdriver.burst_read();
     end
 */
-      #10000;
+      #15000;
 
       $finish;
     end

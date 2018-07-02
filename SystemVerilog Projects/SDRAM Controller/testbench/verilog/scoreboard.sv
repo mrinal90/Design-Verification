@@ -15,23 +15,37 @@ class scoreboard;
    packet pkt_from_drv;
    packet pkt_from_mon;
     
-   rcv_from_drv.get(pkt_from_drv);
+    forever begin
+      
+      rcv_from_drv.get(pkt_from_drv);
+
+      rcv_from_mon.get(pkt_from_mon);
+
+      error=0;
+      
+      error = error_count(pkt_from_drv, pkt_from_mon);
+
+      if(!error) begin 
+        $display("time=%0t -------------------------SCOREBOARD: DATA VERIFIED-------------------------------\n",$time);
+      end
+      else $display("time=%0t ----------------------SCOREBOARD: ERROR IN DATA--------------------------\n",$time);
     
-   rcv_from_mon.get(pkt_from_mon);
-    
-    error=0;
-    
-    if (pkt_from_drv.mem_data != pkt_from_mon.mem_data) begin
-      $display("time=%0t SCOREBOARD: Data Mismatch  Expected = %h Measured = %h \n",$time, pkt_from_drv.mem_data, pkt_from_mon.mem_data);
-      error++;
     end
-    
-    if(!error) begin 
-      $display("time=%0t -------------------------SCOREBOARD: DATA VERIFIED-------------------------------\n",$time);
-    end
-    else $display("time=%0t ----------------------SCOREBOARD: ERROR IN DATA--------------------------\n",$time);
-    
     
   endtask
+  
+  function error_count(input packet driver, input packet monitor);
+    
+    int unsigned error;
+    
+    for (int i =0; i <= driver.mem_data.size(); i = i + 1) begin
+      if (driver.mem_data[i] != monitor.mem_data[i]) begin
+        $display("time=%0t SCOREBOARD: Data Mismatch  Expected = %h Measured = %h \n",$time, driver.mem_data[i], monitor.mem_data[i]);
+        error++;
+      end
+    end
+    
+    return(error);
+  endfunction
   
 endclass

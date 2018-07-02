@@ -39,8 +39,8 @@ class env;
       $display("time = %3d: ============================Reading data ============================",$time);
       mon.collect_data();
       
-//    $display("time = %3d: ============================Comparing Data============================",$time);
-//    sb.compare_data(drv2sb,mon2sb);  
+     $display("time = %3d: ============================Comparing Data============================",$time);
+     sb.compare_data(drv2sb,mon2sb);  
     join_any    
   endtask
 //---------------------------------------------------------//  
